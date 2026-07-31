@@ -44,7 +44,15 @@
               {{- else }}{{ .title }}{{ end -}}
             </span>
             {{ with .org }}<span class="entry-meta">{{ . }}</span>{{ end }}
-            {{ with .desc }}<span class="entry-note">{{ . | markdownify }}</span>{{ end }}
+            {{- with .desc -}}
+              {{- if reflect.IsSlice . -}}
+                <ul class="entry-points">
+                  {{- range . }}<li>{{ . | markdownify }}</li>{{ end -}}
+                </ul>
+              {{- else -}}
+                <span class="entry-note">{{ . | markdownify }}</span>
+              {{- end -}}
+            {{- end }}
           </div>
         </div>
       {{ end }}

@@ -1429,6 +1429,23 @@ button {
   font-size: 0.9rem;
 }
 
+/* A `desc` given as a list renders as bullets rather than one run-on line. */
+.entry-points {
+  margin: 3px 0 0;
+  padding-left: 1.1em;
+  list-style: disc;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.entry-points li {
+  margin-bottom: 1px;
+}
+
+.entry-points li::marker {
+  color: var(--line);
+}
+
 /* --------------------------------------------------------------------------
    10. Interior pages + prose
    -------------------------------------------------------------------------- */

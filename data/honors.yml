@@ -5,7 +5,8 @@
 #   date  required. Free text, shown in mono caps (e.g. "Oct 2025").
 #   title required. The award.
 #   org   optional. Awarding body.
-#   desc  optional. One line of detail — scale, rank, or your role.
+#   desc  optional. One line of detail — scale, rank, or your role. A list
+#         instead of a string renders as bullets.
 #   url   optional. Links the title.
 #   logos optional. List of awarding-body marks, relative to ./assets — one
 #         per body, all shown. `logo:` with a single path also works.
@@ -66,7 +67,8 @@
   title: "Academic Honors & Scholarships"
   org: "Zhejiang University"
   logo: "images/logos/zju.png"
-  desc: >-
-    Professional Excellence Scholarship (2023–2024); Third-Class Scholarship
-    (2024–2025); Innovation & Entrepreneurship Model and Academic Excellence
-    Model (2024–2025)
+  desc:
+    - "Professional Excellence Scholarship (2023–2024)"
+    - "Third-Class Scholarship (2024–2025)"
+    - "Innovation & Entrepreneurship Model (2024–2025)"
+    - "Academic Excellence Model (2024–2025)"
