@@ -185,6 +185,35 @@
     });
   });
 
+  /* ---- Animated thumbnails -------------------------------------------
+     They start as a still and swap to the animation once the card scrolls
+     into view. Only the active Projects view can intersect — the other two
+     are display:none — so a handful of clips animate rather than every copy
+     of every card. Reduced motion leaves the still in place. */
+
+  function playAnimatedThumb(img) {
+    var anim = img.getAttribute("data-anim");
+    if (anim && img.getAttribute("src") !== anim) img.src = anim;
+  }
+
+  var animThumbs = document.querySelectorAll(".pub-thumb img[data-anim]");
+  if (!reduced && animThumbs.length && "IntersectionObserver" in window) {
+    var animIO = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            playAnimatedThumb(entry.target);
+            animIO.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "150px 0px", threshold: 0.01 }
+    );
+    Array.prototype.forEach.call(animThumbs, function (img) {
+      animIO.observe(img);
+    });
+  }
+
   /* ---- Project cards: glow follows the cursor, click to expand -------- */
 
   Array.prototype.forEach.call(
@@ -196,18 +225,12 @@
         card.style.setProperty("--my", e.clientY - r.top + "px");
       });
 
-      // Animated thumbnails start as a still; fetch the animation the first
-      // time the card is hovered, and never under reduced motion.
+      // Hovering also starts it, for anything the observer below misses.
       var thumb = card.querySelector(".pub-thumb img[data-anim]");
       if (thumb && !reduced) {
-        card.addEventListener(
-          "mouseenter",
-          function () {
-            var anim = thumb.getAttribute("data-anim");
-            if (anim && thumb.getAttribute("src") !== anim) thumb.src = anim;
-          },
-          { once: true }
-        );
+        card.addEventListener("mouseenter", function () {
+          playAnimatedThumb(thumb);
+        });
       }
 
       var more = card.querySelector(".pub-more");
