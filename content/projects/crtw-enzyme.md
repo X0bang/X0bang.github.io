@@ -36,6 +36,9 @@ the ligand-binding pocket stays.
 
 Tools: Rosetta, GROMACS, ESM2, PyMOL, AlphaFold3, HPLC.
 
+{{< figure src="images/projects/crtw-strategy.png"
+  caption="[TODO: 核对图注] Design strategy — structure-based and sequence-based screening feeding into MD evaluation." >}}
+
 ## Results
 
 - **G142P + I192L** emerged as the strongest design, giving the most extended substrate
@@ -43,6 +46,12 @@ Tools: Rosetta, GROMACS, ESM2, PyMOL, AlphaFold3, HPLC.
   what the static structural predictions suggested, with no loss of protein stability.
 - Carried into the wet lab, the top mutant **confirmed the predicted improvement in vitro,
   reaching +46.7% yield over wild-type**.
+
+{{< figure src="images/projects/crtw-result-single.png"
+  caption="[TODO: 核对图注] Single mutants." >}}
+
+{{< figure src="images/projects/crtw-result-double.png"
+  caption="[TODO: 核对图注] Double mutants, including G142P + I192L." >}}
 
 The MD stage is what separated the winning design from candidates that looked comparable on
 structure alone.
