@@ -1,10 +1,22 @@
 {{- /* One timeline entry. Context: an item from data/timeline.yml. */ -}}
 <div class="tmline-item">
-  <div class="tmline-date">{{ .date }}</div>
-  <div class="tmline-title">
-    {{- if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
-    {{- else }}{{ .title }}{{ end -}}
+  <div class="tmline-main">
+    <div class="tmline-date">{{ .date }}</div>
+    <div class="tmline-title">
+      {{- if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
+      {{- else }}{{ .title }}{{ end -}}
+    </div>
+    {{ with .subtitle }}<div class="tmline-desc">{{ . }}</div>{{ end }}
+    {{ with .desc }}<div class="tmline-host">{{ . | markdownify }}</div>{{ end }}
   </div>
-  {{ with .subtitle }}<div class="tmline-desc">{{ . }}</div>{{ end }}
-  {{ with .desc }}<div class="tmline-host">{{ . | markdownify }}</div>{{ end }}
+
+  {{- with .logo -}}
+    {{- with resources.Get . -}}
+      {{- $src := .RelPermalink -}}
+      {{- if ne .MediaType.SubType "svg" -}}
+        {{- $src = ((.Resize "x96").Process "webp q85").RelPermalink -}}
+      {{- end -}}
+      <div class="tmline-logo"><img src="{{ $src }}" alt="" loading="lazy" /></div>
+    {{- end -}}
+  {{- end -}}
 </div>

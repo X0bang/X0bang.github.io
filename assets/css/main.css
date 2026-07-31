@@ -929,6 +929,33 @@ button {
   border-left: 5px dashed var(--rule);
 }
 
+/* Text left, institution mark right. */
+.tmline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.tmline-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tmline-logo {
+  flex: 0 0 auto;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2px;
+}
+
+.tmline-logo img {
+  max-width: 100%;
+  max-height: 48px;
+  object-fit: contain;
+}
+
 .tmline-date {
   font-family: var(--mono);
   font-size: 12px;
@@ -1135,7 +1162,8 @@ button {
   width: 300px;
 }
 
-.pub-thumb img {
+.pub-thumb img,
+.pub-thumb video {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;

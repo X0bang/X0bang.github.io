@@ -7,7 +7,8 @@
     status  highlighted label (e.g. "In progress")
     authors collaborators line
     links   list of {name, url} rendered as chips (Paper / Code / Wiki / …)
-    thumbPoster  still shown in place of an animated `thumb` until hovered
+    thumbPoster  still shown in place of an animated `thumb` until it plays
+    (a `thumb` ending .mp4/.webm renders as a muted, looping <video>)
 */ -}}
 <div class="pub-card reveal">
   <div class="pub-thumb">
@@ -29,7 +30,14 @@
         {{- $poster = . | relURL -}}
         {{- with resources.Get . }}{{ $poster = .RelPermalink }}{{ end -}}
       {{- end -}}
-      {{ if $poster }}
+      {{- /* Video thumbs play and pause on demand, which an animated image
+             cannot do — and H.264 is a fraction of the bytes. */ -}}
+      {{ if in (slice ".mp4" ".webm") (path.Ext .) }}
+        <video class="pub-thumb-video" muted loop playsinline preload="metadata"
+          aria-label="{{ $.Title }}">
+          <source src="{{ $src }}" type="video/{{ strings.TrimPrefix "." (path.Ext .) }}" />
+        </video>
+      {{ else if $poster }}
         <img src="{{ $poster }}" data-anim="{{ $src }}" loading="lazy"
           alt="{{ $.Title }}" />
       {{ else }}

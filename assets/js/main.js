@@ -196,21 +196,34 @@
     if (anim && img.getAttribute("src") !== anim) img.src = anim;
   }
 
-  var animThumbs = document.querySelectorAll(".pub-thumb img[data-anim]");
+  var animThumbs = document.querySelectorAll(
+    ".pub-thumb img[data-anim], .pub-thumb video"
+  );
   if (!reduced && animThumbs.length && "IntersectionObserver" in window) {
     var animIO = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
+          var el = entry.target;
+          if (el.tagName === "VIDEO") {
+            // Unlike an animated image, a video can be stopped again.
+            if (entry.isIntersecting) {
+              var p = el.play();
+              if (p && p.catch) p.catch(function () {});
+            } else {
+              el.pause();
+            }
+            return;
+          }
           if (entry.isIntersecting) {
-            playAnimatedThumb(entry.target);
-            animIO.unobserve(entry.target);
+            playAnimatedThumb(el);
+            animIO.unobserve(el);
           }
         });
       },
       { rootMargin: "150px 0px", threshold: 0.01 }
     );
-    Array.prototype.forEach.call(animThumbs, function (img) {
-      animIO.observe(img);
+    Array.prototype.forEach.call(animThumbs, function (el) {
+      animIO.observe(el);
     });
   }
 

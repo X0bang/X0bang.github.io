@@ -6,6 +6,7 @@ weight: 1
 selected: true
 venue: "WEHI InSPIRE"
 status: "Ongoing"
+thumb: "images/projects/procar3-trimer.mp4"
 authors: "Supervised by Dr. Emma Petley · PIs: Prof. Matt Call & A/Prof. Melissa Call"
 tags: ["protein engineering", "structural biology", "molecular dynamics"]
 links:

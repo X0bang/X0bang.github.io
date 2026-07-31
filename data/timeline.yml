@@ -7,11 +7,14 @@
 #   subtitle optional. Degree / role.
 #   desc     optional. One line of detail.
 #   url      optional. Links the title.
+#   logo     optional. Institution mark, relative to ./assets — shown at the
+#            right of the entry.
 #   brief    optional, default false. `true` keeps the entry visible when the
 #            timeline is collapsed; entries without it live behind "show all".
 
 - date: "Sep 2026 — Dec 2026"
   title: "The Chinese University of Hong Kong"
+  logo: "images/logos/cuhk.png"
   subtitle: "Exchange Student, International Asian Studies Programme (IASP)"
   desc: ""
   url: "https://www.cuhk.edu.hk/"
@@ -19,6 +22,7 @@
 
 - date: "Jun 2026 — Present"
   title: "Walter and Eliza Hall Institute (WEHI)"
+  logo: "images/logos/wehi.jpeg"
   subtitle: "Internship Student, InSPIRE Program"
   desc: ""
   url: "https://www.wehi.edu.au/"
@@ -26,6 +30,7 @@
 
 - date: "Sep 2023 — Jun 2027 (Expected)"
   title: "Zhejiang University"
+  logo: "images/logos/zju.svg"
   subtitle: "B.S. in Biological Sciences"
   desc: ""
   url: "https://www.zju.edu.cn/english/"
