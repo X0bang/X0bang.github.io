@@ -1649,6 +1649,11 @@ button {
   background: var(--card);
 }
 
+.fig-narrow img {
+  border: 0;
+  background: none;
+}
+
 .fig figcaption {
   margin-top: 8px;
   font-size: 0.85rem;

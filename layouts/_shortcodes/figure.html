@@ -3,14 +3,16 @@
 
     {{< figure src="images/projects/foo.png" caption="What it shows" >}}
 
-  `src` is relative to ./assets — the source is resized to 1440px wide (2x the
-  720px a figure displays at) and
+  Pass width= to cap it — a logo or a portrait-shaped panel should not run the
+  full column. `src` is relative to ./assets — the source is resized to 1440px
+  wide (2x the 720px a figure displays at) and
   converted to WebP, so full-resolution originals can be committed without
   shipping them. A path outside ./assets is used as-is.
 */ -}}
 {{- $src := .Get "src" -}}
 {{- $caption := .Get "caption" -}}
 {{- $alt := .Get "alt" | default $caption -}}
+{{- $width := .Get "width" -}}
 {{- $w := "" -}}{{- $h := "" -}}
 
 {{- with resources.Get $src -}}
@@ -23,7 +25,8 @@
   {{- $src = $src | relURL -}}
 {{- end -}}
 
-<figure class="fig">
+<figure class="fig{{ if $width }} fig-narrow{{ end }}"
+  {{ with $width }}style="{{ printf "max-width: %s" . | safeCSS }}"{{ end }}>
   <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy"
     {{ with $w }}width="{{ . }}"{{ end }} {{ with $h }}height="{{ . }}"{{ end }} />
   {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}

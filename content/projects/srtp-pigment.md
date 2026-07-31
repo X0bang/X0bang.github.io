@@ -18,6 +18,9 @@ summary: "Engineering vioE activity and pathway flux for pigment yield, with lig
 draft: false
 ---
 
+{{< figure src="images/projects/srtp-logo-neovio-dye.png" width="220px"
+  alt="Neovio Dye" >}}
+
 ## Background
 
 Microbial pigment production offers a route away from petrochemical dyes, but it has to
@@ -42,6 +45,9 @@ Tools: GROMACS, LC-MS, SnapGene, GSMM, Python, R, optogenetics.
 {{< figure src="images/projects/srtp-design.png"
   caption="System design: enzyme and flux engineering alongside the quorum-sensing and blue-light control circuits." >}}
 
+{{< figure src="images/projects/srtp-cre-memory-system.png"
+  caption="The Cre excision memory system." >}}
+
 ## Results
 
 - A **vioE mutant with +32% activity**, identified through semi-rational design and MD
@@ -53,6 +59,9 @@ Tools: GROMACS, LC-MS, SnapGene, GSMM, Python, R, optogenetics.
 
 {{< figure src="images/projects/srtp-result.png"
   caption="Results across the engineered strains." >}}
+
+{{< figure src="images/projects/srtp-metabolic-quorum-validation.png"
+  caption="Validation of the metabolic engineering and the dual orthogonal quorum-sensing system." >}}
 
 _Supported by a Provincial SRTP Research Grant (Zhejiang Provincial Department of Science
 and Technology, 12,000 RMB), and rated Outstanding._
