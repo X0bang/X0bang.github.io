@@ -96,12 +96,17 @@ build time, so commit the full-quality source and let Hugo do the compressing �
 the originals are never published. Leave `image` empty to fall back to the plain
 gradient cover.
 
-**Any aspect ratio works.** The cover reads the artwork's real dimensions and
-takes that shape (`--cover-ratio`, set inline), so the composition is shown whole
-rather than cropped into a fixed band. Both images should share a ratio, since
-they crossfade in the same box. Compose so the **lower third stays quiet** — the
-profile card sits there, and on wide screens the top two thirds are what shows.
-Around 1800–2900 px wide is plenty; below ~1400 px it softens on retina screens.
+The band is **full-bleed** — it spans the window, with the card centred inside.
+It takes the artwork's own aspect ratio (`--cover-ratio`, read from the image and
+set inline), capped by `maxHeight`. The two settings pull against each other: a
+2:1 image across a 1920px window wants to be 960px tall, so the cap trims it and
+the image crops again, biased upward to keep the subject. Raise `maxHeight` for
+more picture and less page; lower it for the reverse.
+
+Compose so the **lower third stays quiet** — the card sits there — and keep the
+subject in the upper half, which is what survives the crop. Both images need the
+same ratio, since they crossfade in the same box. Around 1800–2900 px wide is
+plenty; below ~1400 px it softens on retina screens.
 
 ## Sections that are currently hidden
 

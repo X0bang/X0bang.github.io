@@ -281,12 +281,13 @@ button {
    4. Cover: portrait card, epigraph face
    -------------------------------------------------------------------------- */
 
+/* Full-bleed band: spans the viewport, while the card inside stays centred at
+   its own width. */
 .cover {
   position: relative;
-  max-width: calc(var(--wrap) - var(--gutter));
+  width: 100%;
   min-height: 400px;
-  margin: 0 auto;
-  padding: 12px 15px;
+  padding: 12px var(--gutter);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -303,18 +304,23 @@ button {
    real dimensions), so the composition is shown whole instead of being cropped
    to a fixed-height band. `min-height` is only a floor for narrow screens. */
 .cover.has-bg {
+  /* Take the artwork's own shape, but never let the band eat the whole
+     screen — past the cap the sides stay full-bleed and the crop returns. */
   aspect-ratio: var(--cover-ratio, 2.485);
-  min-height: 320px;
+  max-height: var(--cover-max, min(52vh, 560px));
+  min-height: 340px;
+
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  /* Biased upward: these compositions carry their subject in the top half,
+     and the card covers the bottom anyway. */
+  background-position: center 30%;
   background-color: var(--chrome);
-  border-radius: 0 0 14px 14px;
 
   /* The card sits low, over the quiet part of the frame, leaving the upper
      two thirds of the artwork visible. */
   align-items: flex-end;
-  padding-bottom: 28px;
+  padding-bottom: 34px;
 }
 
 /* The "painted twin": same framing, different palette, revealed with the
@@ -326,7 +332,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
   /* Must match the base layer, or the crossfade visibly shifts. */
-  background-position: center center;
+  background-position: center 30%;
   opacity: 0;
   transition: opacity 0.6s var(--ease);
   pointer-events: none;

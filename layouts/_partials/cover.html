@@ -31,7 +31,11 @@
   {{- /* safeCSS: the custom property is filtered out by the CSS sanitiser
          otherwise. Both values are built here, never from user input. */ -}}
   {{ with $bg }}
-    style="{{ printf "background-image: url('%s'); --cover-ratio: %s" . $ratio | safeCSS }}"
+    {{- $css := printf "background-image: url('%s'); --cover-ratio: %s" . $ratio -}}
+    {{- with site.Params.cover.maxHeight -}}
+      {{- $css = printf "%s; --cover-max: %s" $css . -}}
+    {{- end -}}
+    style="{{ $css | safeCSS }}"
   {{ end }}
 >
   {{ with $bgDeep }}

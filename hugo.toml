@@ -56,6 +56,11 @@ enableEmoji = true
   [params.cover]
     image = "images/bg/background-aurora.png"
     imageDeep = "images/bg/background-aurora-painting.png"
+    # The band spans the full window and takes the artwork's aspect ratio, so
+    # on a 1920px screen a 2:1 image would stand 960px tall — the whole first
+    # screen. This caps it; past the cap the image crops again (biased to keep
+    # the top). Any CSS length works: "52vh", "560px", "min(52vh, 560px)".
+    maxHeight = "min(52vh, 560px)"
 
   # The epigraph printed on the cover. Replace with your own.
   [params.epigraph]
