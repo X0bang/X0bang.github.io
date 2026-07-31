@@ -1074,8 +1074,8 @@ button {
 }
 
 .pub-thumb {
-  flex: 0 0 96px;
-  width: 96px;
+  flex: 0 0 150px;
+  width: 150px;
   align-self: flex-start;
   aspect-ratio: 4 / 3;
   display: flex;
@@ -1089,8 +1089,8 @@ button {
 
 .pub-card:hover .pub-thumb,
 .pub-card.open .pub-thumb {
-  flex-basis: 208px;
-  width: 208px;
+  flex-basis: 300px;
+  width: 300px;
 }
 
 .pub-thumb img {
@@ -1817,7 +1817,7 @@ button {
   .pub-card.open .pub-thumb {
     flex-basis: auto;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
   }
 
   .pub-body {
