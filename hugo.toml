@@ -73,11 +73,11 @@ enableEmoji = true
     # the top). Any CSS length works: "52vh", "560px", "min(52vh, 560px)".
     maxHeight = "min(46vh, 480px)"
 
-  # The epigraph printed on the cover. Replace with your own.
+  # The epigraph on the cover, revealed with the portrait.
   [params.epigraph]
-    text = "[TODO: 填入你的座右铭]"
-    translation = ""            # optional second line, e.g. a translation
-    source = "[TODO: 填入出处]"
+    text = "To design is to converse with what evolution has already written."
+    translation = ""   # optional second line, e.g. a translation
+    source = ""        # optional attribution — empty for your own words
 
 # ---------------------------------------------------------------------------
 # Social links. `icon` selects an inline SVG from layouts/_partials/icon.html,
