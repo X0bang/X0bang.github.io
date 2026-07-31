@@ -518,6 +518,16 @@ button {
   color: var(--ink);
 }
 
+.title-line {
+  display: block;
+}
+
+.title-line + .title-line {
+  margin-top: 2px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
 #my-affiliation {
   margin-top: 6px;
   font-size: 14px;

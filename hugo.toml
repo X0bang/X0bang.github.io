@@ -25,7 +25,12 @@ enableEmoji = true
   keywords = "computational biology,protein engineering,bioinformatics,Zhejiang University,PhD applicant"
 
   # Shown under the name on the cover card.
-  tagline = "Undergraduate in Biological Sciences, Zhejiang University"
+  # A list renders one line each. The institution is carried by `affiliation`
+  # below, so repeating it here would print it twice.
+  tagline = [
+    "Undergraduate in Biological Sciences",
+    "Computational Biology · Protein Engineering",
+  ]
   affiliation = "College of Life Sciences, Zhejiang University"
 
   # Printed on the cover card, first one first. Leave the list empty to hide

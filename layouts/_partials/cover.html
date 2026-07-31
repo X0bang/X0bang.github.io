@@ -87,7 +87,15 @@
     <div class="profile-col profile-col-2 profile-col-stack">
       <div class="stack-face" id="my-contact">
         <div id="my-name">{{ site.Params.author }}</div>
-        <div id="my-title">{{ site.Params.tagline }}</div>
+        {{ with site.Params.tagline }}
+          <div id="my-title">
+            {{- if reflect.IsSlice . -}}
+              {{- range . }}<span class="title-line">{{ . }}</span>{{ end -}}
+            {{- else -}}
+              <span class="title-line">{{ . }}</span>
+            {{- end -}}
+          </div>
+        {{ end }}
         <div id="my-affiliation">{{ site.Params.affiliation }}</div>
         {{ with site.Params.emails }}
           <div id="my-email">
