@@ -12,7 +12,7 @@ organisation's own file, used unaltered, to identify who granted the award.
   igem-zjuchina.png       ZJU-China team
   lumamanta.jpg           LumaManta project
   wehi.jpeg               Walter and Eliza Hall Institute
-  zju.png                 Zhejiang University (3 entries)
+  zju.svg                 Zhejiang University (3 entries)
   synbio-competition.png  National Synthetic Biology Innovation Competition
   csbt.webp               Chinese Society for Biotechnology
   siat-synbio.png         Shenzhen Institute of Synthetic Biology

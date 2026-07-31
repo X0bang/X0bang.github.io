@@ -47,7 +47,7 @@
   title: 'Gold Medal, 18th "Dandelion" Undergraduate Innovation Competition'
   org: "Zhejiang University"
   desc: "CTO — LumaManta eDNA-based aquatic pathogen detection"
-  logo: "images/logos/zju.png"
+  logo: "images/logos/zju.svg"
   brief: true
 
 - date: "Jan 2025"
@@ -67,12 +67,12 @@
 - date: "Jun 2025"
   title: "5th Place, Stand-Up Paddleboard 200 m"
   org: "Zhejiang University Sports Championship"
-  logo: "images/logos/zju.png"
+  logo: "images/logos/zju.svg"
 
 - date: "2023 – 2025"
   title: "Academic Honors & Scholarships"
   org: "Zhejiang University"
-  logo: "images/logos/zju.png"
+  logo: "images/logos/zju.svg"
   desc:
     - "Professional Excellence Scholarship (2023–2024)"
     - "Third-Class Scholarship (2024–2025)"
