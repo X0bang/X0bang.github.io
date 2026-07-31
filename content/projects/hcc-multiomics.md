@@ -1,27 +1,44 @@
 ---
-title: "HCC Multi-omics Analysis"
-date: 2026-07-31
-year: ""  # TODO: 填入年份(例如 "2025"),用于首页 Projects 的 By Year 分组
+title: "Sex Dimorphism in DEN/TCPOBOP-Induced Hepatocellular Carcinoma"
+date: 2026-03-01
+year: "2026"
 weight: 4
+selected: true
+venue: "Sui Lab, ZJU Medicine"
+status: "Ongoing"
+authors: "Advised by Dr. Wenbin Zhou · Prof. Meihua Sui's Lab, School of Medicine, Zhejiang University"
 tags: ["multi-omics", "bioinformatics", "cancer biology"]
-summary: "TODO: 一句话概括这个项目(会显示在 Projects 列表页)。"
+summary: "Transcriptomic and metabolomic analysis across 174 mice, tracing sex-biased metabolites through hepatitis, cirrhosis, and HCC — and testing whether hormone supplementation reverses them."
 draft: false
 ---
 
 ## Background
 
-<!-- TODO: 这个项目要解决什么问题?为什么重要?已有工作的局限在哪里? -->
-
-_占位文字。_
+Hepatocellular carcinoma (HCC) is markedly more common in males, but the mechanism behind
+that sex bias is not well resolved — particularly which molecular differences appear at
+which stage of disease progression, and whether they are causes or consequences.
 
 ## Method
 
-<!-- TODO: 你做了什么?用了哪些方法/工具/实验体系? -->
+Using a DEN/TCPOBOP-induced mouse model, I analysed paired **transcriptomic and metabolomic
+data across 174 mice**, spanning three stages of progression: hepatitis, cirrhosis, and HCC.
 
-_占位文字。_
+The analysis had three parts:
+
+1. **Multi-omics profiling** to identify metabolites that differ by sex across stages.
+2. **A hormone rescue arm**, testing whether estrogen supplementation moves those markers.
+3. **Network integration**, linking WGCNA and PPI hub genes back to the metabolomic
+   findings.
+
+Tools: R (DESeq2, WGCNA), Python, transcriptomics, metabolomics.
 
 ## Results
 
-<!-- TODO: 得到了什么结果?数据、图、结论、后续方向。 -->
+- **12 core sex-biased metabolites** were identified, concentrated in the bile acid,
+  tryptophan, and acylcarnitine pathways.
+- **Estrogen supplementation reversed the bile acid marker TUDCA (+97%)** and rescued
+  roughly half of the male–female gap in a composite disease score.
+- **155 links** between hub genes and metabolomic findings emerged from network
+  integration, pointing to candidate drivers of sex-biased liver disease progression.
 
-_占位文字。_
+The project is ongoing.

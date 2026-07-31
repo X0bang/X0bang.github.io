@@ -1,27 +1,46 @@
 ---
-title: "SRTP — Pigment Biosynthesis"
-date: 2026-07-31
-year: ""  # TODO: 填入年份(例如 "2025"),用于首页 Projects 的 By Year 分组
+title: "A Sustainable Pigment Biosynthesis System"
+date: 2025-03-01
+year: "2025"
 weight: 5
-tags: ["metabolic engineering", "SRTP"]
-summary: "TODO: 一句话概括这个项目(会显示在 Projects 列表页)。"
+selected: true
+venue: "Provincial SRTP"
+status: "Completed"
+authors: "Advised by Prof. Ming Chen, School of Life Sciences, Zhejiang University"
+tags: ["metabolic engineering", "SRTP", "synthetic biology"]
+summary: "Enzyme and pathway engineering for microbial pigment production, plus light- and quorum-controlled circuits that make the output switchable."
 draft: false
 ---
 
 ## Background
 
-<!-- TODO: 这个项目要解决什么问题?为什么重要?已有工作的局限在哪里? -->
+Microbial pigment production offers a route away from petrochemical dyes, but it has to
+clear two bars at once: the pathway must be productive enough to be worth running, and the
+output must be controllable rather than constitutive.
 
-_占位文字。_
+This Provincial SRTP grant project addressed both — enzyme and flux engineering for yield,
+and genetic circuit design for control.
 
 ## Method
 
-<!-- TODO: 你做了什么?用了哪些方法/工具/实验体系? -->
+**Enzyme and metabolic engineering.** Semi-rational design combined with MD simulation was
+used to improve the pathway enzyme **vioE**, while genome-scale metabolic modelling (GSMM)
+identified knockout targets to redirect flux.
 
-_占位文字。_
+**Genetic circuit design.** I built dual orthogonal quorum-sensing circuits together with a
+blue-light-inducible split-Cre system, so pigment output can be switched programmably and
+reversibly.
+
+Tools: GROMACS, LC-MS, SnapGene, GSMM, Python, R, optogenetics.
 
 ## Results
 
-<!-- TODO: 得到了什么结果?数据、图、结论、后续方向。 -->
+- A **vioE mutant with +32% activity**, identified through semi-rational design and MD
+  simulation.
+- **Two gene knockouts** from genome-scale metabolic modelling, giving **+48% and +23%**
+  yield improvements.
+- Working **programmable, reversible switching** of pigment output via the combined
+  quorum-sensing and blue-light split-Cre circuits.
 
-_占位文字。_
+_Supported by a Provincial SRTP Research Grant (Zhejiang Provincial Department of Science
+and Technology, 12,000 RMB)._

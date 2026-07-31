@@ -1,27 +1,42 @@
 ---
-title: "iGEM — LumaManta"
-date: 2026-07-31
-year: ""  # TODO: 填入年份(例如 "2025"),用于首页 Projects 的 By Year 分组
+title: "LumaManta — Programmable Biosensing for Water Monitoring"
+date: 2024-08-01
+year: "2025"
 weight: 3
-tags: ["iGEM", "synthetic biology"]
-summary: "TODO: 一句话概括这个项目(会显示在 Projects 列表页)。"
+selected: true
+venue: "iGEM 2025"
+status: "Silver Medal"
+authors: "Technical Lead, ZJU-China · Advised by Prof. Ming Chen and Assoc. Prof. Fan Yang, School of Life Sciences, Zhejiang University"
+tags: ["iGEM", "synthetic biology", "optogenetics"]
+summary: "Led a 14-member team building an all-in-one device for real-time water pollutant and eDNA monitoring, driven by a light-controlled CRISPR logic circuit."
 draft: false
 ---
 
 ## Background
 
-<!-- TODO: 这个项目要解决什么问题?为什么重要?已有工作的局限在哪里? -->
-
-_占位文字。_
+Monitoring water for pollutants and environmental DNA (eDNA) usually means collecting
+samples and sending them to a lab. An all-in-one device that senses in real time has to
+solve a harder problem than any single biosensor does: one platform needs to report on
+several different targets without carrying a separate genetic circuit for each.
 
 ## Method
 
-<!-- TODO: 你做了什么?用了哪些方法/工具/实验体系? -->
+As **Technical Lead** I coordinated a 14-member interdisciplinary team spanning wet lab,
+dry lab, hardware, and software.
 
-_占位文字。_
+The core of the design is **BiChromaLogic**, a light-controlled genetic circuit built on
+CRISPR-based logic gates. It takes **2 light inputs** and converts them into **4 distinct
+sensor proteins on demand** — so the device can be reprogrammed for a target by changing
+illumination rather than by rebuilding the biology.
+
+Tools and techniques: CRISPR-i/a, optogenetics, confocal microscopy, Python, R, GROMACS,
+AlphaFold3.
 
 ## Results
 
-<!-- TODO: 得到了什么结果?数据、图、结论、后续方向。 -->
-
-_占位文字。_
+- **Circuit performance:** 169% activation and 92% repression efficiency across the logic
+  gates.
+- **Competition outcome:** Silver Medal at iGEM 2025 as ZJU-China.
+- The work also became the basis of an eDNA-based aquatic pathogen detection entry that
+  took a Gold Medal at Zhejiang University's 18th "Dandelion" Undergraduate Innovation
+  Competition.

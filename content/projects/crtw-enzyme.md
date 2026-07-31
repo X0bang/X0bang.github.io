@@ -1,27 +1,45 @@
 ---
-title: "CrtW Enzyme Engineering"
-date: 2026-07-31
-year: ""  # TODO: 填入年份(例如 "2025"),用于首页 Projects 的 By Year 分组
+title: "Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis"
+date: 2025-09-01
+year: "2025"
 weight: 2
-tags: ["enzyme engineering", "protein design"]
-summary: "TODO: 一句话概括这个项目(会显示在 Projects 列表页)。"
+selected: true
+venue: "Zhou Lab, ZJU"
+status: "Ongoing"
+authors: "Advised by Dr. Yangwei Jiang · Qiushi Chair Prof. Ruhong Zhou's Lab, School of Life Sciences, Zhejiang University"
+tags: ["enzyme engineering", "protein design", "molecular dynamics"]
+summary: "Structure- and sequence-based redesign of the rate-limiting β-carotene ketolase CrtW, validated in vitro at +46.7% yield."
 draft: false
 ---
 
 ## Background
 
-<!-- TODO: 这个项目要解决什么问题?为什么重要?已有工作的局限在哪里? -->
-
-_占位文字。_
+Astaxanthin is a high-value carotenoid whose microbial production is throttled by a single
+step: **CrtW**, the β-carotene ketolase, is the rate-limiting enzyme in the pathway.
+Improving it is the most direct route to higher yield — but static structural prediction on
+its own is a weak guide to which mutations will actually pay off.
 
 ## Method
 
-<!-- TODO: 你做了什么?用了哪些方法/工具/实验体系? -->
+The design campaign combined two complementary signals across 320 residues, producing
+**268 candidates**:
 
-_占位文字。_
+- **Structure-based design** — Rosetta FuncLib
+- **Sequence-based design** — ESM2 and ThermoMPNN
+
+The top 6 candidates then went through **2 µs molecular dynamics simulations**, which probe
+what static predictions cannot: how the substrate is positioned over time, and how stable
+the ligand-binding pocket stays.
+
+Tools: Rosetta, GROMACS, ESM2, PyMOL, AlphaFold3, HPLC.
 
 ## Results
 
-<!-- TODO: 得到了什么结果?数据、图、结论、后续方向。 -->
+- **G142P + I192L** emerged as the strongest design, giving the most extended substrate
+  positioning and the most stable ligand-binding pocket of the candidates — outperforming
+  what the static structural predictions suggested, with no loss of protein stability.
+- Carried into the wet lab, the top mutant **confirmed the predicted improvement in vitro,
+  reaching +46.7% yield over wild-type**.
 
-_占位文字。_
+The MD stage is what separated the winning design from candidates that looked comparable on
+structure alone.

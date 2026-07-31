@@ -3,19 +3,19 @@
 
   <div class="wrapper">
     {{ partial "sections/bio.html" . }}
-    {{ partial "sections/news.html" . }}
     {{ partial "sections/projects.html" . }}
 
     {{- /* ---------------------------------------------------------------
       HIDDEN SECTIONS
-      Written and working, but not rendered — there is nothing to put in
-      them yet. To bring one back:
+      Written and working, but not rendered. To bring one back:
         1. create the data file named in the partial's header comment
-           (data/talks.yml, data/collaborators.yml, data/service.yml);
+           (data/news.yml, data/talks.yml, data/collaborators.yml,
+           data/service.yml);
         2. uncomment its line below.
       The section numbers (01, 02, …) come from a CSS counter, so they
       renumber themselves automatically.
     --------------------------------------------------------------- */ -}}
+    {{/* partial "sections/news.html" . */}}
     {{/* partial "sections/talks.html" . */}}
     {{/* partial "sections/collaborators.html" . */}}
     {{/* partial "sections/service.html" . */}}

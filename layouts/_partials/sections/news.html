@@ -1,6 +1,13 @@
 {{- /*
-  Section: News. Data lives in data/news.yml (newest first).
-  The first `$visible` items are shown; the rest sit behind the toggle.
+  Section: News — CURRENTLY HIDDEN.
+
+  Nothing renders until you (1) create data/news.yml and (2) uncomment the
+  `partial "sections/news.html"` line in layouts/home.html.
+
+  data/news.yml format (newest first). The first `$visible` items are shown;
+  the rest sit behind the toggle:
+    - date: "Jul 2026"
+      text: "Markdown is allowed here — links, **bold**, etc."
 */ -}}
 {{- $items := hugo.Data.news -}}
 {{- $visible := 5 -}}

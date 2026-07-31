@@ -11,7 +11,7 @@ date: 2026-07-31
 Sep 2023 – Jun 2027 (Expected) · Hangzhou, China
 <!-- TODO: GPA / 排名 / 荣誉 -->
 
-**The Chinese University of Hong Kong** — Exchange Student, International Academic Semester Programme (IASP)
+**The Chinese University of Hong Kong** — Exchange Student, International Asian Studies Programme (IASP)
 Sep 2026 – Dec 2026 · Hong Kong SAR
 
 ## Research Experience
