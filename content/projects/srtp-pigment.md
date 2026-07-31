@@ -7,7 +7,7 @@ selected: true
 venue: "ZJU"
 venueLogo: "images/logos/zju.svg"
 lab: "Chen Lab"
-status: "Completed"
+status: "Outstanding"
 thumb: "images/projects/srtp-design.png"
 authors: "Advised by [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111)"
 tags: ["metabolic engineering", "SRTP", "synthetic biology"]
@@ -55,4 +55,4 @@ Tools: GROMACS, LC-MS, SnapGene, GSMM, Python, R, optogenetics.
   caption="Results across the engineered strains." >}}
 
 _Supported by a Provincial SRTP Research Grant (Zhejiang Provincial Department of Science
-and Technology, 12,000 RMB)._
+and Technology, 12,000 RMB), and rated Outstanding._
