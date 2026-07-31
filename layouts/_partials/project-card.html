@@ -28,7 +28,11 @@
       {{- $poster := "" -}}
       {{- with $.Params.thumbPoster -}}
         {{- $poster = . | relURL -}}
-        {{- with resources.Get . }}{{ $poster = .RelPermalink }}{{ end -}}
+        {{- with resources.Get . -}}
+          {{- $i := . -}}
+          {{- if gt .Width 600 }}{{ $i = .Resize "600x" }}{{ end -}}
+          {{- $poster = ($i.Process "webp q82").RelPermalink -}}
+        {{- end -}}
       {{- end -}}
       {{- /* Video thumbs play and pause on demand, which an animated image
              cannot do — and H.264 is a fraction of the bytes. */ -}}

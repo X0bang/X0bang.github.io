@@ -1984,6 +1984,157 @@ button {
   }
 }
 
+/* Long institution and project titles are the main source of horizontal
+   overflow on a phone. */
+.pub-title,
+.entry-title,
+.tmline-title,
+.page-title,
+.proj-group-label,
+.news-content,
+.prose {
+  overflow-wrap: break-word;
+}
+
+/* The card needs roughly 300px of text beside a 200px thumbnail; below that it
+   reads better stacked. That happens well before the 600px phone breakpoint. */
+@media screen and (max-width: 680px) {
+  .pub-card {
+    flex-direction: column;
+  }
+
+  .pub-thumb,
+  .pub-card:hover .pub-thumb,
+  .pub-card.open .pub-thumb {
+    flex-basis: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 260px;
+  }
+
+  .pub-body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "venue" "authors" "links" "desc" "tags";
+  }
+
+  .pub-venue {
+    justify-self: start;
+    margin: 4px 0 6px;
+  }
+
+  /* A hovering pointer is what expanded the description; without one, show it. */
+  .pub-desc {
+    -webkit-line-clamp: 4;
+  }
+
+  .pub-more {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  /* The switch would otherwise squeeze the heading onto two cramped lines. */
+  .section-head {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .segmented {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tmline-logo {
+    width: 38px;
+  }
+
+  .tmline-logo img {
+    max-height: 38px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Roomier targets for a thumb. */
+  .page-link {
+    line-height: 40px;
+  }
+
+  .site-nav .trigger {
+    min-width: 190px;
+  }
+
+  .segmented button {
+    padding: 8px 12px;
+  }
+
+  .list-toggle {
+    padding: 8px 0;
+  }
+
+  .social-media {
+    gap: 12px;
+  }
+
+  /* Section numbers and headings scale down with the column. */
+  .section-title {
+    font-size: 1.12rem;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  .namecard-name,
+  #my-name {
+    font-size: 1.5rem;
+  }
+
+  .tmline-title {
+    font-size: 1.05rem;
+  }
+
+  .tmline-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Figures and prose media stay inside the column. */
+  .fig {
+    margin: 1.2em 0;
+  }
+
+  .prose pre {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  :root {
+    --gutter: 16px;
+  }
+
+  .circle-img,
+  .avatar-fallback {
+    width: 108px;
+    height: 108px;
+  }
+
+  .avatar-fallback {
+    font-size: 28px;
+  }
+
+  .icon-button {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .entry-date,
+  .news-date {
+    font-size: 11px;
+  }
+}
+
 /* --------------------------------------------------------------------------
    15. Motion + print
    -------------------------------------------------------------------------- */
