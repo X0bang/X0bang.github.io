@@ -8,7 +8,7 @@ venue: "Sui Lab, ZJU Medicine"
 status: "Ongoing"
 thumbPoster: "images/projects/hcc-network-poster.webp"
 thumb: "images/projects/hcc-network.webp"
-authors: "Advised by Dr. Wenbin Zhou & Prof. Meihua Sui"
+authors: "Advised by Dr. Wenbin Zhou & [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)"
 tags: ["multi-omics", "bioinformatics", "cancer biology"]
 summary: "Tracing sex-biased metabolites across 174 mice from hepatitis through cirrhosis to HCC, then reversing them with estrogen supplementation."
 draft: false

@@ -7,7 +7,7 @@ selected: true
 venue: "Provincial SRTP"
 status: "Completed"
 thumb: "images/projects/srtp-design.png"
-authors: "Advised by Prof. Ming Chen"
+authors: "Advised by [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111)"
 tags: ["metabolic engineering", "SRTP", "synthetic biology"]
 links:
   - name: "Wiki"

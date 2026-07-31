@@ -6,7 +6,7 @@ weight: 2
 selected: true
 venue: "Zhou Lab, ZJU"
 status: "Ongoing"
-authors: "Advised by Dr. Yangwei Jiang & Prof. Ruhong Zhou"
+authors: "Advised by Dr. Yangwei Jiang & [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)"
 tags: ["enzyme engineering", "protein design", "molecular dynamics"]
 links:
   - name: "Code"

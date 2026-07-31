@@ -8,7 +8,7 @@ venue: "iGEM 2025"
 status: "Silver Medal"
 thumbPoster: "images/projects/lumamanta-detection-poster.webp"
 thumb: "images/projects/lumamanta-detection.webp"
-authors: "Technical Lead, ZJU-China · Advised by Prof. Ming Chen & Prof. Fan Yang"
+authors: "Technical Lead, ZJU-China · Advised by [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & Prof. Fan Yang"
 tags: ["iGEM", "synthetic biology", "optogenetics"]
 links:
   - name: "Wiki"
