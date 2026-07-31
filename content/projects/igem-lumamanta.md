@@ -39,6 +39,43 @@ illumination rather than by rebuilding the biology.
 Tools and techniques: CRISPR-i/a, optogenetics, confocal microscopy, Python, R, GROMACS,
 AlphaFold3.
 
+### Genetic circuit
+
+{{< figure src="images/projects/igem/igem-07-optogenetic-logic-circuit.png"
+  caption="[TODO: 核对图注] Optogenetic logic circuit design." >}}
+
+### Wet lab
+
+{{< figure src="images/projects/igem/igem-01-wetlab-design.png"
+  caption="[TODO: 核对图注] Wet lab design." >}}
+
+### Modelling
+
+{{< figure src="images/projects/igem/igem-02-model-design.png"
+  caption="[TODO: 核对图注] Model design." >}}
+
+{{< figure src="images/projects/igem/igem-03-molecular-design-kinetics.png"
+  caption="[TODO: 核对图注] Molecular design and kinetic modelling." >}}
+
+{{< figure src="images/projects/igem/igem-05-strand-replacement-simulation.png"
+  caption="[TODO: 核对图注] Dispersion and device-level simulation of the strand-replacing reaction." >}}
+
+{{< figure src="images/projects/igem/igem-06-environment-system-behavior.png"
+  caption="[TODO: 核对图注] Environment and system behaviour." >}}
+
+### Detection module
+
+{{< figure src="images/projects/igem/igem-08-dna-immobilization.png"
+  caption="[TODO: 核对图注] DNA immobilisation." >}}
+
+### Hardware
+
+{{< figure src="images/projects/igem/igem-10-hardware-1.png"
+  caption="[TODO: 核对图注] Device hardware." >}}
+
+{{< figure src="images/projects/igem/igem-11-hardware-2.png"
+  caption="[TODO: 核对图注] Device hardware, continued." >}}
+
 ## Results
 
 - **Circuit performance:** 169% activation and 92% repression efficiency across the logic
@@ -47,3 +84,9 @@ AlphaFold3.
 - The work also became the basis of an eDNA-based aquatic pathogen detection entry that
   took a Gold Medal at Zhejiang University's 18th "Dandelion" Undergraduate Innovation
   Competition.
+
+{{< figure src="images/projects/igem/igem-04-atf-reprogramming.png"
+  caption="[TODO: 核对图注] Progress on aTF reprogramming." >}}
+
+{{< figure src="images/projects/igem/igem-09-detection-model-result.png"
+  caption="[TODO: 核对图注] Detection model results." >}}
