@@ -30,7 +30,7 @@ install -m 0755 hugo ~/bin/hugo
 | What | Where |
 | --- | --- |
 | Site config, social links, epigraph | `hugo.toml` |
-| Home page bio ("About") | `content/_index.md` |
+| Home page bio ("About") | `content/_index.md` — `bioShort` in front matter is the always-visible paragraph, the body is the expanded text |
 | Timeline entries | `data/timeline.yml` |
 | News entries | `data/news.yml` |
 | Projects | `content/projects/*.md` |
@@ -48,19 +48,33 @@ install -m 0755 hugo ~/bin/hugo
 ---
 title: "Project title"
 date: 2026-07-31
-year: "2026"        # drives the "By Year" grouping on the home page
+year: "2026"        # drives the "By Year" grouping and the year pill
 weight: 1           # lower = higher in the list
+selected: true      # include in the default "Selected" view
 tags: ["protein engineering"]   # drives the "By Topic" grouping
-summary: "One line shown in project lists."
+summary: "One line shown on the card."
+thumb: "images/projects/foo.png"   # optional; a placeholder tile shows without it
+venue: "iGEM 2025"  # optional pill
+status: "Ongoing"   # optional highlighted pill
+authors: "With A. Person, B. Person"   # optional collaborators line
 draft: false
 ---
 ```
+
+The Projects section has three views — **Selected**, **By Year**, **By Topic**.
+"Selected" lists the projects marked `selected: true`, and falls back to showing
+every project while none are marked.
 
 **A news item** — prepend to `data/news.yml`. The first five show; the rest sit
 behind "Show all".
 
 **A timeline entry** — add to `data/timeline.yml`, newest first. `brief: true`
-keeps it visible while the timeline is collapsed.
+keeps it visible while the timeline is collapsed; everything else appears when
+the "More about me" button expands the About/Timeline block.
+
+**The epigraph** — `[params.epigraph]` in `hugo.toml`. It is hidden until the
+portrait is hovered (or tapped / focused), which fades the cover card into its
+dark state.
 
 ## Sections that are currently hidden
 

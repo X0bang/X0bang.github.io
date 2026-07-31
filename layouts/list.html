@@ -6,15 +6,21 @@
         {{ with .Content }}<div class="page-intro prose">{{ . }}</div>{{ end }}
       </header>
 
-      {{ $pages := .Pages }}
-      {{ if eq .Kind "term" }}{{ $pages = .Pages }}{{ end }}
-
-      {{ if $pages }}
-        <ul class="proj-list proj-list-page">
-          {{ range $pages.ByWeight }}
-            {{ partial "project-item.html" . }}
+      {{ if eq .Kind "taxonomy" }}
+        {{- /* /tags/ — a list of topics, not of projects. */ -}}
+        <div class="pub-tags">
+          {{ range .Pages }}
+            <a class="tag-btn" href="{{ .RelPermalink }}">{{ .Title }}</a>
           {{ end }}
-        </ul>
+        </div>
+      {{ else if .Pages }}
+        <div class="publications compact">
+          <div class="pub-list">
+            {{ range .Pages.ByWeight }}
+              {{ partial "project-card.html" . }}
+            {{ end }}
+          </div>
+        </div>
       {{ else }}
         <p class="empty-note">Nothing here yet.</p>
       {{ end }}

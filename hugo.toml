@@ -28,6 +28,9 @@ enableEmoji = true
   tagline = "Undergraduate in Biological Sciences, Zhejiang University"
   affiliation = "College of Life Sciences, Zhejiang University · Hangzhou, China"
 
+  # Printed on the cover card. Leave empty to hide the line.
+  email = "zby2476151960@gmail.com"
+
   # Drop a square photo at static/images/avatar.jpg and set this to
   # "images/avatar.jpg". While it is empty the card falls back to a monogram.
   avatar = "" # TODO: 填入头像图片路径,例如 "images/avatar.jpg"

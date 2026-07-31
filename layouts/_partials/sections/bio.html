@@ -1,0 +1,47 @@
+{{- /*
+  Section: About + Timeline, side by side.
+
+  Left column  — short bio from the `bioShort` front-matter field in
+                 content/_index.md, with the page body as the expanded text.
+  Right column — data/timeline.yml. Entries with `brief: true` are always
+                 visible; the rest appear when the shared toggle is expanded.
+
+  One button expands both columns at once, as on the reference design.
+*/ -}}
+{{- $items := hugo.Data.timeline -}}
+{{- $brief := where $items "brief" true -}}
+{{- $extra := where $items "brief" "!=" true -}}
+{{- $hasMore := or .Content (gt (len $extra) 0) -}}
+
+<div id="dashboard">
+  <div class="dash-bio">
+    <h2 class="section-title">About</h2>
+    <div class="dash-bio-body">
+      {{ with .Params.bioShort }}
+        <p class="bio-text-short">{{ . | markdownify }}</p>
+      {{ end }}
+      {{ with .Content }}
+        <div class="bio-text-full prose">{{ . }}</div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="dash-tmline">
+    <div class="dash-tmline-body" id="tmline-brief">
+      {{ range $brief }}{{ partial "tmline-item.html" . }}{{ end }}
+    </div>
+    <div class="dash-tmline-body" id="tmline-full">
+      {{ range $extra }}{{ partial "tmline-item.html" . }}{{ end }}
+    </div>
+    <div class="tmline-tail" aria-hidden="true"></div>
+  </div>
+
+  {{ if $hasMore }}
+    <button class="list-toggle" id="bio-toggle" type="button" aria-expanded="false"
+      aria-controls="dashboard">
+      <span class="chev" aria-hidden="true">&#9662;</span>
+      <span class="more-label">More about me</span>
+      <span class="less-label">Show less</span>
+    </button>
+  {{ end }}
+</div>

@@ -1,35 +1,29 @@
 {{- /*
   Section: News. Data lives in data/news.yml (newest first).
-  The first `$visible` items are shown; the rest sit behind "show all".
+  The first `$visible` items are shown; the rest sit behind the toggle.
 */ -}}
 {{- $items := hugo.Data.news -}}
 {{- $visible := 5 -}}
 {{- if $items -}}
-  <section class="section" id="news">
-    <h2 class="section-title">News</h2>
-
-    <div class="section-body">
-      <ul class="news">
-        {{ range $i, $item := $items }}
-          <li class="news-item{{ if ge $i $visible }} news-extra{{ end }}">
-            <span class="news-date">{{ $item.date }}</span>
-            <span class="news-text">{{ $item.text | markdownify }}</span>
-          </li>
-        {{ end }}
-      </ul>
-
-      {{ if gt (len $items) $visible }}
-        <button
-          class="list-toggle"
-          type="button"
-          data-toggle-target="#news .news-extra"
-          aria-expanded="false"
-        >
-          <span class="more-label">Show all {{ len $items }}</span>
-          <span class="less-label">Show less</span>
-          <span class="chev" aria-hidden="true">&#9662;</span>
-        </button>
-      {{ end }}
+  <div class="news" id="news">
+    <div class="section-head">
+      <h2 class="section-title">News</h2>
     </div>
-  </section>
+
+    {{ range $i, $item := $items }}
+      <div class="news-item{{ if ge $i $visible }} news-extra{{ else }} reveal{{ end }}">
+        <div class="news-date">{{ $item.date }}</div>
+        <div class="news-content">{{ $item.text | markdownify }}</div>
+      </div>
+    {{ end }}
+
+    {{ if gt (len $items) $visible }}
+      <button class="list-toggle" id="news-toggle" type="button" aria-expanded="false"
+        aria-controls="news">
+        <span class="chev" aria-hidden="true">&#9662;</span>
+        <span class="more-label">Show all {{ len $items }} updates</span>
+        <span class="less-label">Show recent only</span>
+      </button>
+    {{ end }}
+  </div>
 {{- end -}}

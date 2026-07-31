@@ -1,0 +1,49 @@
+{{- /*
+  One project card. Context: a project page.
+
+  Optional front matter:
+    thumb   image path under static/, e.g. "images/projects/foo.png"
+    venue   short label shown as a pill (e.g. "iGEM 2025")
+    status  highlighted label (e.g. "In progress")
+    authors collaborators line
+*/ -}}
+<div class="pub-card reveal">
+  <div class="pub-thumb">
+    {{ with .Params.thumb }}
+      <img src="{{ . | relURL }}" loading="lazy" alt="{{ $.Title }}" />
+    {{ else }}
+      {{- /* TODO: 给项目加 thumb 字段指向 static/images/ 下的图,占位块就会替换掉 */ -}}
+      <span class="pub-thumb-empty" aria-hidden="true">No image</span>
+    {{ end }}
+  </div>
+
+  <div class="pub-body">
+    <div class="pub-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+
+    {{ with .Params.authors }}
+      <div class="pub-authors">{{ . | markdownify }}</div>
+    {{ end }}
+
+    {{ if or .Params.venue .Params.status .Params.year }}
+      <div class="pub-venue">
+        {{ with .Params.venue }}<span class="venue-pill">{{ . }}</span>{{ end }}
+        {{ with .Params.year }}<span class="venue-pill">{{ . }}</span>{{ end }}
+        {{ with .Params.status }}<span class="venue-status">{{ . }}</span>{{ end }}
+      </div>
+    {{ end }}
+
+    {{ with .Params.summary }}
+      <div class="pub-desc">{{ . | markdownify }}</div>
+    {{ end }}
+
+    {{ with .Params.tags }}
+      <div class="pub-tags">
+        {{ range . }}
+          <a class="tag-btn" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  <span class="pub-more" aria-hidden="true"><span class="chev">&#9662;</span></span>
+</div>

@@ -1,0 +1,10 @@
+{{- /* One timeline entry. Context: an item from data/timeline.yml. */ -}}
+<div class="tmline-item">
+  <div class="tmline-date">{{ .date }}</div>
+  <div class="tmline-title">
+    {{- if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
+    {{- else }}{{ .title }}{{ end -}}
+  </div>
+  {{ with .subtitle }}<div class="tmline-desc">{{ . }}</div>{{ end }}
+  {{ with .desc }}<div class="tmline-host">{{ . | markdownify }}</div>{{ end }}
+</div>

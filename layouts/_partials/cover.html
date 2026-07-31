@@ -1,51 +1,71 @@
+{{- /*
+  Cover: a translucent card holding the portrait and two stacked "faces" —
+  the contact face, and the epigraph face that replaces it while the portrait
+  is hovered or focused (JS toggles `.deep` on #profile-cover).
+*/ -}}
 {{- $ep := site.Params.epigraph -}}
-<section class="cover" id="profile-cover">
-  <div class="wrapper">
-    {{ with $ep }}
-      {{ if .text }}
-        <blockquote class="epigraph" id="my-desc-quote">
-          <p class="epigraph-text">{{ .text }}</p>
-          {{ with .translation }}<p class="epigraph-translation">{{ . }}</p>{{ end }}
-          {{ with .source }}<cite class="epigraph-source" id="my-desc-author">{{ . }}</cite>{{ end }}
-        </blockquote>
-      {{ end }}
-    {{ end }}
-
-    <div class="namecard" id="profile-namecard">
-      <div class="namecard-avatar" id="profile-avatar">
+<div class="cover" id="profile-cover">
+  <div class="profile-wrapper" id="profile-namecard">
+    <div class="profile-col profile-col-1" id="my-pic">
+      <span
+        class="avatar-wrap"
+        id="avatar-wrap"
+        tabindex="0"
+        role="button"
+        aria-pressed="false"
+        aria-label="Show the epigraph"
+      >
         {{ with site.Params.avatar }}
-          <img src="{{ . | relURL }}" alt="{{ site.Params.author }}" width="132" height="132" />
+          <img
+            class="circle-img"
+            id="profile-avatar"
+            src="{{ . | relURL }}"
+            alt="{{ site.Params.author }}"
+            width="168"
+            height="168"
+          />
         {{ else }}
-          {{- /* TODO: 把头像放到 static/images/ 并在 hugo.toml 里设置 params.avatar,
+          {{- /* TODO: 把头像放到 static/images/ 并在 hugo.toml 设置 params.avatar,
                  这个字母占位就会自动消失 */ -}}
-          <span class="namecard-monogram" aria-hidden="true">
+          <span class="avatar-fallback" aria-hidden="true">
             {{- range first 2 (split site.Params.author " ") }}{{ substr . 0 1 }}{{ end -}}
           </span>
           <span class="sr-only">{{ site.Params.author }}</span>
         {{ end }}
+      </span>
+    </div>
+
+    <div class="profile-col profile-col-2 profile-col-stack">
+      <div class="stack-face" id="my-contact">
+        <div id="my-name">{{ site.Params.author }}</div>
+        <div id="my-title">{{ site.Params.tagline }}</div>
+        <div id="my-affiliation">{{ site.Params.affiliation }}</div>
+        {{ with site.Params.email }}
+          <div id="my-email"><a href="mailto:{{ . }}">{{ . }}</a></div>
+        {{ end }}
+
+        <div class="social-media">
+          {{ range sort site.Params.social "weight" }}
+            <a
+              class="icon-button {{ .icon }}"
+              href="{{ .url }}"
+              title="{{ .name }}"
+              aria-label="{{ .name }}"
+              {{ if not (hasPrefix .url "/") }}rel="me noopener"{{ end }}
+            >
+              {{ partial "icon.html" .icon }}
+            </a>
+          {{ end }}
+        </div>
       </div>
 
-      <div class="namecard-body">
-        <h1 class="namecard-name" id="my-name">{{ site.Params.author }}</h1>
-        <p class="namecard-title" id="my-title">{{ site.Params.tagline }}</p>
-        <p class="namecard-affiliation">{{ site.Params.affiliation }}</p>
-
-        <ul class="social-list" id="my-contact">
-          {{ range sort site.Params.social "weight" }}
-            <li>
-              <a
-                class="social-icon"
-                href="{{ .url }}"
-                title="{{ .name }}"
-                aria-label="{{ .name }}"
-                {{ if not (hasPrefix .url "/") }}rel="me noopener"{{ end }}
-              >
-                {{ partial "icon.html" .icon }}
-              </a>
-            </li>
-          {{ end }}
-        </ul>
+      <div class="stack-face" id="my-desc">
+        {{ with $ep }}
+          <div id="my-desc-quote">{{ .text }}</div>
+          {{ with .translation }}<div id="my-desc-quote-original">{{ . }}</div>{{ end }}
+          {{ with .source }}<div id="my-desc-author">{{ . }}</div>{{ end }}
+        {{ end }}
       </div>
     </div>
   </div>
-</section>
+</div>

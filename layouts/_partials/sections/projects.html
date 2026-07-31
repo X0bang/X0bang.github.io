@@ -1,78 +1,75 @@
 {{- /*
-  Section: Projects, with a "By Year" / "By Topic" switch.
+  Section: Projects, with a Selected / By Year / By Topic switch.
 
-  Both groupings are rendered server-side and swapped by CSS + a little JS,
-  so the page works with JavaScript disabled (By Year is the default view).
+  All three views are rendered server-side and swapped with a class, so the
+  page still works with JavaScript off (Selected is the default view).
 
-  A project's year comes from its `year:` front-matter field and its topics
-  from `tags:`. Projects with no year are grouped under a visible TODO
-  heading rather than being silently dropped.
+  "Selected" shows projects with `selected: true` in front matter, falling
+  back to every project while none are marked. Year comes from the `year:`
+  field; topics come from `tags:`.
 */ -}}
 {{- $projects := where site.RegularPages "Section" "projects" -}}
 {{- if $projects -}}
-  {{- /* Distinct years, newest first; empty year sorts last. */ -}}
+  {{- $selected := where $projects "Params.selected" true -}}
+  {{- if not $selected }}{{ $selected = $projects }}{{ end -}}
+
+  {{- /* Distinct years, newest first; projects with no year sort last. */ -}}
   {{- $years := slice -}}
   {{- range $projects -}}
     {{- $y := string (.Params.year | default "") -}}
     {{- if not (in $years $y) }}{{ $years = $years | append $y }}{{ end -}}
   {{- end -}}
-  {{- $years = sort $years -}}
-  {{- $years = collections.Reverse $years -}}
+  {{- $years = collections.Reverse (sort $years) -}}
 
-  <section class="section" id="projects">
-    <h2 class="section-title">
-      Projects
-      <span class="section-switch" role="group" aria-label="Group projects by">
-        <button type="button" class="switch-btn is-active" data-view="by-year" aria-pressed="true">
-          By Year
+  <div class="publications compact" id="projects">
+    <div class="section-head">
+      <h2 class="section-title">Projects</h2>
+      <div class="segmented" role="tablist" aria-label="Sort projects">
+        <button type="button" class="active" data-view="selected" aria-pressed="true">
+          Selected
         </button>
-        <button type="button" class="switch-btn" data-view="by-topic" aria-pressed="false">
-          By Topic
-        </button>
-      </span>
-    </h2>
+        <button type="button" data-view="by-year" aria-pressed="false">By Year</button>
+        <button type="button" data-view="by-topic" aria-pressed="false">By Topic</button>
+      </div>
+    </div>
 
-    <div class="section-body">
-      <div class="proj-view is-active" id="projects-by-year">
+    <div class="pub-list">
+      <div class="proj-view is-active" id="projects-selected">
+        {{ range $selected.ByWeight }}{{ partial "project-card.html" . }}{{ end }}
+      </div>
+
+      <div class="proj-view" id="projects-by-year">
         {{ range $years }}
           {{ $y := . }}
           <div class="proj-group">
             <h3 class="proj-group-label">
               {{ if $y }}{{ $y }}{{ else }}[TODO: 填入年份]{{ end }}
             </h3>
-            <ul class="proj-list">
-              {{ range $projects.ByWeight }}
-                {{ if eq (string (.Params.year | default "")) $y }}
-                  {{ partial "project-item.html" . }}
-                {{ end }}
+            {{ range $projects.ByWeight }}
+              {{ if eq (string (.Params.year | default "")) $y }}
+                {{ partial "project-card.html" . }}
               {{ end }}
-            </ul>
+            {{ end }}
           </div>
         {{ end }}
       </div>
 
       <div class="proj-view" id="projects-by-topic">
-        {{ $tags := site.Taxonomies.tags }}
-        {{ if $tags }}
-          {{ range $tags.Alphabetical }}
-            {{ $tagPages := .Pages }}
+        {{ with site.Taxonomies.tags }}
+          {{ range .Alphabetical }}
             <div class="proj-group">
               <h3 class="proj-group-label">{{ .Term }}</h3>
-              <ul class="proj-list">
-                {{ range $tagPages.ByWeight }}
-                  {{ if eq .Section "projects" }}{{ partial "project-item.html" . }}{{ end }}
-                {{ end }}
-              </ul>
+              {{ range .Pages.ByWeight }}
+                {{ if eq .Section "projects" }}{{ partial "project-card.html" . }}{{ end }}
+              {{ end }}
             </div>
           {{ end }}
         {{ else }}
           <p class="empty-note">[TODO: 给项目加 tags 后,这里会按主题分组]</p>
         {{ end }}
       </div>
-
-      <p class="section-more">
-        <a href="{{ "/projects/" | relURL }}">All projects &rarr;</a>
-      </p>
     </div>
-  </section>
+
+    <p class="section-more"><a href="{{ "/projects/" | relURL }}">All projects &rarr;</a></p>
+  </div>
 {{- end -}}

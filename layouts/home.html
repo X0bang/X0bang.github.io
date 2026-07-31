@@ -2,26 +2,22 @@
   {{ partial "cover.html" . }}
 
   <div class="wrapper">
-    <div class="dashboard" id="dashboard">
-      {{ partial "sections/about.html" . }}
-      {{ partial "sections/timeline.html" . }}
-      {{ partial "sections/news.html" . }}
-      {{ partial "sections/projects.html" . }}
+    {{ partial "sections/bio.html" . }}
+    {{ partial "sections/news.html" . }}
+    {{ partial "sections/projects.html" . }}
 
-      {{- /* ---------------------------------------------------------------
-        HIDDEN SECTIONS
-        These are built and ready but not rendered, because there is nothing
-        to put in them yet. To bring one back:
-          1. uncomment its line below;
-          2. fill in the matching data file named in the partial's header
-             comment (data/talks.yml, data/collaborators.yml,
-             data/service.yml).
-        Section numbers (01, 02, …) are produced by a CSS counter, so they
-        renumber themselves automatically.
-      --------------------------------------------------------------- */ -}}
-      {{/* partial "sections/talks.html" . */}}
-      {{/* partial "sections/collaborators.html" . */}}
-      {{/* partial "sections/service.html" . */}}
-    </div>
+    {{- /* ---------------------------------------------------------------
+      HIDDEN SECTIONS
+      Written and working, but not rendered — there is nothing to put in
+      them yet. To bring one back:
+        1. create the data file named in the partial's header comment
+           (data/talks.yml, data/collaborators.yml, data/service.yml);
+        2. uncomment its line below.
+      The section numbers (01, 02, …) come from a CSS counter, so they
+      renumber themselves automatically.
+    --------------------------------------------------------------- */ -}}
+    {{/* partial "sections/talks.html" . */}}
+    {{/* partial "sections/collaborators.html" . */}}
+    {{/* partial "sections/service.html" . */}}
   </div>
 {{ end }}
