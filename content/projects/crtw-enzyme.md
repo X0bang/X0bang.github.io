@@ -7,6 +7,8 @@ selected: true
 venue: "ZJU"
 venueLogo: "images/logos/zju.svg"
 lab: "Zhou Lab"
+thumbPoster: "images/projects/crtw-poster.jpg"
+thumb: "images/projects/crtw-design.mp4"
 status: "Ongoing"
 authors: "Advised by Dr. Yangwei Jiang & [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)"
 tags: ["enzyme engineering", "protein design", "molecular dynamics"]
