@@ -17,18 +17,29 @@
         <div class="entry{{ if not .brief }} honor-extra{{ else }} reveal{{ end }}">
           <div class="entry-date">{{ .date }}</div>
           <div class="entry-body">
-            <span class="entry-title">
-              {{- with .logo -}}
-                {{- with resources.Get . -}}
-                  {{- /* SVGs are served as-is; raster marks are resized to
-                         48px tall — 2x their 24px display size. */ -}}
-                  {{- $src := .RelPermalink -}}
-                  {{- if ne .MediaType.SubType "svg" -}}
-                    {{- $src = ((.Resize "x48").Process "webp q85").RelPermalink -}}
+            {{- /* `logos` takes a list — an award with several awarding bodies
+                   shows all of their marks. `logo` stays valid for one. */ -}}
+            {{- $logos := slice -}}
+            {{- with .logos }}{{ $logos = . }}
+            {{- else }}{{ with .logo }}{{ $logos = slice . }}{{ end }}{{ end -}}
+
+            {{ with $logos }}
+              <span class="entry-logos">
+                {{- range . -}}
+                  {{- with resources.Get . -}}
+                    {{- /* SVGs are served as-is; raster marks are resized to
+                           48px tall — 2x their 24px display size. */ -}}
+                    {{- $src := .RelPermalink -}}
+                    {{- if ne .MediaType.SubType "svg" -}}
+                      {{- $src = ((.Resize "x48").Process "webp q85").RelPermalink -}}
+                    {{- end -}}
+                    <img class="entry-logo" src="{{ $src }}" alt="" loading="lazy" />
                   {{- end -}}
-                  <img class="entry-logo" src="{{ $src }}" alt="" loading="lazy" />
                 {{- end -}}
-              {{- end -}}
+              </span>
+            {{ end }}
+
+            <span class="entry-title">
               {{- if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
               {{- else }}{{ .title }}{{ end -}}
             </span>

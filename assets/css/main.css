@@ -1400,27 +1400,26 @@ button {
   font-size: 0.98rem;
 }
 
-/* Awarding-body mark. Greyscale by default so a colourful logo does not break
-   the monochrome palette; it regains its colour on hover. */
+/* Awarding-body marks, in full colour. An award with several awarding bodies
+   shows one mark per body, on their own row above the title. */
+.entry-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
 .entry-logo {
   height: 24px;
   width: auto;
-  max-width: 96px;
-  vertical-align: -6px;
-  margin-right: 9px;
+  max-width: 110px;
   object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.75;
-  transition: filter 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.15s ease;
 }
 
 .entry:hover .entry-logo {
-  filter: grayscale(0);
-  opacity: 1;
-}
-
-[data-theme="dark"] .entry-logo {
-  opacity: 0.85;
+  transform: scale(1.04);
 }
 
 .entry-meta,

@@ -7,8 +7,9 @@
 #   org   optional. Awarding body.
 #   desc  optional. One line of detail — scale, rank, or your role.
 #   url   optional. Links the title.
-#   logo  optional. Awarding body's mark, relative to ./assets — see
-#         assets/images/logos/README.md. Omit and the row is simply text.
+#   logos optional. List of awarding-body marks, relative to ./assets — one
+#         per body, all shown. `logo:` with a single path also works.
+#         See assets/images/logos/README.md. Omit and the row is text only.
 #   brief optional, default false. `true` keeps the entry visible when the
 #         list is collapsed; the rest sit behind "Show all".
 
@@ -32,7 +33,10 @@
   title: "Grand Prize, National Synthetic Biology Innovation Competition"
   org: "Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology"
   desc: "1st place nationally"
-  logo: "images/logos/synbio-competition.png"
+  logos:
+    - "images/logos/synbio-competition.png"
+    - "images/logos/csbt.webp"
+    - "images/logos/siat-synbio.png"
   brief: true
 
 - date: "Mar 2026"
