@@ -33,8 +33,8 @@
       {{- /* Video thumbs play and pause on demand, which an animated image
              cannot do — and H.264 is a fraction of the bytes. */ -}}
       {{ if in (slice ".mp4" ".webm") (path.Ext .) }}
-        <video class="pub-thumb-video" muted loop playsinline preload="metadata"
-          aria-label="{{ $.Title }}">
+        <video class="pub-thumb-video" muted loop playsinline preload="auto"
+          {{ with $poster }}poster="{{ . }}"{{ end }} aria-label="{{ $.Title }}">
           <source src="{{ $src }}" type="video/{{ strings.TrimPrefix "." (path.Ext .) }}" />
         </video>
       {{ else if $poster }}
