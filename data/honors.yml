@@ -27,7 +27,10 @@
   org: "International Genetically Engineered Machine Competition"
   desc: "Technical Lead — ZJU-China, LumaManta"
   url: "https://2025.igem.wiki/zju-china/"
-  logo: "images/logos/igem.svg"
+  logos:
+    - "images/logos/igem.svg"
+    - "images/logos/igem-zjuchina.png"
+    - "images/logos/lumamanta.jpg"
   brief: true
 
 - date: "Aug 2025"
@@ -51,6 +54,9 @@
   title: 'First Prize (Champion), 2nd "Forbel Cup" National Pet Industry Innovation Competition'
   org: "Shanghai Society of Animal Husbandry & Veterinary Medicine"
   desc: 'Led the "Pet Smart Health" team'
+  logos:
+    - "images/logos/fubei.jpeg"
+    - "images/logos/g60-corridor.jpg"
   brief: true
 
 - date: "2025"
