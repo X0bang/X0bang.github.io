@@ -1,0 +1,78 @@
+{{- /*
+  Section: Projects, with a "By Year" / "By Topic" switch.
+
+  Both groupings are rendered server-side and swapped by CSS + a little JS,
+  so the page works with JavaScript disabled (By Year is the default view).
+
+  A project's year comes from its `year:` front-matter field and its topics
+  from `tags:`. Projects with no year are grouped under a visible TODO
+  heading rather than being silently dropped.
+*/ -}}
+{{- $projects := where site.RegularPages "Section" "projects" -}}
+{{- if $projects -}}
+  {{- /* Distinct years, newest first; empty year sorts last. */ -}}
+  {{- $years := slice -}}
+  {{- range $projects -}}
+    {{- $y := string (.Params.year | default "") -}}
+    {{- if not (in $years $y) }}{{ $years = $years | append $y }}{{ end -}}
+  {{- end -}}
+  {{- $years = sort $years -}}
+  {{- $years = collections.Reverse $years -}}
+
+  <section class="section" id="projects">
+    <h2 class="section-title">
+      Projects
+      <span class="section-switch" role="group" aria-label="Group projects by">
+        <button type="button" class="switch-btn is-active" data-view="by-year" aria-pressed="true">
+          By Year
+        </button>
+        <button type="button" class="switch-btn" data-view="by-topic" aria-pressed="false">
+          By Topic
+        </button>
+      </span>
+    </h2>
+
+    <div class="section-body">
+      <div class="proj-view is-active" id="projects-by-year">
+        {{ range $years }}
+          {{ $y := . }}
+          <div class="proj-group">
+            <h3 class="proj-group-label">
+              {{ if $y }}{{ $y }}{{ else }}[TODO: 填入年份]{{ end }}
+            </h3>
+            <ul class="proj-list">
+              {{ range $projects.ByWeight }}
+                {{ if eq (string (.Params.year | default "")) $y }}
+                  {{ partial "project-item.html" . }}
+                {{ end }}
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
+      </div>
+
+      <div class="proj-view" id="projects-by-topic">
+        {{ $tags := site.Taxonomies.tags }}
+        {{ if $tags }}
+          {{ range $tags.Alphabetical }}
+            {{ $tagPages := .Pages }}
+            <div class="proj-group">
+              <h3 class="proj-group-label">{{ .Term }}</h3>
+              <ul class="proj-list">
+                {{ range $tagPages.ByWeight }}
+                  {{ if eq .Section "projects" }}{{ partial "project-item.html" . }}{{ end }}
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+        {{ else }}
+          <p class="empty-note">[TODO: 给项目加 tags 后,这里会按主题分组]</p>
+        {{ end }}
+      </div>
+
+      <p class="section-more">
+        <a href="{{ "/projects/" | relURL }}">All projects &rarr;</a>
+      </p>
+    </div>
+  </section>
+{{- end -}}

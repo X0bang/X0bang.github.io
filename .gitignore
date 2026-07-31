@@ -1,0 +1,27 @@
+# Hugo build output
+/public/
+/resources/_gen/
+/resources/
+.hugo_build.lock
+
+# Hugo module / dependency caches
+/.cache/
+hugo_stats.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# macOS / iCloud
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.com.apple.timemachine.donotpresent
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*~

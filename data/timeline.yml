@@ -1,0 +1,25 @@
+# Education / experience timeline, rendered on the home page (section "Timeline").
+#
+# Newest first — the template renders them in the order given.
+# Fields:
+#   date     required. Free text, shown in mono caps.
+#   title    required. Institution.
+#   subtitle optional. Degree / role.
+#   desc     optional. One line of detail.
+#   url      optional. Links the title.
+#   brief    optional, default false. `true` keeps the entry visible when the
+#            timeline is collapsed; entries without it live behind "show all".
+
+- date: "Sep 2026 — Dec 2026"
+  title: "The Chinese University of Hong Kong"
+  subtitle: "Exchange Student, International Academic Semester Programme (IASP)"
+  desc: ""
+  url: "https://www.cuhk.edu.hk/"
+  brief: true
+
+- date: "Sep 2023 — Jun 2027 (Expected)"
+  title: "Zhejiang University"
+  subtitle: "B.S. in Biological Sciences"
+  desc: ""
+  url: "https://www.zju.edu.cn/english/"
+  brief: true

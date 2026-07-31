@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <div class="wrapper">
+    <article class="page">
+      <header class="page-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+
+        {{ if eq .Section "projects" }}
+          <p class="page-meta">
+            <span class="page-meta-year">
+              {{ with .Params.year }}{{ . }}{{ else }}[TODO: 填入年份]{{ end }}
+            </span>
+            {{ with .Params.tags }}
+              <span class="page-meta-tags">
+                {{ range . }}
+                  <a class="tag" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>
+                {{ end }}
+              </span>
+            {{ end }}
+          </p>
+        {{ end }}
+      </header>
+
+      <div class="prose">{{ .Content }}</div>
+
+      {{ if eq .Section "projects" }}
+        <p class="page-back"><a href="{{ "/projects/" | relURL }}">&larr; All projects</a></p>
+      {{ end }}
+    </article>
+  </div>
+{{ end }}

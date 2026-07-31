@@ -1,0 +1,15 @@
+# News items, rendered on the home page (section "News").
+#
+# Newest first. The first 5 are shown; the rest sit behind "show all".
+# Fields:
+#   date required. Free text, shown in mono caps (e.g. "Jul 2026").
+#   text required. Markdown is allowed — links, **bold**, etc.
+
+- date: "[TODO: 月份]"
+  text: "[TODO: 例如 WEHI InSPIRE 项目启动]"
+
+- date: "[TODO: 月份]"
+  text: "[TODO: 例如 CUHK IASP 交换录取]"
+
+- date: "[TODO: 月份]"
+  text: "[TODO: 例如 iGEM LumaManta 参赛结果]"

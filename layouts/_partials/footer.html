@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <h2 class="footer-heading">{{ site.Title }}</h2>
+        <p class="footer-about">{{ site.Params.affiliation }}</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="contact-list">
+          {{ range sort site.Params.social "weight" }}
+            <li>
+              <a href="{{ .url }}" {{ if not (hasPrefix .url "/") }}rel="me noopener"{{ end }}>
+                {{ partial "icon.html" .icon }}<span>{{ .name }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p class="footer-meta">
+          &copy; {{ site.Params.since }}&ndash;{{ now.Year }} {{ site.Params.author }}.<br />
+          Built with <a href="https://gohugo.io/">Hugo</a>, hosted on
+          <a href="https://pages.github.com/">GitHub Pages</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

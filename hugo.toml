@@ -1,0 +1,98 @@
+baseURL = "https://bang.x0bang.com/"
+locale = "en-us"
+defaultContentLanguage = "en"
+title = "Boyue Zhang"
+enableEmoji = true
+
+# No `theme` key on purpose: the layouts in ./layouts and the styles in
+# ./assets are this site's own theme (a monochrome, editorial design).
+
+[pagination]
+  pagerSize = 20
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  author = "Boyue Zhang"
+  description = "Boyue Zhang — undergraduate in Biological Sciences at Zhejiang University, working on computational biology and protein engineering."
+  keywords = "computational biology,protein engineering,bioinformatics,Zhejiang University,PhD applicant"
+
+  # Shown under the name on the cover card.
+  tagline = "Undergraduate in Biological Sciences, Zhejiang University"
+  affiliation = "College of Life Sciences, Zhejiang University · Hangzhou, China"
+
+  # Drop a square photo at static/images/avatar.jpg and set this to
+  # "images/avatar.jpg". While it is empty the card falls back to a monogram.
+  avatar = "" # TODO: 填入头像图片路径,例如 "images/avatar.jpg"
+
+  # X/Twitter handle (no @) for the twitter:site meta tag. Empty = omitted.
+  twitterHandle = "" # TODO: 有 X/Twitter 就填,没有留空
+
+  dateFormat = "Jan 2, 2006"
+  since = 2026
+
+  # "auto" follows the OS setting; the moon button in the corner overrides it.
+  colorScheme = "auto"
+
+  # The epigraph printed on the cover. Replace with your own.
+  [params.epigraph]
+    text = "[TODO: 填入你的座右铭]"
+    translation = ""            # optional second line, e.g. a translation
+    source = "[TODO: 填入出处]"
+
+# ---------------------------------------------------------------------------
+# Social links. `icon` selects an inline SVG from layouts/_partials/icon.html,
+# which supports: github, email, cv, scholar, orcid, linkedin, twitter.
+# ---------------------------------------------------------------------------
+[[params.social]]
+  name = "GitHub"
+  icon = "github"
+  weight = 1
+  url = "https://github.com/X0bang"
+
+[[params.social]]
+  name = "Email"
+  icon = "email"
+  weight = 2
+  url = "mailto:zby2476151960@gmail.com"
+
+[[params.social]]
+  name = "CV"
+  icon = "cv"
+  weight = 3
+  url = "/files/CV_Boyue_Zhang_ZJU.pdf"
+
+# TODO: 有了再取消注释并填入链接
+# [[params.social]]
+#   name = "Google Scholar"
+#   icon = "scholar"
+#   weight = 4
+#   url = "[TODO: 填入 Google Scholar 链接]"
+#
+# [[params.social]]
+#   name = "ORCID"
+#   icon = "orcid"
+#   weight = 5
+#   url = "[TODO: 填入 ORCID 链接]"
+
+[[menu.main]]
+  name = "Projects"
+  weight = 1
+  url = "/projects/"
+
+[[menu.main]]
+  name = "CV"
+  weight = 2
+  url = "/cv/"
+
+[[menu.main]]
+  name = "Contact"
+  weight = 3
+  url = "/contact/"

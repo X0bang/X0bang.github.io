@@ -1,0 +1,68 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+{{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
+{{- $desc := or .Description .Summary site.Params.description | plainify | chomp -}}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}" />
+<meta name="author" content="{{ site.Params.author }}" />
+<meta name="keywords" content="{{ site.Params.keywords }}" />
+
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $desc }}" />
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="{{ site.Title }}" />
+{{- with site.Params.avatar }}
+  <meta property="og:image" content="{{ . | absURL }}" />
+{{- end }}
+
+<meta name="twitter:card" content="summary" />
+{{- with site.Params.twitterHandle }}
+  <meta name="twitter:site" content="@{{ . }}" />
+{{- end }}
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $desc }}" />
+
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ with .OutputFormats.Get "rss" -}}
+  <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}" />
+{{ end -}}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
+
+{{- /* TODO: 想换 favicon 就替换 static/images/favicon.svg */ -}}
+<link rel="icon" type="image/svg+xml" href="{{ "images/favicon.svg" | relURL }}" />
+
+<meta name="theme-color" content="#0b0c0e" />
+
+{{ with resources.Get "css/main.css" }}
+  {{ $css := . }}
+  {{ if hugo.IsProduction }}{{ $css = $css | minify | fingerprint }}{{ end }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}"
+    {{ with $css.Data.Integrity }}integrity="{{ . }}"{{ end }} />
+{{ end }}
+
+{{- /* Apply the stored theme before first paint so there is no flash. */ -}}
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem("theme");
+      var scheme = "{{ site.Params.colorScheme | default `auto` }}";
+      var theme =
+        stored ||
+        (scheme === "auto"
+          ? window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"
+          : scheme);
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  })();
+</script>

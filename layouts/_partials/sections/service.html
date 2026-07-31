@@ -1,0 +1,30 @@
+{{- /*
+  Section: Academic Service — CURRENTLY HIDDEN.
+
+  Nothing renders until you (1) create data/service.yml and (2) uncomment the
+  `partial "sections/service.html"` line in layouts/home.html.
+
+  data/service.yml format:
+    - role: "Reviewer"
+      venues: "Conference / journal names"
+      years: "2027–"        # optional
+*/ -}}
+{{- $items := hugo.Data.service -}}
+{{- if $items -}}
+  <section class="section" id="service">
+    <h2 class="section-title">Academic Service</h2>
+    <div class="section-body">
+      <ul class="entry-list">
+        {{ range $items }}
+          <li class="entry">
+            {{ with .years }}<span class="entry-date">{{ . }}</span>{{ end }}
+            <span class="entry-body">
+              <span class="entry-title">{{ .role }}</span>
+              {{ with .venues }}<span class="entry-meta">{{ . }}</span>{{ end }}
+            </span>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+{{- end -}}

@@ -1,0 +1,34 @@
+{{- /*
+  Section: Junior Collaborators & Interns — CURRENTLY HIDDEN.
+
+  Nothing renders until you (1) create data/collaborators.yml and (2) uncomment
+  the `partial "sections/collaborators.html"` line in layouts/home.html.
+
+  data/collaborators.yml format:
+    - name: "Name"
+      role: "Undergraduate intern, 2027"
+      note: "Now a PhD student at …"   # optional
+      url: "https://…"                 # optional
+*/ -}}
+{{- $items := hugo.Data.collaborators -}}
+{{- if $items -}}
+  <section class="section" id="collaborators">
+    <h2 class="section-title">Junior Collaborators &amp; Interns</h2>
+    <div class="section-body">
+      <ul class="entry-list">
+        {{ range $items }}
+          <li class="entry">
+            <span class="entry-body">
+              <span class="entry-title">
+                {{ if .url }}<a href="{{ .url }}" rel="noopener">{{ .name }}</a>
+                {{ else }}{{ .name }}{{ end }}
+              </span>
+              {{ with .role }}<span class="entry-meta">{{ . }}</span>{{ end }}
+              {{ with .note }}<span class="entry-note">{{ . | markdownify }}</span>{{ end }}
+            </span>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+{{- end -}}
