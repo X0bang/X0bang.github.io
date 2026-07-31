@@ -307,8 +307,8 @@ button {
   /* Take the artwork's own shape, but never let the band eat the whole
      screen — past the cap the sides stay full-bleed and the crop returns. */
   aspect-ratio: var(--cover-ratio, 2.485);
-  max-height: var(--cover-max, min(52vh, 560px));
-  min-height: 340px;
+  max-height: var(--cover-max, min(46vh, 480px));
+  min-height: 320px;
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -317,10 +317,8 @@ button {
   background-position: center 30%;
   background-color: var(--chrome);
 
-  /* The card sits low, over the quiet part of the frame, leaving the upper
-     two thirds of the artwork visible. */
-  align-items: flex-end;
-  padding-bottom: 34px;
+  /* Centred on the artwork rather than pinned to the bottom. */
+  align-items: center;
 }
 
 /* The "painted twin": same framing, different palette, revealed with the

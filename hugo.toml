@@ -66,7 +66,7 @@ enableEmoji = true
     # on a 1920px screen a 2:1 image would stand 960px tall — the whole first
     # screen. This caps it; past the cap the image crops again (biased to keep
     # the top). Any CSS length works: "52vh", "560px", "min(52vh, 560px)".
-    maxHeight = "min(52vh, 560px)"
+    maxHeight = "min(46vh, 480px)"
 
   # The epigraph printed on the cover. Replace with your own.
   [params.epigraph]
