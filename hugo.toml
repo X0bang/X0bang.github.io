@@ -45,6 +45,18 @@ enableEmoji = true
   # "auto" follows the OS setting; the moon button in the corner overrides it.
   colorScheme = "auto"
 
+  # ---------------------------------------------------------------------
+  # Cover artwork. Paths are relative to ./assets, so the sources are never
+  # published as-is — Hugo converts them to WebP at build time.
+  #   image     always visible behind the profile card
+  #   imageDeep optional "painted twin" that fades in while the portrait is
+  #             hovered, alongside the epigraph. Omit for a single still.
+  # Leave `image` empty to fall back to the plain gradient cover.
+  # ---------------------------------------------------------------------
+  [params.cover]
+    image = "images/bg/background-aurora.png"
+    imageDeep = "images/bg/background-aurora-painting.png"
+
   # The epigraph printed on the cover. Replace with your own.
   [params.epigraph]
     text = "[TODO: 填入你的座右铭]"

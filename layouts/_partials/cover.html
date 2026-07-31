@@ -4,7 +4,31 @@
   is hovered or focused (JS toggles `.deep` on #profile-cover).
 */ -}}
 {{- $ep := site.Params.epigraph -}}
-<div class="cover" id="profile-cover">
+
+{{- /* Cover artwork: sources live in ./assets and are converted to WebP here,
+       so the originals are never published. */ -}}
+{{- $bg := "" -}}
+{{- $bgDeep := "" -}}
+{{- with site.Params.cover.image -}}
+  {{- with resources.Get . -}}
+    {{- $bg = (.Process "webp q80").RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- with site.Params.cover.imageDeep -}}
+  {{- with resources.Get . -}}
+    {{- $bgDeep = (.Process "webp q80").RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+<div
+  class="cover{{ if $bg }} has-bg{{ end }}"
+  id="profile-cover"
+  {{ with $bg }}style="background-image: url('{{ . }}')"{{ end }}
+>
+  {{ with $bgDeep }}
+    <div class="cover-deep" aria-hidden="true" style="background-image: url('{{ . }}')"></div>
+  {{ end }}
+
   <div class="profile-wrapper" id="profile-namecard">
     <div class="profile-col profile-col-1" id="my-pic">
       <span

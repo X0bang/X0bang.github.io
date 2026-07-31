@@ -89,6 +89,14 @@ rest sit behind "Show all".
 portrait is hovered (or tapped / focused), which fades the cover card into its
 dark state.
 
+**The cover artwork** — `[params.cover]` in `hugo.toml`, with paths relative to
+`assets/`. `image` is always behind the profile card; `imageDeep` is the optional
+"painted twin" that fades in with the epigraph. Both are converted to WebP at
+build time, so commit the full-quality source and let Hugo do the compressing —
+the originals are never published. Use a **2:1** image around 1800–2900 px wide,
+composed so the lower middle stays quiet: the card sits there. Leave `image`
+empty to fall back to the plain gradient cover.
+
 ## Sections that are currently hidden
 
 Three sections are written and working but not rendered, because there is nothing

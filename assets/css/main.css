@@ -290,6 +290,39 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+/* Without artwork the cover falls back to a plain gradient. */
+.cover:not(.has-bg) {
+  background: linear-gradient(180deg, var(--chrome) 0%, #14171c 62%, var(--page) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.cover.has-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 35%;
+  background-color: var(--chrome);
+  border-radius: 0 0 14px 14px;
+}
+
+/* The "painted twin": same framing, different palette, revealed with the
+   epigraph while the portrait is hovered. */
+.cover-deep {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 35%;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+  pointer-events: none;
+}
+
+.cover.deep .cover-deep {
+  opacity: 1;
 }
 
 /* Deep state darkens the card and swaps the contact face for the epigraph. */
