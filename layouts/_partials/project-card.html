@@ -11,7 +11,16 @@
 <div class="pub-card reveal">
   <div class="pub-thumb">
     {{ with .Params.thumb }}
-      <img src="{{ . | relURL }}" loading="lazy" alt="{{ $.Title }}" />
+      {{- /* A still in ./assets is resized and converted; animated files have
+             to stay in static/, since the pipeline would flatten them. */ -}}
+      {{- $src := . | relURL -}}
+      {{- with resources.Get . -}}
+        {{- $i := . -}}
+        {{- if gt .Width 600 }}{{ $i = .Resize "600x" }}{{ end -}}
+        {{- if ne .MediaType.SubType "svg" }}{{ $i = $i.Process "webp q82" }}{{ end -}}
+        {{- $src = $i.RelPermalink -}}
+      {{- end -}}
+      <img src="{{ $src }}" loading="lazy" alt="{{ $.Title }}" />
     {{ else }}
       {{- /* TODO: 给项目加 thumb 字段指向 static/images/ 下的图,占位块就会替换掉 */ -}}
       <span class="pub-thumb-empty" aria-hidden="true">No image</span>

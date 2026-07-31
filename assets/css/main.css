@@ -1595,6 +1595,26 @@ button {
   padding: 0;
 }
 
+.fig {
+  margin: 1.6em 0;
+}
+
+.fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+}
+
+.fig figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
 .prose hr {
   border: 0;
   border-top: 1px solid var(--line);

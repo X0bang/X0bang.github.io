@@ -6,6 +6,7 @@ weight: 5
 selected: true
 venue: "Provincial SRTP"
 status: "Completed"
+thumb: "images/projects/srtp-design.png"
 authors: "Advised by Prof. Ming Chen"
 tags: ["metabolic engineering", "SRTP", "synthetic biology"]
 links:
@@ -36,6 +37,9 @@ reversibly.
 
 Tools: GROMACS, LC-MS, SnapGene, GSMM, Python, R, optogenetics.
 
+{{< figure src="images/projects/srtp-design.png"
+  caption="System design: enzyme and flux engineering alongside the quorum-sensing and blue-light control circuits." >}}
+
 ## Results
 
 - A **vioE mutant with +32% activity**, identified through semi-rational design and MD
@@ -44,6 +48,9 @@ Tools: GROMACS, LC-MS, SnapGene, GSMM, Python, R, optogenetics.
   yield improvements.
 - Working **programmable, reversible switching** of pigment output via the combined
   quorum-sensing and blue-light split-Cre circuits.
+
+{{< figure src="images/projects/srtp-result.png"
+  caption="Results across the engineered strains." >}}
 
 _Supported by a Provincial SRTP Research Grant (Zhejiang Provincial Department of Science
 and Technology, 12,000 RMB)._

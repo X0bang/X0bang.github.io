@@ -1,0 +1,29 @@
+{{- /*
+  A figure inside a project page.
+
+    {{< figure src="images/projects/foo.png" caption="What it shows" >}}
+
+  `src` is relative to ./assets — the source is resized to 1600px wide and
+  converted to WebP, so full-resolution originals can be committed without
+  shipping them. A path outside ./assets is used as-is.
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $caption := .Get "caption" -}}
+{{- $alt := .Get "alt" | default $caption -}}
+{{- $w := "" -}}{{- $h := "" -}}
+
+{{- with resources.Get $src -}}
+  {{- $img := . -}}
+  {{- if gt .Width 1600 }}{{ $img = .Resize "1600x" }}{{ end -}}
+  {{- if ne .MediaType.SubType "svg" }}{{ $img = $img.Process "webp q82" }}{{ end -}}
+  {{- $src = $img.RelPermalink -}}
+  {{- $w = $img.Width -}}{{- $h = $img.Height -}}
+{{- else -}}
+  {{- $src = $src | relURL -}}
+{{- end -}}
+
+<figure class="fig">
+  <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy"
+    {{ with $w }}width="{{ . }}"{{ end }} {{ with $h }}height="{{ . }}"{{ end }} />
+  {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>
