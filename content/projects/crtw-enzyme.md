@@ -4,7 +4,9 @@ date: 2025-09-01
 year: "2025"
 weight: 2
 selected: true
-venue: "Zhou Lab, ZJU"
+venue: "Zhejiang University"
+venueLogo: "images/logos/zju.svg"
+lab: "Zhou Lab"
 status: "Ongoing"
 authors: "Advised by Dr. Yangwei Jiang & [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)"
 tags: ["enzyme engineering", "protein design", "molecular dynamics"]

@@ -10,6 +10,7 @@
               {{ with .Params.year }}{{ . }}{{ else }}[TODO: 填入年份]{{ end }}
             </span>
             {{ with .Params.venue }}<span class="venue-pill">{{ . }}</span>{{ end }}
+            {{ with .Params.lab }}<span class="venue-pill">{{ . }}</span>{{ end }}
             {{ with .Params.status }}<span class="venue-status">{{ . }}</span>{{ end }}
             {{ with .Params.tags }}
               <span class="page-meta-tags">

@@ -4,7 +4,9 @@ date: 2026-03-01
 year: "2026"
 weight: 4
 selected: true
-venue: "Sui Lab, ZJU Medicine"
+venue: "ZJU Medicine"
+venueLogo: "images/logos/zju-medicine.png"
+lab: "Sui Lab"
 status: "Ongoing"
 thumbPoster: "images/projects/hcc-network-poster.webp"
 thumb: "images/projects/hcc-network.webp"

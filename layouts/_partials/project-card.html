@@ -60,9 +60,22 @@
       <div class="pub-authors">{{ . | markdownify }}</div>
     {{ end }}
 
-    {{ if or .Params.venue .Params.status .Params.year }}
+    {{ if or .Params.venue .Params.lab .Params.status .Params.year }}
       <div class="pub-venue">
-        {{ with .Params.venue }}<span class="venue-pill">{{ . }}</span>{{ end }}
+        {{- with .Params.venue -}}
+          <span class="venue-pill">
+            {{- with $.Params.venueLogo -}}
+              {{- with resources.Get . -}}
+                {{- $l := .RelPermalink -}}
+                {{- if ne .MediaType.SubType "svg" -}}
+                  {{- $l = ((.Resize "x40").Process "webp q85").RelPermalink -}}
+                {{- end -}}
+                <img class="venue-logo" src="{{ $l }}" alt="" loading="lazy" />
+              {{- end -}}
+            {{- end -}}
+            {{ . }}</span>
+        {{- end }}
+        {{ with .Params.lab }}<span class="venue-pill">{{ . }}</span>{{ end }}
         {{ with .Params.year }}<span class="venue-pill">{{ . }}</span>{{ end }}
         {{ with .Params.status }}<span class="venue-status">{{ . }}</span>{{ end }}
       </div>

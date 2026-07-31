@@ -4,7 +4,9 @@ date: 2025-03-01
 year: "2025"
 weight: 5
 selected: true
-venue: "Provincial SRTP"
+venue: "Zhejiang University"
+venueLogo: "images/logos/zju.svg"
+lab: "Chen Lab"
 status: "Completed"
 thumb: "images/projects/srtp-design.png"
 authors: "Advised by [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111)"

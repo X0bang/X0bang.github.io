@@ -1269,7 +1269,9 @@ button {
 }
 
 .venue-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   background: var(--venue-bg);
   color: var(--venue);
   font-family: var(--mono);
@@ -1279,6 +1281,14 @@ button {
   text-transform: uppercase;
   padding: 3px 9px;
   border-radius: 4px;
+}
+
+.venue-logo {
+  height: 13px;
+  width: auto;
+  max-width: 22px;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
 
 .venue-status {

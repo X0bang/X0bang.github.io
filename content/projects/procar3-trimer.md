@@ -4,7 +4,9 @@ date: 2026-06-01
 year: "2026"
 weight: 1
 selected: true
-venue: "WEHI InSPIRE"
+venue: "WEHI"
+venueLogo: "images/logos/wehi.jpg"
+lab: "Call Lab"
 status: "Ongoing"
 thumbPoster: "images/projects/procar3-poster.jpg"
 thumb: "images/projects/procar3-trimer.mp4"
