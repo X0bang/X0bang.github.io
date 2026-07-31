@@ -376,8 +376,8 @@ button {
 .profile-wrapper {
   position: relative;
   z-index: 1;
-  width: 540px;
-  max-width: calc(90% - (var(--gutter) / 2));
+  width: 660px;
+  max-width: calc(92% - (var(--gutter) / 2));
   margin: 0 auto;
   padding: 14px 18px;
   border-radius: 14px;
@@ -404,11 +404,11 @@ button {
 }
 
 .profile-col-1 {
-  flex: 0 0 40%;
+  flex: 0 0 172px;
 }
 
 .profile-col-2 {
-  flex: 1 1 60%;
+  flex: 1 1 auto;
   position: relative;
   display: grid;
   align-items: center;
@@ -525,7 +525,7 @@ button {
 .title-line + .title-line {
   margin-top: 2px;
   color: var(--muted);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 #my-affiliation {
@@ -2132,6 +2132,14 @@ button {
   .entry-date,
   .news-date {
     font-size: 11px;
+  }
+}
+
+/* Wide enough for the research line to sit on one line; below this the column
+   is narrower than the string and it wraps as normal. */
+@media screen and (min-width: 801px) {
+  .title-line {
+    white-space: nowrap;
   }
 }
 
