@@ -1,0 +1,40 @@
+{{- /*
+  Section: Selected Honors. Data lives in data/honors.yml (newest first).
+
+  Entries marked `brief: true` are always visible; the rest appear behind
+  "Show all". The section disappears on its own if the data file is removed.
+*/ -}}
+{{- $items := hugo.Data.honors -}}
+{{- if $items -}}
+  {{- $extra := where $items "brief" "!=" true -}}
+  <div class="honors" id="honors">
+    <div class="section-head">
+      <h2 class="section-title">Selected Honors</h2>
+    </div>
+
+    <div class="honors-body">
+      {{ range $items }}
+        <div class="entry{{ if not .brief }} honor-extra{{ else }} reveal{{ end }}">
+          <div class="entry-date">{{ .date }}</div>
+          <div class="entry-body">
+            <span class="entry-title">
+              {{- if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
+              {{- else }}{{ .title }}{{ end -}}
+            </span>
+            {{ with .org }}<span class="entry-meta">{{ . }}</span>{{ end }}
+            {{ with .desc }}<span class="entry-note">{{ . | markdownify }}</span>{{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+    {{ if gt (len $extra) 0 }}
+      <button class="list-toggle" id="honors-toggle" type="button" aria-expanded="false"
+        aria-controls="honors">
+        <span class="chev" aria-hidden="true">&#9662;</span>
+        <span class="more-label">Show all {{ len $items }}</span>
+        <span class="less-label">Show selected only</span>
+      </button>
+    {{ end }}
+  </div>
+{{- end -}}

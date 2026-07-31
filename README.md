@@ -32,6 +32,8 @@ install -m 0755 hugo ~/bin/hugo
 | Site config, social links, epigraph | `hugo.toml` |
 | Home page bio ("About") | `content/_index.md` — `bioShort` in front matter is the always-visible paragraph, the body is the expanded text |
 | Timeline entries | `data/timeline.yml` |
+| Invited talks | `data/talks.yml` |
+| Honors and awards | `data/honors.yml` |
 | News entries | `data/news.yml` |
 | Projects | `content/projects/*.md` |
 | CV page | `content/cv/_index.md` (PDF in `static/files/`) |
@@ -77,6 +79,11 @@ behind "Show all".
 **A timeline entry** — add to `data/timeline.yml`, newest first. `brief: true`
 keeps it visible while the timeline is collapsed; everything else appears when
 the "More about me" button expands the About/Timeline block.
+
+**A talk or an honor** — add to `data/talks.yml` or `data/honors.yml`, newest
+first; each file documents its own fields at the top. Honors use the same
+`brief: true` convention: marked entries are the "selected" ones on show, the
+rest sit behind "Show all".
 
 **The epigraph** — `[params.epigraph]` in `hugo.toml`. It is hidden until the
 portrait is hovered (or tapped / focused), which fades the cover card into its

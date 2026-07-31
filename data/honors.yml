@@ -1,0 +1,59 @@
+# Honors and awards, rendered on the home page (section "Selected Honors").
+#
+# Newest first. Fields:
+#   date  required. Free text, shown in mono caps (e.g. "Oct 2025").
+#   title required. The award.
+#   org   optional. Awarding body.
+#   desc  optional. One line of detail — scale, rank, or your role.
+#   url   optional. Links the title.
+#   brief optional, default false. `true` keeps the entry visible when the
+#         list is collapsed; the rest sit behind "Show all".
+
+- date: "Mar 2026"
+  title: 'Gold Medal, 18th "Dandelion" Undergraduate Innovation Competition'
+  org: "Zhejiang University"
+  desc: "CTO — LumaManta eDNA-based aquatic pathogen detection"
+  brief: true
+
+- date: "2026"
+  title: "WEHI InSPIRE Scholarship"
+  org: "Walter and Eliza Hall Institute of Medical Research"
+  desc: "8,000 AUD; competitively selected, ZJU-nominated"
+  url: "https://www.wehi.edu.au/education/undergraduate/inspire/"
+  brief: true
+
+- date: "Oct 2025"
+  title: "Silver Medal, iGEM 2025"
+  org: "International Genetically Engineered Machine Competition"
+  desc: "Technical Lead — ZJU-China, LumaManta"
+  url: "https://2025.igem.wiki/zju-china/"
+  brief: true
+
+- date: "Aug 2025"
+  title: "Grand Prize, National Synthetic Biology Innovation Competition"
+  org: "Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology"
+  desc: "1st place nationally"
+  brief: true
+
+- date: "Jan 2025"
+  title: 'First Prize (Champion), 2nd "Forbel Cup" National Pet Industry Innovation Competition'
+  org: "Shanghai Society of Animal Husbandry & Veterinary Medicine"
+  desc: 'Led the "Pet Smart Health" team'
+  brief: true
+
+- date: "2025"
+  title: "Provincial SRTP Research Grant"
+  org: "Zhejiang Provincial Department of Science and Technology"
+  desc: "12,000 RMB"
+
+- date: "2023 – 2025"
+  title: "Academic Honors & Scholarships"
+  org: "Zhejiang University"
+  desc: >-
+    Professional Excellence Scholarship (2023–2024); Third-Class Scholarship
+    (2024–2025); Innovation & Entrepreneurship Model and Academic Excellence
+    Model (2024–2025)
+
+- date: "Jun 2025"
+  title: "5th Place, Stand-Up Paddleboard 200 m"
+  org: "Zhejiang University Sports Championship"
