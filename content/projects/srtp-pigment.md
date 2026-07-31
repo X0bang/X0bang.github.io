@@ -4,7 +4,7 @@ date: 2025-03-01
 year: "2025"
 weight: 5
 selected: true
-venue: "Zhejiang University"
+venue: "ZJU"
 venueLogo: "images/logos/zju.svg"
 lab: "Chen Lab"
 status: "Completed"
