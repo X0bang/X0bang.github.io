@@ -25,3 +25,11 @@ Icon?
 .vscode/
 *.swp
 *~
+
+# CV source — kept locally, never published
+/Academic_CV_by/
+*.tex
+*.aux
+*.log
+*.out
+*.synctex.gz

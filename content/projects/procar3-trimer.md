@@ -47,14 +47,11 @@ Rosetta, ESM2.
 
 ## Results
 
-<!-- TODO: 这两处数值在 CV 的 PDF 文本层里被截断了(原文停在
-     "surface expression (73–74" 和 "stable trimer assembly (achieving 85"),
-     请按 CV 原稿把完整数字补进下面两行。 -->
-
-- **Surface expression** was confirmed for the TMD variants across both tumour cell lines,
-  establishing that the redesigned constructs traffic correctly before function is assessed.
-- **Trimer assembly** remained stable across the MD screen, supporting the hypothesis that
-  the redesigned TMD adopts and holds the intended trimeric form.
+- **Surface expression of 73–74%** was confirmed for the TMD variants across both tumour
+  cell lines, along with T cell activation — the redesigned constructs traffic correctly and
+  work.
+- **85%+ contact retention** across the MD screen, confirming the redesigned TMD assembles
+  into a stable trimer and holds that form.
 
 Work is ongoing, with functional comparison against the conventional 4-1BBζ architecture as
 the current focus.
