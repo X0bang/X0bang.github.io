@@ -6,6 +6,7 @@ weight: 4
 selected: true
 venue: "Sui Lab, ZJU Medicine"
 status: "Ongoing"
+thumbPoster: "images/projects/hcc-network-poster.webp"
 thumb: "images/projects/hcc-network.webp"
 authors: "Advised by Dr. Wenbin Zhou & Prof. Meihua Sui"
 tags: ["multi-omics", "bioinformatics", "cancer biology"]

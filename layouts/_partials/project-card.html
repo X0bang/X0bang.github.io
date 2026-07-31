@@ -7,6 +7,7 @@
     status  highlighted label (e.g. "In progress")
     authors collaborators line
     links   list of {name, url} rendered as chips (Paper / Code / Wiki / …)
+    thumbPoster  still shown in place of an animated `thumb` until hovered
 */ -}}
 <div class="pub-card reveal">
   <div class="pub-thumb">
@@ -20,7 +21,20 @@
         {{- if ne .MediaType.SubType "svg" }}{{ $i = $i.Process "webp q82" }}{{ end -}}
         {{- $src = $i.RelPermalink -}}
       {{- end -}}
-      <img src="{{ $src }}" loading="lazy" alt="{{ $.Title }}" />
+      {{- /* With a poster, the card shows a still and only fetches the
+             animation when it is hovered — an animated thumbnail otherwise
+             decodes on every copy of the card, in every view. */ -}}
+      {{- $poster := "" -}}
+      {{- with $.Params.thumbPoster -}}
+        {{- $poster = . | relURL -}}
+        {{- with resources.Get . }}{{ $poster = .RelPermalink }}{{ end -}}
+      {{- end -}}
+      {{ if $poster }}
+        <img src="{{ $poster }}" data-anim="{{ $src }}" loading="lazy"
+          alt="{{ $.Title }}" />
+      {{ else }}
+        <img src="{{ $src }}" loading="lazy" alt="{{ $.Title }}" />
+      {{ end }}
     {{ else }}
       {{- /* TODO: 给项目加 thumb 字段指向 static/images/ 下的图,占位块就会替换掉 */ -}}
       <span class="pub-thumb-empty" aria-hidden="true">No image</span>

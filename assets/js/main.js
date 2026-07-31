@@ -196,6 +196,20 @@
         card.style.setProperty("--my", e.clientY - r.top + "px");
       });
 
+      // Animated thumbnails start as a still; fetch the animation the first
+      // time the card is hovered, and never under reduced motion.
+      var thumb = card.querySelector(".pub-thumb img[data-anim]");
+      if (thumb && !reduced) {
+        card.addEventListener(
+          "mouseenter",
+          function () {
+            var anim = thumb.getAttribute("data-anim");
+            if (anim && thumb.getAttribute("src") !== anim) thumb.src = anim;
+          },
+          { once: true }
+        );
+      }
+
       var more = card.querySelector(".pub-more");
       if (more) {
         more.addEventListener("click", function (e) {
