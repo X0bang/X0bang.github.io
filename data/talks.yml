@@ -1,0 +1,14 @@
+# Invited talks, rendered on the home page (section "Invited Talks").
+#
+# Newest first. Fields:
+#   date  required. Free text, shown in mono caps (e.g. "Oct 2025").
+#   title required. The talk / speaking role.
+#   venue optional. Host, conference, or seminar series.
+#   desc  optional. One line of detail. Markdown is allowed.
+#   url   optional. Links the title.
+
+- date: "Oct 2025"
+  title: "Invited Speaker, 2025 iGEM Jamboree"
+  venue: "International Genetically Engineered Machine Competition"
+  desc: "Presented LumaManta's biosensing design to the international iGEM community."
+  url: ""

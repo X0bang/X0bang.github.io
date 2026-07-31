@@ -85,13 +85,13 @@ dark state.
 ## Sections that are currently hidden
 
 Three sections are written and working but not rendered, because there is nothing
-to put in them yet: **Invited Talks**, **Junior Collaborators & Interns**, and
+to put in them yet: **News**, **Junior Collaborators & Interns**, and
 **Academic Service**.
 
 To bring one back:
 
 1. create the data file named in the partial's header comment —
-   `data/talks.yml`, `data/collaborators.yml`, or `data/service.yml`;
+   `data/news.yml`, `data/collaborators.yml`, or `data/service.yml`;
 2. uncomment the matching `partial` line in `layouts/home.html`.
 
 Section numbers (`01`, `02`, …) come from a CSS counter, so they renumber

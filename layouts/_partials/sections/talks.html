@@ -1,34 +1,30 @@
 {{- /*
-  Section: Invited Talks — CURRENTLY HIDDEN.
+  Section: Invited Talks. Data lives in data/talks.yml (newest first).
 
-  Nothing renders until you (1) create data/talks.yml and (2) uncomment the
-  `partial "sections/talks.html"` line in layouts/home.html.
-
-  data/talks.yml format:
-    - date: "Mar 2027"
-      title: "Talk title"
-      venue: "Host / seminar series"
-      url: "https://…"      # optional
+  The section disappears on its own if the data file is empty or removed —
+  see the field list at the top of data/talks.yml.
 */ -}}
 {{- $items := hugo.Data.talks -}}
 {{- if $items -}}
-  <section class="section" id="talks">
-    <h2 class="section-title">Invited Talks</h2>
-    <div class="section-body">
-      <ul class="entry-list">
-        {{ range $items }}
-          <li class="entry">
-            <span class="entry-date">{{ .date }}</span>
-            <span class="entry-body">
-              <span class="entry-title">
-                {{ if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
-                {{ else }}{{ .title }}{{ end }}
-              </span>
-              {{ with .venue }}<span class="entry-meta">{{ . }}</span>{{ end }}
-            </span>
-          </li>
-        {{ end }}
-      </ul>
+  <div class="talks" id="talks">
+    <div class="section-head">
+      <h2 class="section-title">Invited Talks</h2>
     </div>
-  </section>
+
+    <div class="talks-body">
+      {{ range $items }}
+        <div class="entry reveal">
+          <div class="entry-date">{{ .date }}</div>
+          <div class="entry-body">
+            <span class="entry-title">
+              {{- if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
+              {{- else }}{{ .title }}{{ end -}}
+            </span>
+            {{ with .venue }}<span class="entry-meta">{{ . }}</span>{{ end }}
+            {{ with .desc }}<span class="entry-note">{{ . | markdownify }}</span>{{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
 {{- end -}}
