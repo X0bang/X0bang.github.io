@@ -57,9 +57,15 @@ thumb: "images/projects/foo.png"   # optional; a placeholder tile shows without 
 venue: "iGEM 2025"  # optional pill
 status: "Ongoing"   # optional highlighted pill
 authors: "With A. Person, B. Person"   # optional collaborators line
+links:              # optional chips: Paper / Code / Wiki / Webpage / …
+  - name: "Code"
+    url: "https://github.com/…"
 draft: false
 ---
 ```
+
+Keep `summary` to one compressed, verb-first sentence — it is the line that does
+the work on the card.
 
 The Projects section has three views — **Selected**, **By Year**, **By Topic**.
 "Selected" lists the projects marked `selected: true`, and falls back to showing

@@ -9,14 +9,26 @@
             <span class="page-meta-year">
               {{ with .Params.year }}{{ . }}{{ else }}[TODO: 填入年份]{{ end }}
             </span>
+            {{ with .Params.venue }}<span class="venue-pill">{{ . }}</span>{{ end }}
+            {{ with .Params.status }}<span class="venue-status">{{ . }}</span>{{ end }}
             {{ with .Params.tags }}
               <span class="page-meta-tags">
                 {{ range . }}
-                  <a class="tag" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>
+                  <a class="tag-btn" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>
                 {{ end }}
               </span>
             {{ end }}
           </p>
+
+          {{ with .Params.authors }}<p class="page-authors">{{ . | markdownify }}</p>{{ end }}
+
+          {{ with .Params.links }}
+            <p class="pub-links">
+              {{ range . }}
+                <a class="link-btn" href="{{ .url }}" rel="noopener">{{ .name }}</a>
+              {{ end }}
+            </p>
+          {{ end }}
         {{ end }}
       </header>
 

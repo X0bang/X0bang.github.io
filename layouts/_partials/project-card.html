@@ -6,6 +6,7 @@
     venue   short label shown as a pill (e.g. "iGEM 2025")
     status  highlighted label (e.g. "In progress")
     authors collaborators line
+    links   list of {name, url} rendered as chips (Paper / Code / Wiki / …)
 */ -}}
 <div class="pub-card reveal">
   <div class="pub-thumb">
@@ -29,6 +30,14 @@
         {{ with .Params.venue }}<span class="venue-pill">{{ . }}</span>{{ end }}
         {{ with .Params.year }}<span class="venue-pill">{{ . }}</span>{{ end }}
         {{ with .Params.status }}<span class="venue-status">{{ . }}</span>{{ end }}
+      </div>
+    {{ end }}
+
+    {{ with .Params.links }}
+      <div class="pub-links">
+        {{ range . }}
+          <a class="link-btn" href="{{ .url }}" rel="noopener">{{ .name }}</a>
+        {{ end }}
       </div>
     {{ end }}
 

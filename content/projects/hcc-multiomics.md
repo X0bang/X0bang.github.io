@@ -8,7 +8,7 @@ venue: "Sui Lab, ZJU Medicine"
 status: "Ongoing"
 authors: "Advised by Dr. Wenbin Zhou · Prof. Meihua Sui's Lab, School of Medicine, Zhejiang University"
 tags: ["multi-omics", "bioinformatics", "cancer biology"]
-summary: "Transcriptomic and metabolomic analysis across 174 mice, tracing sex-biased metabolites through hepatitis, cirrhosis, and HCC — and testing whether hormone supplementation reverses them."
+summary: "Tracing sex-biased metabolites across 174 mice from hepatitis through cirrhosis to HCC, then reversing them with estrogen supplementation."
 draft: false
 ---
 

@@ -8,7 +8,12 @@ venue: "iGEM 2025"
 status: "Silver Medal"
 authors: "Technical Lead, ZJU-China · Advised by Prof. Ming Chen and Assoc. Prof. Fan Yang, School of Life Sciences, Zhejiang University"
 tags: ["iGEM", "synthetic biology", "optogenetics"]
-summary: "Led a 14-member team building an all-in-one device for real-time water pollutant and eDNA monitoring, driven by a light-controlled CRISPR logic circuit."
+links:
+  - name: "Wiki"
+    url: "https://2025.igem.wiki/zju-china/"
+  - name: "Code"
+    url: "https://gitlab.igem.org/2025/zju-china"
+summary: "Converting two light inputs into four sensor proteins on demand with CRISPR logic gates, packaged as an all-in-one device for water pollutant and eDNA monitoring."
 draft: false
 ---
 

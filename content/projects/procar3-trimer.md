@@ -8,7 +8,10 @@ venue: "WEHI InSPIRE"
 status: "Ongoing"
 authors: "Supervised by Dr. Emma Petley · PIs: Prof. Matt Call & A/Prof. Melissa Call, Walter and Eliza Hall Institute (WEHI)"
 tags: ["protein engineering", "structural biology", "molecular dynamics"]
-summary: "Testing whether restoring the 4-1BBζ transmembrane domain to its natural trimeric form improves CAR-T activation, pairing MD screening with functional assays."
+links:
+  - name: "Program"
+    url: "https://www.wehi.edu.au/education/undergraduate/inspire/"
+summary: "Redesigning a CAR-T costimulatory transmembrane domain back into its native trimeric form, screened by 2 µs MD and validated by flow cytometry and degranulation assays."
 draft: false
 ---
 

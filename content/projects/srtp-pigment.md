@@ -8,7 +8,10 @@ venue: "Provincial SRTP"
 status: "Completed"
 authors: "Advised by Prof. Ming Chen, School of Life Sciences, Zhejiang University"
 tags: ["metabolic engineering", "SRTP", "synthetic biology"]
-summary: "Enzyme and pathway engineering for microbial pigment production, plus light- and quorum-controlled circuits that make the output switchable."
+links:
+  - name: "Wiki"
+    url: "https://2024.igem.wiki/zju-china/"
+summary: "Engineering vioE activity and pathway flux for pigment yield, with light- and quorum-controlled circuits that make the output switchable."
 draft: false
 ---
 

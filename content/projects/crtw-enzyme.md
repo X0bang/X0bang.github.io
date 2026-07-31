@@ -8,7 +8,10 @@ venue: "Zhou Lab, ZJU"
 status: "Ongoing"
 authors: "Advised by Dr. Yangwei Jiang · Qiushi Chair Prof. Ruhong Zhou's Lab, School of Life Sciences, Zhejiang University"
 tags: ["enzyme engineering", "protein design", "molecular dynamics"]
-summary: "Structure- and sequence-based redesign of the rate-limiting β-carotene ketolase CrtW, validated in vitro at +46.7% yield."
+links:
+  - name: "Code"
+    url: "https://github.com/X0bang/crtw-enzyme-design"
+summary: "Combining Rosetta FuncLib with protein language models to redesign the rate-limiting astaxanthin ketolase, validated in vitro at +46.7% yield."
 draft: false
 ---
 
