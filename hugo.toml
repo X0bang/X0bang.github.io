@@ -28,8 +28,9 @@ enableEmoji = true
   tagline = "Undergraduate in Biological Sciences, Zhejiang University"
   affiliation = "College of Life Sciences, Zhejiang University · Hangzhou, China"
 
-  # Printed on the cover card. Leave empty to hide the line.
-  email = "zby2476151960@gmail.com"
+  # Printed on the cover card, first one first. Leave the list empty to hide
+  # the line. The first address is also the one the Email icon links to.
+  emails = ["mrboyuezhang@gmail.com", "boyue@zju.edu.cn"]
 
   # Drop a square photo at static/images/avatar.jpg and set this to
   # "images/avatar.jpg". While it is empty the card falls back to a monogram.
@@ -64,7 +65,7 @@ enableEmoji = true
   name = "Email"
   icon = "email"
   weight = 2
-  url = "mailto:zby2476151960@gmail.com"
+  url = "mailto:mrboyuezhang@gmail.com"
 
 [[params.social]]
   name = "CV"

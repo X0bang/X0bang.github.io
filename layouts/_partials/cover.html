@@ -40,8 +40,13 @@
         <div id="my-name">{{ site.Params.author }}</div>
         <div id="my-title">{{ site.Params.tagline }}</div>
         <div id="my-affiliation">{{ site.Params.affiliation }}</div>
-        {{ with site.Params.email }}
-          <div id="my-email"><a href="mailto:{{ . }}">{{ . }}</a></div>
+        {{ with site.Params.emails }}
+          <div id="my-email">
+            {{ range $i, $e := . }}
+              {{ if $i }}<span class="email-sep"> · </span>{{ end }}
+              <a href="mailto:{{ $e }}">{{ $e }}</a>
+            {{ end }}
+          </div>
         {{ end }}
 
         <div class="social-media">

@@ -6,7 +6,7 @@ weight: 2
 selected: true
 venue: "Zhou Lab, ZJU"
 status: "Ongoing"
-authors: "Advised by Dr. Yangwei Jiang · Qiushi Chair Prof. Ruhong Zhou's Lab, School of Life Sciences, Zhejiang University"
+authors: "Advised by Dr. Yangwei Jiang & Prof. Ruhong Zhou"
 tags: ["enzyme engineering", "protein design", "molecular dynamics"]
 links:
   - name: "Code"

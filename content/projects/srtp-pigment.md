@@ -6,7 +6,7 @@ weight: 5
 selected: true
 venue: "Provincial SRTP"
 status: "Completed"
-authors: "Advised by Prof. Ming Chen, School of Life Sciences, Zhejiang University"
+authors: "Advised by Prof. Ming Chen"
 tags: ["metabolic engineering", "SRTP", "synthetic biology"]
 links:
   - name: "Wiki"
