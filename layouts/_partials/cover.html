@@ -9,9 +9,14 @@
        so the originals are never published. */ -}}
 {{- $bg := "" -}}
 {{- $bgDeep := "" -}}
+{{- $ratio := "" -}}
 {{- with site.Params.cover.image -}}
   {{- with resources.Get . -}}
-    {{- $bg = (.Process "webp q80").RelPermalink -}}
+    {{- $img := .Process "webp q80" -}}
+    {{- $bg = $img.RelPermalink -}}
+    {{- /* Drive the cover's height from the artwork's own proportions, so
+           nothing is cropped whatever ratio you supply. */ -}}
+    {{- $ratio = printf "%d / %d" $img.Width $img.Height -}}
   {{- end -}}
 {{- end -}}
 {{- with site.Params.cover.imageDeep -}}
@@ -23,7 +28,11 @@
 <div
   class="cover{{ if $bg }} has-bg{{ end }}"
   id="profile-cover"
-  {{ with $bg }}style="background-image: url('{{ . }}')"{{ end }}
+  {{- /* safeCSS: the custom property is filtered out by the CSS sanitiser
+         otherwise. Both values are built here, never from user input. */ -}}
+  {{ with $bg }}
+    style="{{ printf "background-image: url('%s'); --cover-ratio: %s" . $ratio | safeCSS }}"
+  {{ end }}
 >
   {{ with $bgDeep }}
     <div class="cover-deep" aria-hidden="true" style="background-image: url('{{ . }}')"></div>

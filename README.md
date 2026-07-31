@@ -93,9 +93,15 @@ dark state.
 `assets/`. `image` is always behind the profile card; `imageDeep` is the optional
 "painted twin" that fades in with the epigraph. Both are converted to WebP at
 build time, so commit the full-quality source and let Hugo do the compressing —
-the originals are never published. Use a **2:1** image around 1800–2900 px wide,
-composed so the lower middle stays quiet: the card sits there. Leave `image`
-empty to fall back to the plain gradient cover.
+the originals are never published. Leave `image` empty to fall back to the plain
+gradient cover.
+
+**Any aspect ratio works.** The cover reads the artwork's real dimensions and
+takes that shape (`--cover-ratio`, set inline), so the composition is shown whole
+rather than cropped into a fixed band. Both images should share a ratio, since
+they crossfade in the same box. Compose so the **lower third stays quiet** — the
+profile card sits there, and on wide screens the top two thirds are what shows.
+Around 1800–2900 px wide is plenty; below ~1400 px it softens on retina screens.
 
 ## Sections that are currently hidden
 

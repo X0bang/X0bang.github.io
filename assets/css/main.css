@@ -299,12 +299,22 @@ button {
   border-bottom: 1px solid var(--line);
 }
 
+/* The box takes the artwork's own aspect ratio (set inline from the image's
+   real dimensions), so the composition is shown whole instead of being cropped
+   to a fixed-height band. `min-height` is only a floor for narrow screens. */
 .cover.has-bg {
+  aspect-ratio: var(--cover-ratio, 2.485);
+  min-height: 320px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 35%;
+  background-position: center center;
   background-color: var(--chrome);
   border-radius: 0 0 14px 14px;
+
+  /* The card sits low, over the quiet part of the frame, leaving the upper
+     two thirds of the artwork visible. */
+  align-items: flex-end;
+  padding-bottom: 28px;
 }
 
 /* The "painted twin": same framing, different palette, revealed with the
@@ -315,7 +325,8 @@ button {
   z-index: 0;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 35%;
+  /* Must match the base layer, or the crossfade visibly shifts. */
+  background-position: center center;
   opacity: 0;
   transition: opacity 0.6s var(--ease);
   pointer-events: none;
@@ -1696,6 +1707,16 @@ button {
 
   .cover {
     min-height: 0;
+  }
+
+  /* Stacked card is tall, so let the box grow with it and re-centre; the
+     artwork falls back to covering whatever shape that leaves. */
+  .cover.has-bg {
+    aspect-ratio: auto;
+    min-height: 0;
+    align-items: center;
+    padding-bottom: 12px;
+    background-position: center 30%;
   }
 
   .footer-col-1,
