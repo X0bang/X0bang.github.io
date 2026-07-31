@@ -18,6 +18,17 @@
           <div class="entry-date">{{ .date }}</div>
           <div class="entry-body">
             <span class="entry-title">
+              {{- with .logo -}}
+                {{- with resources.Get . -}}
+                  {{- /* SVGs are served as-is; raster marks are resized to
+                         48px tall — 2x their 24px display size. */ -}}
+                  {{- $src := .RelPermalink -}}
+                  {{- if ne .MediaType.SubType "svg" -}}
+                    {{- $src = ((.Resize "x48").Process "webp q85").RelPermalink -}}
+                  {{- end -}}
+                  <img class="entry-logo" src="{{ $src }}" alt="" loading="lazy" />
+                {{- end -}}
+              {{- end -}}
               {{- if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
               {{- else }}{{ .title }}{{ end -}}
             </span>

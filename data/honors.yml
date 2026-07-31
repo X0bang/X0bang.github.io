@@ -7,6 +7,8 @@
 #   org   optional. Awarding body.
 #   desc  optional. One line of detail — scale, rank, or your role.
 #   url   optional. Links the title.
+#   logo  optional. Awarding body's mark, relative to ./assets — see
+#         assets/images/logos/README.md. Omit and the row is simply text.
 #   brief optional, default false. `true` keeps the entry visible when the
 #         list is collapsed; the rest sit behind "Show all".
 
@@ -22,6 +24,7 @@
   org: "International Genetically Engineered Machine Competition"
   desc: "Technical Lead — ZJU-China, LumaManta"
   url: "https://2025.igem.wiki/zju-china/"
+  logo: "images/logos/igem.svg"
   brief: true
 
 - date: "Aug 2025"

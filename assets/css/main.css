@@ -195,6 +195,38 @@ button {
   z-index: 5;
 }
 
+/* On the home page the bar floats over the cover artwork instead of sitting
+   above it as a separate black band — two near-blacks meeting at a seam read
+   as a mismatch. A scrim keeps the nav legible whatever the artwork does. */
+.is-home .site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: transparent;
+  border-bottom: 0;
+}
+
+.is-home .site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 8, 12, 0.72) 0%,
+    rgba(6, 8, 12, 0.38) 55%,
+    rgba(6, 8, 12, 0) 100%
+  );
+  pointer-events: none;
+}
+
+/* Room for the floating bar, so the artwork is not hidden behind it. */
+.is-home .cover {
+  padding-top: 56px;
+}
+
 .site-header .wrapper {
   display: flex;
   align-items: center;
@@ -1366,6 +1398,29 @@ button {
   color: var(--ink);
   font-weight: 600;
   font-size: 0.98rem;
+}
+
+/* Awarding-body mark. Greyscale by default so a colourful logo does not break
+   the monochrome palette; it regains its colour on hover. */
+.entry-logo {
+  height: 24px;
+  width: auto;
+  max-width: 96px;
+  vertical-align: -6px;
+  margin-right: 9px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.75;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.entry:hover .entry-logo {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+[data-theme="dark"] .entry-logo {
+  opacity: 0.85;
 }
 
 .entry-meta,
