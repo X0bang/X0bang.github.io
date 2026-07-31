@@ -6,7 +6,7 @@ bioShort: >-
   [Zhejiang University](https://www.zju.edu.cn/english/), working on computational
   protein design and multi-omics analysis. I am currently a research intern at the
   [Walter and Eliza Hall Institute](https://www.wehi.edu.au/) through the InSPIRE
-  program, where I work on CAR-T receptor design. I am applying to PhD programs.
+  program, where I work on CAR-T receptor design.
 date: 2026-07-31
 ---
 
