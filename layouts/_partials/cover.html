@@ -19,6 +19,18 @@
     {{- $ratio = printf "%d / %d" $img.Width $img.Height -}}
   {{- end -}}
 {{- end -}}
+{{- /* Portrait: square-cropped and converted here, at 2x the 168px it renders
+       at, so the full-resolution source never ships. A path that is not in
+       ./assets is used as-is. */ -}}
+{{- $avatar := "" -}}
+{{- with site.Params.avatar -}}
+  {{- with resources.Get . -}}
+    {{- $avatar = ((.Fill "336x336 Center").Process "webp q85").RelPermalink -}}
+  {{- else -}}
+    {{- $avatar = . | relURL -}}
+  {{- end -}}
+{{- end -}}
+
 {{- with site.Params.cover.imageDeep -}}
   {{- with resources.Get . -}}
     {{- $bgDeep = (.Process "webp q80").RelPermalink -}}
@@ -52,11 +64,11 @@
         aria-pressed="false"
         aria-label="Show the epigraph"
       >
-        {{ with site.Params.avatar }}
+        {{ with $avatar }}
           <img
             class="circle-img"
             id="profile-avatar"
-            src="{{ . | relURL }}"
+            src="{{ . }}"
             alt="{{ site.Params.author }}"
             width="168"
             height="168"

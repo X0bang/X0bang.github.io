@@ -32,9 +32,9 @@ enableEmoji = true
   # the line. The first address is also the one the Email icon links to.
   emails = ["boyue@zju.edu.cn"]
 
-  # Drop a square photo at static/images/avatar.jpg and set this to
-  # "images/avatar.jpg". While it is empty the card falls back to a monogram.
-  avatar = "" # TODO: 填入头像图片路径,例如 "images/avatar.jpg"
+  # Portrait, relative to ./assets — square-cropped to 336px and converted to
+  # WebP at build time, so commit the full-size original. Empty = monogram.
+  avatar = "images/avatar.png"
 
   # X/Twitter handle (no @) for the twitter:site meta tag. Empty = omitted.
   twitterHandle = "" # TODO: 有 X/Twitter 就填,没有留空
