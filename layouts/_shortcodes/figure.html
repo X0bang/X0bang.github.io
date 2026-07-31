@@ -3,7 +3,8 @@
 
     {{< figure src="images/projects/foo.png" caption="What it shows" >}}
 
-  `src` is relative to ./assets — the source is resized to 1600px wide and
+  `src` is relative to ./assets — the source is resized to 1440px wide (2x the
+  720px a figure displays at) and
   converted to WebP, so full-resolution originals can be committed without
   shipping them. A path outside ./assets is used as-is.
 */ -}}
@@ -14,7 +15,7 @@
 
 {{- with resources.Get $src -}}
   {{- $img := . -}}
-  {{- if gt .Width 1600 }}{{ $img = .Resize "1600x" }}{{ end -}}
+  {{- if gt .Width 1440 }}{{ $img = .Resize "1440x" }}{{ end -}}
   {{- if ne .MediaType.SubType "svg" }}{{ $img = $img.Process "webp q82" }}{{ end -}}
   {{- $src = $img.RelPermalink -}}
   {{- $w = $img.Width -}}{{- $h = $img.Height -}}

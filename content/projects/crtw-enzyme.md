@@ -37,7 +37,7 @@ the ligand-binding pocket stays.
 Tools: Rosetta, GROMACS, ESM2, PyMOL, AlphaFold3, HPLC.
 
 {{< figure src="images/projects/crtw-strategy.png"
-  caption="[TODO: 核对图注] Design strategy — structure-based and sequence-based screening feeding into MD evaluation." >}}
+  caption="Design strategy — structure-based and sequence-based screening feeding into MD evaluation." >}}
 
 ## Results
 
@@ -48,10 +48,10 @@ Tools: Rosetta, GROMACS, ESM2, PyMOL, AlphaFold3, HPLC.
   reaching +46.7% yield over wild-type**.
 
 {{< figure src="images/projects/crtw-result-single.png"
-  caption="[TODO: 核对图注] Single mutants." >}}
+  caption="Single mutants." >}}
 
 {{< figure src="images/projects/crtw-result-double.png"
-  caption="[TODO: 核对图注] Double mutants, including G142P + I192L." >}}
+  caption="Double mutants, including G142P + I192L." >}}
 
 The MD stage is what separated the winning design from candidates that looked comparable on
 structure alone.

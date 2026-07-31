@@ -42,39 +42,39 @@ AlphaFold3.
 ### Genetic circuit
 
 {{< figure src="images/projects/igem/igem-07-optogenetic-logic-circuit.png"
-  caption="[TODO: 核对图注] Optogenetic logic circuit design." >}}
+  caption="Optogenetic logic circuit design." >}}
 
 ### Wet lab
 
 {{< figure src="images/projects/igem/igem-01-wetlab-design.png"
-  caption="[TODO: 核对图注] Wet lab design." >}}
+  caption="Wet lab design." >}}
 
 ### Modelling
 
 {{< figure src="images/projects/igem/igem-02-model-design.png"
-  caption="[TODO: 核对图注] Model design." >}}
+  caption="Model design." >}}
 
 {{< figure src="images/projects/igem/igem-03-molecular-design-kinetics.png"
-  caption="[TODO: 核对图注] Molecular design and kinetic modelling." >}}
+  caption="Molecular design and kinetic modelling." >}}
 
 {{< figure src="images/projects/igem/igem-05-strand-replacement-simulation.png"
-  caption="[TODO: 核对图注] Dispersion and device-level simulation of the strand-replacing reaction." >}}
+  caption="Dispersion and device-level simulation of the strand-replacing reaction." >}}
 
 {{< figure src="images/projects/igem/igem-06-environment-system-behavior.png"
-  caption="[TODO: 核对图注] Environment and system behaviour." >}}
+  caption="Environment and system behaviour." >}}
 
 ### Detection module
 
 {{< figure src="images/projects/igem/igem-08-dna-immobilization.png"
-  caption="[TODO: 核对图注] DNA immobilisation." >}}
+  caption="DNA immobilisation." >}}
 
 ### Hardware
 
 {{< figure src="images/projects/igem/igem-10-hardware-1.png"
-  caption="[TODO: 核对图注] Device hardware." >}}
+  caption="Device hardware." >}}
 
 {{< figure src="images/projects/igem/igem-11-hardware-2.png"
-  caption="[TODO: 核对图注] Device hardware, continued." >}}
+  caption="Device hardware, continued." >}}
 
 ## Results
 
@@ -86,7 +86,7 @@ AlphaFold3.
   Competition.
 
 {{< figure src="images/projects/igem/igem-04-atf-reprogramming.png"
-  caption="[TODO: 核对图注] Progress on aTF reprogramming." >}}
+  caption="Progress on aTF reprogramming." >}}
 
 {{< figure src="images/projects/igem/igem-09-detection-model-result.png"
-  caption="[TODO: 核对图注] Detection model results." >}}
+  caption="Detection model results." >}}

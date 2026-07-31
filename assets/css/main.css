@@ -1596,7 +1596,10 @@ button {
 }
 
 .fig {
-  margin: 1.6em 0;
+  /* Narrower than the text column: these panels are wide, and at full width
+     they overpower the prose around them. */
+  max-width: 720px;
+  margin: 1.6em auto;
 }
 
 .fig img {
