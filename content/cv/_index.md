@@ -67,8 +67,8 @@ Mar 2025 – Feb 2026 · Rated Outstanding
 
 - **WEHI InSPIRE Scholarship**, 2026 — 8,000 AUD; competitively selected, ZJU-nominated
 - **Silver Medal, iGEM 2025** — Technical Lead, ZJU-China
-- **Grand Prize, National Synthetic Biology Innovation Competition**, Aug 2025 — 1st
-  nationally; Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology
+- **Grand Prize, [SynBio Challenges](http://www.synbiochallenges.com/)**, Aug 2025 — 1st nationally; Chinese Society
+  for Biotechnology & Shenzhen Institute of Synthetic Biology
 - **Gold Medal, 18th "Dandelion" Undergraduate Innovation Competition**, Mar 2026 — CTO,
   LumaManta eDNA-based aquatic pathogen detection
 - **First Prize (Champion), 2nd "Forbel Cup" National Pet Industry Innovation Competition**,

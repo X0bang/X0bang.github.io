@@ -34,9 +34,10 @@
   brief: true
 
 - date: "Aug 2025"
-  title: "Grand Prize, National Synthetic Biology Innovation Competition"
+  title: "Grand Prize, SynBio Challenges"
   org: "Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology"
   desc: "1st place nationally"
+  url: "http://www.synbiochallenges.com/"
   logos:
     - "images/logos/synbio-competition.png"
     - "images/logos/csbt.webp"
