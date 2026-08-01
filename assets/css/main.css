@@ -2184,15 +2184,26 @@ button {
    under all of them makes the row look deliberate instead of accidental. */
 [data-theme="dark"] .entry-logo,
 [data-theme="dark"] .tmline-logo img {
-  background: #f2f3f5;
-  border-radius: 3px;
-  padding: 2px;
+  /* Off-white rather than paper white, with padding and a radius, so a mark
+     that carries its own white background reads as a deliberate chip instead
+     of a bright rectangle punched out of the page. */
+  background: #e4e7ec;
+  border-radius: 4px;
+  padding: 3px 4px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+[data-theme="dark"] .entry:hover .entry-logo,
+[data-theme="dark"] .tmline-item:hover .tmline-logo img {
+  opacity: 1;
 }
 
 [data-theme="dark"] .venue-logo {
-  background: #f2f3f5;
-  border-radius: 2px;
-  padding: 1px;
+  background: #e4e7ec;
+  border-radius: 3px;
+  padding: 1px 2px;
+  opacity: 0.9;
 }
 
 /* Figures are drawn for white paper, and several are PNGs with transparent
