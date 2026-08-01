@@ -18,7 +18,7 @@
     <h2 class="section-title">About</h2>
     <div class="dash-bio-body">
       {{ with .Params.bioShort }}
-        <p class="bio-text-short">{{ . | markdownify }}</p>
+        <div class="bio-text-short prose">{{ . | markdownify }}</div>
       {{ end }}
       {{ with .Content }}
         <div class="bio-text-full prose">{{ . }}</div>

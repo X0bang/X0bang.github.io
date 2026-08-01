@@ -722,6 +722,10 @@ button {
   padding: 10px 10px 10px 0;
 }
 
+.bio-text-short > p:last-child {
+  margin-bottom: 0;
+}
+
 .bio-text-full,
 #tmline-full {
   display: none;
