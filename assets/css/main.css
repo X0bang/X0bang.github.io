@@ -339,8 +339,8 @@ button {
   /* Take the artwork's own shape, but never let the band eat the whole
      screen — past the cap the sides stay full-bleed and the crop returns. */
   aspect-ratio: var(--cover-ratio, 2.485);
-  max-height: var(--cover-max, min(46vh, 480px));
-  min-height: 320px;
+  max-height: var(--cover-max, min(42vh, 400px));
+  min-height: 280px;
 
   background-size: cover;
   background-repeat: no-repeat;
