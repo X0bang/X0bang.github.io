@@ -1,0 +1,17 @@
+{{- /*
+  One CV entry — a title with the dates pushed to the right, an optional line
+  of supervisors underneath, then whatever the shortcode wraps.
+
+    {{< cv title="WEHI — InSPIRE Intern" when="Jun 2026 – Present"
+           meta="Supervised by …" >}}
+    Body markdown.
+    {{< /cv >}}
+*/ -}}
+<div class="cv-entry">
+  <div class="cv-head">
+    <span class="cv-title">{{ .Get "title" | markdownify }}</span>
+    {{ with .Get "when" }}<span class="cv-when">{{ . }}</span>{{ end }}
+  </div>
+  {{ with .Get "meta" }}<div class="cv-meta">{{ . | markdownify }}</div>{{ end }}
+  {{ with .Inner }}<div class="cv-body">{{ . | markdownify }}</div>{{ end }}
+</div>

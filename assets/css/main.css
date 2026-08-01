@@ -1681,6 +1681,72 @@ button {
   text-align: left;
 }
 
+/* CV entries: a title and its dates on one line, the way a printed CV sets
+   them, so the page can be scanned rather than read straight through. */
+.cv-entry {
+  margin: 0 0 18px;
+  padding-left: 14px;
+  border-left: 2px solid var(--line);
+}
+
+.cv-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cv-title {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.cv-when {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  white-space: nowrap;
+}
+
+.cv-meta {
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.cv-body {
+  margin-top: 6px;
+}
+
+.cv-body > p:last-child,
+.cv-body > ul:last-child {
+  margin-bottom: 0;
+}
+
+.cv-body ul {
+  padding-left: 1.15em;
+}
+
+@media screen and (max-width: 600px) {
+  .cv-entry {
+    padding-left: 11px;
+  }
+
+  .cv-head {
+    gap: 2px;
+  }
+
+  .cv-when {
+    flex-basis: 100%;
+  }
+}
+
 /* --------------------------------------------------------------------------
    11. Footer
    -------------------------------------------------------------------------- */
