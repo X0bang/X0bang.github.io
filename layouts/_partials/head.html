@@ -3,7 +3,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
-{{- $desc := or .Description .Summary site.Params.description | plainify | chomp -}}
+{{- /* The home page takes the curated site description; a generated summary
+       would open mid-sentence in a search result. */ -}}
+{{- $desc := cond .IsHome site.Params.description (or .Description .Summary site.Params.description) -}}
+{{- $desc = $desc | plainify | chomp -}}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}" />
 <meta name="author" content="{{ site.Params.author }}" />
@@ -14,8 +17,16 @@
 <meta property="og:type" content="{{ cond .IsPage "article" "website" }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ site.Title }}" />
+{{- /* The source lives in ./assets and is never published under that name —
+       point at what the pipeline actually emits. */ -}}
 {{- with site.Params.avatar }}
-  <meta property="og:image" content="{{ . | absURL }}" />
+  {{- with resources.Get . }}
+    {{- $og := ((.Fill "1200x630 Center").Process "jpg q82") }}
+    <meta property="og:image" content="{{ $og.Permalink }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content="{{ $og.Permalink }}" />
+  {{- end }}
 {{- end }}
 
 <meta name="twitter:card" content="summary" />

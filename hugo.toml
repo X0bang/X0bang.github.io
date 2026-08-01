@@ -1,8 +1,9 @@
-baseURL = "https://x0bang.com/"
+baseURL = "https://x0bang.github.io/"
 locale = "en-us"
 defaultContentLanguage = "en"
 title = "Boyue Zhang"
 enableEmoji = true
+enableRobotsTXT = true
 
 # No `theme` key on purpose: the layouts in ./layouts and the styles in
 # ./assets are this site's own theme (a monochrome, editorial design).
