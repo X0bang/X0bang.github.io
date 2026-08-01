@@ -2182,29 +2182,8 @@ button {
 /* Five of the marks are flat white-background rasters, which read as bright
    rectangles against a dark page, and the rest are transparent. A light plate
    under all of them makes the row look deliberate instead of accidental. */
-[data-theme="dark"] .entry-logo,
-[data-theme="dark"] .tmline-logo img {
-  /* Off-white rather than paper white, with padding and a radius, so a mark
-     that carries its own white background reads as a deliberate chip instead
-     of a bright rectangle punched out of the page. */
-  background: #e4e7ec;
-  border-radius: 4px;
-  padding: 3px 4px;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
-
-[data-theme="dark"] .entry:hover .entry-logo,
-[data-theme="dark"] .tmline-item:hover .tmline-logo img {
-  opacity: 1;
-}
-
-[data-theme="dark"] .venue-logo {
-  background: #e4e7ec;
-  border-radius: 3px;
-  padding: 1px 2px;
-  opacity: 0.9;
-}
+/* The marks carry no background of their own now — the flood-filled white is
+   transparent — so they sit straight on the page in either theme. */
 
 /* Figures are drawn for white paper, and several are PNGs with transparent
    regions — on a dark card those regions punch dark holes through the plot.

@@ -19,7 +19,7 @@
   org: "Walter and Eliza Hall Institute of Medical Research"
   desc: "8,000 AUD; competitively selected, ZJU-nominated"
   url: "https://www.wehi.edu.au/education/undergraduate/inspire/"
-  logo: "images/logos/wehi.jpg"
+  logo: "images/logos/wehi.png"
   brief: true
 
 - date: "Oct 2025"
@@ -40,7 +40,7 @@
   url: "http://www.synbiochallenges.com/"
   logos:
     - "images/logos/synbio-competition.png"
-    - "images/logos/csbt.webp"
+    - "images/logos/csbt.png"
     - "images/logos/siat-synbio.png"
   brief: true
 
@@ -56,8 +56,8 @@
   org: "Shanghai Society of Animal Husbandry & Veterinary Medicine"
   desc: 'Led the "Pet Smart Health" team'
   logos:
-    - "images/logos/fubei.jpeg"
-    - "images/logos/g60-corridor.jpg"
+    - "images/logos/fubei.png"
+    - "images/logos/g60-corridor.png"
   brief: true
 
 - date: "2025"

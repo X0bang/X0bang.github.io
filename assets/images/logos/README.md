@@ -11,14 +11,14 @@ organisation's own file, used unaltered, to identify who granted the award.
   igem.svg                iGEM
   igem-zjuchina.png       ZJU-China team
   lumamanta.jpg           LumaManta project
-  wehi.jpeg               Walter and Eliza Hall Institute
+  wehi.png               Walter and Eliza Hall Institute
   zju.svg                 Zhejiang University (3 entries)
   synbio-competition.png  National Synthetic Biology Innovation Competition
-  csbt.webp               Chinese Society for Biotechnology
+  csbt.png               Chinese Society for Biotechnology
   siat-synbio.png         Shenzhen Institute of Synthetic Biology
   zju-medicine.png        ZJU School of Medicine
-  fubei.jpeg              Forbel
-  g60-corridor.jpg        Yangtze Delta G60 corridor joint office
+  fubei.png              Forbel
+  g60-corridor.png        Yangtze Delta G60 corridor joint office
 
 Still without a mark: the provincial SRTP grant.
 
