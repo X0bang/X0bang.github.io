@@ -61,12 +61,8 @@ enableEmoji = true
   [params.cover]
     image = "images/bg/background-cover.png"
 
-    # TODO: 停用中 —— 淡入层需要一张和 image 同尺寸同风格的「暖色孪生版」。
-    # 现有的 background-aurora-painting.png 是 1774x887 (2:1) 的平滑丝带风,
-    # 和 2172x724 (3:1) 的像素风新图对不上,同框淡入会错位。
-    # 生成一张 2172x724 的暖色版后,把下面这行取消注释并指向它即可。
-    # (停用不影响座右铭:悬停头像仍会切换卡片和文字面。)
-    # imageDeep = "images/bg/background-aurora-painting.png"
+    imageDeep = "images/bg/background-cover-deep.png"
+
     # The band spans the full window and takes the artwork's aspect ratio, so
     # on a 1920px screen a 2:1 image would stand 960px tall — the whole first
     # screen. This caps it; past the cap the image crops again (biased to keep
