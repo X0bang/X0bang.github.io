@@ -36,6 +36,10 @@
 <meta name="twitter:title" content="{{ $title }}" />
 <meta name="twitter:description" content="{{ $desc }}" />
 
+{{- with site.Params.googleSiteVerification }}
+  <meta name="google-site-verification" content="{{ . }}" />
+{{- end }}
+
 <link rel="canonical" href="{{ .Permalink }}" />
 {{ with .OutputFormats.Get "rss" -}}
   <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}" />

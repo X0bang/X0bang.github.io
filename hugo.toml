@@ -43,6 +43,11 @@ enableRobotsTXT = true
   # WebP at build time, so commit the full-size original. Empty = monogram.
   avatar = "images/avatar.png"
 
+  # Search Console verification. Add the site as a URL-prefix property (a domain
+  # property needs DNS control, which github.io does not give you), choose the
+  # HTML tag method, and paste the content value here.
+  googleSiteVerification = ""
+
   # X/Twitter handle (no @) for the twitter:site meta tag. Empty = omitted.
   twitterHandle = "" # TODO: 有 X/Twitter 就填,没有留空
 
