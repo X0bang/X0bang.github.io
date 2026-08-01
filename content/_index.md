@@ -3,10 +3,14 @@ title: "Boyue Zhang"
 # 短简介:首页 About 里始终可见的那段。展开后才显示下面正文。
 bioShort: >-
   I am an undergraduate in Biological Sciences at
-  [Zhejiang University](https://www.zju.edu.cn/english/), working on computational
-  protein design and multi-omics analysis. I am currently a research intern at the
-  [Walter and Eliza Hall Institute](https://www.wehi.edu.au/) through the InSPIRE
-  program, where I work on CAR-T receptor design.
+  [Zhejiang University](https://www.zju.edu.cn/english/), currently a research intern at the
+  [Walter and Eliza Hall Institute](https://www.wehi.edu.au/) through the InSPIRE program,
+  working on CAR-T receptor design.
+
+
+  I work on **protein and enzyme design**, **molecular dynamics**, and the **multi-omics**
+  side of disease biology — above all at the point where a computational prediction has to
+  survive contact with a bench experiment.
 date: 2026-07-31
 ---
 
@@ -20,7 +24,5 @@ the prediction at the bench — and with Dr. Wenbin Zhou in [Prof. Meihua Sui](h
 multi-omics basis of sex-biased liver cancer. I was Technical Lead of ZJU-China's iGEM 2025
 team, [LumaManta](https://2025.igem.wiki/zju-china/).
 
-What draws me is the point where a computational prediction has to survive contact with an
-experiment: protein and enzyme design, molecular dynamics, and the omics side of disease
-biology. This autumn I will spend a semester at the Chinese University of Hong Kong on the
-IASP exchange.
+This autumn I will spend a semester at the Chinese University of Hong Kong on the IASP
+exchange.
