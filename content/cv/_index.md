@@ -24,7 +24,7 @@ Rebuilding a CAR-T costimulatory TMD into its native trimeric form — **73–74
 expression** and **85%+ contact retention** across 2 µs MD.
 {{< /cv >}}
 
-{{< cv title="**Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis**" when="Sep 2025 – Present" meta="Zhou Lab, Zhejiang University · Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)" logo="images/logos/zju.svg" link="/projects/crtw-enzyme/" >}}
+{{< cv title="**Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis**" when="Sep 2025 – Present" meta="Zhou Lab, Zhejiang University · Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)" logo="images/logos/zju-eagle.png" link="/projects/crtw-enzyme/" >}}
 Redesigned CrtW, the rate-limiting ketolase in the pathway: G142P + I192L, **+46.7% yield
 in vitro**.
 {{< /cv >}}
@@ -39,7 +39,7 @@ Multi-omics across **174 mice** — 12 sex-biased metabolites, and estrogen reve
 bile acid marker TUDCA (**+97%**).
 {{< /cv >}}
 
-{{< cv title="**Provincial Research Grant (SRTP): A Sustainable Pigment Biosynthesis System**" when="Mar 2025 – Feb 2026" meta="Chen Lab, Zhejiang University · PI [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) · Rated Outstanding" logo="images/logos/zju.svg" link="/projects/srtp-pigment/" >}}
+{{< cv title="**Provincial Research Grant (SRTP): A Sustainable Pigment Biosynthesis System**" when="Mar 2025 – Feb 2026" meta="Chen Lab, Zhejiang University · PI [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) · Rated Outstanding" logo="images/logos/zju-eagle.png" link="/projects/srtp-pigment/" >}}
 Engineered vioE (**+32% activity**) and pathway flux (**+48% / +23% yield**), with light-
 and quorum-controlled switching.
 {{< /cv >}}
