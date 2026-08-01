@@ -1862,12 +1862,22 @@ button {
 
   /* Stacked card is tall, so let the box grow with it and re-centre; the
      artwork falls back to covering whatever shape that leaves. */
+  /* The stacked card is taller than any capped band, and the cover clips its
+     overflow — so the cap has to go, and the band grows to fit the card. */
   .cover.has-bg {
     aspect-ratio: auto;
     min-height: 0;
+    max-height: none;
     align-items: center;
     padding-bottom: 12px;
     background-position: center 30%;
+  }
+
+  /* Stacked, the card no longer needs the width the two-column layout did. */
+  .profile-wrapper {
+    width: 100%;
+    max-width: 460px;
+    padding: 14px 16px;
   }
 
   .footer-col-1,
@@ -2155,6 +2165,120 @@ button {
 @media screen and (min-width: 801px) {
   .title-line {
     white-space: nowrap;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14b. Dark mode: images
+   Text contrast is fine on its own — every pair clears WCAG AA. Images are the
+   problem, because they were authored against white.
+   -------------------------------------------------------------------------- */
+
+/* Scrollbars, form controls and the like follow the theme. */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Five of the marks are flat white-background rasters, which read as bright
+   rectangles against a dark page, and the rest are transparent. A light plate
+   under all of them makes the row look deliberate instead of accidental. */
+[data-theme="dark"] .entry-logo,
+[data-theme="dark"] .tmline-logo img {
+  background: #f2f3f5;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+[data-theme="dark"] .venue-logo {
+  background: #f2f3f5;
+  border-radius: 2px;
+  padding: 1px;
+}
+
+/* Figures are drawn for white paper, and several are PNGs with transparent
+   regions — on a dark card those regions punch dark holes through the plot.
+   Keeping the sheet white is what the figures assume. */
+[data-theme="dark"] .fig img {
+  background: #ffffff;
+}
+
+[data-theme="dark"] .fig-narrow img {
+  background: #f2f3f5;
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+
+/* The thumbnail box holds artwork rather than diagrams, so it stays dark. */
+[data-theme="dark"] .pub-thumb img,
+[data-theme="dark"] .pub-thumb video {
+  background: transparent;
+}
+
+/* A touch more separation, since a white figure against a near-black page
+   otherwise floats. */
+[data-theme="dark"] .fig img {
+  border-color: #39414d;
+}
+
+/* Every row of the card costs height on a phone, where it stacks. */
+@media screen and (max-width: 600px) {
+  .profile-wrapper {
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .circle-img,
+  .avatar-fallback {
+    width: 96px;
+    height: 96px;
+    border-width: 3px;
+  }
+
+  #my-title {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+  }
+
+  #my-affiliation {
+    margin-top: 3px;
+    font-size: 12.5px;
+  }
+
+  #my-email {
+    margin-top: 3px;
+    font-size: 12px;
+  }
+
+  .social-media {
+    margin-top: 8px;
+    gap: 8px;
+  }
+
+  .icon-button {
+    width: 2.7rem;
+    height: 2.7rem;
+  }
+
+  .icon-button .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .circle-img,
+  .avatar-fallback {
+    width: 84px;
+    height: 84px;
+  }
+
+  #my-name {
+    font-size: 1.35rem;
+  }
+
+  .icon-button {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
 
