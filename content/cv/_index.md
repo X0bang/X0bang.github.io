@@ -19,34 +19,29 @@ date: 2026-07-31
 Each entry links to a fuller account — the question, the method and what came of it —
 under [Projects](/projects/).
 
-{{< cv title="**[WEHI](https://www.wehi.edu.au/)** — InSPIRE Research Intern, Call Lab" when="Jun 2026 – Present" meta="Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)" >}}
+{{< cv title="**Walter and Eliza Hall Institute (WEHI) InSPIRE Research Intern**" when="Jun 2026 – Present" meta="Call Lab · Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)" logo="images/logos/wehi.png" link="/projects/procar3-trimer/" >}}
 Rebuilding a CAR-T costimulatory TMD into its native trimeric form — **73–74% surface
 expression** and **85%+ contact retention** across 2 µs MD.
-[Read more →](/projects/procar3-trimer/)
 {{< /cv >}}
 
-{{< cv title="**Zhejiang University** — Zhou Lab" when="Sep 2025 – Present" meta="Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)" >}}
-Redesigned CrtW, the rate-limiting ketolase in astaxanthin biosynthesis: G142P + I192L,
-**+46.7% yield in vitro**.
-[Read more →](/projects/crtw-enzyme/)
+{{< cv title="**Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis**" when="Sep 2025 – Present" meta="Zhou Lab, Zhejiang University · Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)" logo="images/logos/zju.svg" link="/projects/crtw-enzyme/" >}}
+Redesigned CrtW, the rate-limiting ketolase in the pathway: G142P + I192L, **+46.7% yield
+in vitro**.
 {{< /cv >}}
 
-{{< cv title="**Zhejiang University, School of Medicine** — Sui Lab" when="Mar 2026 – Present" meta="PI [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)" >}}
-Multi-omics of sex-biased liver cancer across **174 mice** — 12 sex-biased metabolites, and
-estrogen reversing the bile acid marker TUDCA (**+97%**).
-[Read more →](/projects/hcc-multiomics/)
-{{< /cv >}}
-
-{{< cv title="**ZJU-China, iGEM 2025** — Technical Lead" when="Aug 2024 – Oct 2025" meta="PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & Prof. Fan Yang" >}}
+{{< cv title="**LumaManta (ZJU-China iGEM 2025): Technical Lead**" when="Aug 2024 – Oct 2025" meta="Chen Lab, Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
 Led 14 people to a **Silver Medal**, building a light-controlled CRISPR logic circuit and
 the device around it.
-[Read more →](/projects/igem-lumamanta/)
 {{< /cv >}}
 
-{{< cv title="**Zhejiang University** — Provincial SRTP, Chen Lab" when="Mar 2025 – Feb 2026" meta="PI [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) · Rated Outstanding" >}}
+{{< cv title="**Sex Dimorphism in DEN/TCPOBOP-Induced Hepatocellular Carcinoma**" when="Mar 2026 – Present" meta="Sui Lab, ZJU School of Medicine · PI [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)" logo="images/logos/zju-medicine.png" link="/projects/hcc-multiomics/" >}}
+Multi-omics across **174 mice** — 12 sex-biased metabolites, and estrogen reversing the
+bile acid marker TUDCA (**+97%**).
+{{< /cv >}}
+
+{{< cv title="**Provincial Research Grant (SRTP): A Sustainable Pigment Biosynthesis System**" when="Mar 2025 – Feb 2026" meta="Chen Lab, Zhejiang University · PI [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) · Rated Outstanding" logo="images/logos/zju.svg" link="/projects/srtp-pigment/" >}}
 Engineered vioE (**+32% activity**) and pathway flux (**+48% / +23% yield**), with light-
 and quorum-controlled switching.
-[Read more →](/projects/srtp-pigment/)
 {{< /cv >}}
 
 ## Skills

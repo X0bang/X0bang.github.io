@@ -1,17 +1,29 @@
 {{- /*
-  One CV entry — a title with the dates pushed to the right, an optional line
-  of supervisors underneath, then whatever the shortcode wraps.
+  One CV entry — an optional institution mark, a title with the dates pushed to
+  the right, an optional line of supervisors, then whatever the shortcode wraps.
 
-    {{< cv title="WEHI — InSPIRE Intern" when="Jun 2026 – Present"
-           meta="Supervised by …" >}}
+    {{< cv title="…" when="…" meta="…" logo="images/logos/wehi.png"
+           link="/projects/foo/" linkText="Read more" >}}
     Body markdown.
     {{< /cv >}}
 */ -}}
 <div class="cv-entry">
   <div class="cv-head">
+    {{- with .Get "logo" -}}
+      {{- with resources.Get . -}}
+        {{- $src := .RelPermalink -}}
+        {{- if ne .MediaType.SubType "svg" -}}
+          {{- $src = ((.Resize "x56").Process "webp q85").RelPermalink -}}
+        {{- end -}}
+        <img class="cv-logo" src="{{ $src }}" alt="" loading="lazy" />
+      {{- end -}}
+    {{- end -}}
     <span class="cv-title">{{ .Get "title" | markdownify }}</span>
     {{ with .Get "when" }}<span class="cv-when">{{ . }}</span>{{ end }}
   </div>
   {{ with .Get "meta" }}<div class="cv-meta">{{ . | markdownify }}</div>{{ end }}
   {{ with .Inner }}<div class="cv-body">{{ . | markdownify }}</div>{{ end }}
+  {{ with .Get "link" }}
+    <a class="cv-link" href="{{ . }}">{{ $.Get "linkText" | default "Read more" }} &rarr;</a>
+  {{ end }}
 </div>

@@ -1692,9 +1692,19 @@ button {
 .cv-head {
   display: flex;
   align-items: baseline;
+  gap: 10px;
   justify-content: space-between;
   gap: 14px;
   flex-wrap: wrap;
+}
+
+.cv-logo {
+  flex: 0 0 auto;
+  height: 26px;
+  width: auto;
+  max-width: 64px;
+  object-fit: contain;
+  align-self: center;
 }
 
 .cv-title {
@@ -1722,6 +1732,31 @@ button {
 
 .cv-body {
   margin-top: 6px;
+}
+
+/* A small target rather than a bare link, so it reads as something to click. */
+.cv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  padding: 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: all 0.15s ease;
+}
+
+.cv-link:hover {
+  color: var(--page);
+  background: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
 }
 
 .cv-body > p:last-child,
