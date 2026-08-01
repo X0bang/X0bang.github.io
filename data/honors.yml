@@ -64,11 +64,8 @@
   title: "Provincial SRTP Research Grant — rated Outstanding"
   org: "Zhejiang Provincial Department of Science and Technology"
   desc: "12,000 RMB"
-
-- date: "Jun 2025"
-  title: "5th Place, Stand-Up Paddleboard 200 m"
-  org: "Zhejiang University Sports Championship"
-  logo: "images/logos/zju.svg"
+  logos:
+    - "images/logos/zju.svg"
 
 - date: "2023 – 2025"
   title: "Academic Honors & Scholarships"
@@ -79,3 +76,8 @@
     - "Second-Class Scholarship (2024–2025)"
     - "Innovation & Entrepreneurship Model (2024–2025)"
     - "Academic Excellence Model (2024–2025)"
+
+- date: "Jun 2025"
+  title: "5th Place, Stand-Up Paddleboard 200 m"
+  org: "Zhejiang University Sports Championship"
+  logo: "images/logos/zju.svg"
