@@ -1693,8 +1693,6 @@ button {
   display: flex;
   align-items: baseline;
   gap: 10px;
-  justify-content: space-between;
-  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -1708,6 +1706,11 @@ button {
 }
 
 .cv-title {
+  /* Sits against the mark on the left; the dates get pushed right on their
+     own, rather than space-between spreading the title into the middle. */
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
   font-weight: 600;
   color: var(--ink);
   font-size: 1rem;
@@ -1715,6 +1718,7 @@ button {
 
 .cv-when {
   flex: 0 0 auto;
+  margin-left: auto;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
