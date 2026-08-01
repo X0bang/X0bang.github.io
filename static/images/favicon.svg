@@ -1,6 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BZ">
-  <rect width="64" height="64" rx="14" fill="#0b0c0e"/>
-  <text x="32" y="43" text-anchor="middle"
-        font-family="IBM Plex Mono, ui-monospace, SF Mono, Menlo, monospace"
-        font-size="30" font-weight="500" fill="#f2f2f3">BZ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Boyue Zhang">
+  <rect width="64" height="64" rx="13" fill="#0b0c0e"/>
+  <g fill="#f2f2f3">
+    <rect x="12" y="4" width="8" height="8"/>
+    <rect x="20" y="4" width="8" height="8"/>
+    <rect x="28" y="4" width="8" height="8"/>
+    <rect x="36" y="4" width="8" height="8"/>
+    <rect x="12" y="12" width="8" height="8"/>
+    <rect x="44" y="12" width="8" height="8"/>
+    <rect x="12" y="20" width="8" height="8"/>
+    <rect x="44" y="20" width="8" height="8"/>
+    <rect x="12" y="28" width="8" height="8"/>
+    <rect x="20" y="28" width="8" height="8"/>
+    <rect x="28" y="28" width="8" height="8"/>
+    <rect x="36" y="28" width="8" height="8"/>
+    <rect x="12" y="36" width="8" height="8"/>
+    <rect x="44" y="36" width="8" height="8"/>
+    <rect x="12" y="44" width="8" height="8"/>
+    <rect x="44" y="44" width="8" height="8"/>
+    <rect x="12" y="52" width="8" height="8"/>
+    <rect x="20" y="52" width="8" height="8"/>
+    <rect x="28" y="52" width="8" height="8"/>
+    <rect x="36" y="52" width="8" height="8"/>
+  </g>
 </svg>

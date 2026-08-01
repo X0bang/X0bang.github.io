@@ -63,6 +63,18 @@ Mar 2025 – Feb 2026 · Rated Outstanding
 - Built dual orthogonal quorum-sensing circuits and a blue-light split-Cre system for
   programmable, reversible control of pigment output.
 
+## Skills
+
+- **Programming:** Python, R, Bash/Shell, C
+- **Computational biology:** Rosetta, AlphaFold3, GROMACS, ESM2, ThermoMPNN, PyMOL,
+  SnapGene, CHARMM-GUI, MEGA
+- **Molecular & synthetic biology:** CRISPR-i/a, optogenetics, Gibson assembly, molecular
+  cloning, site-directed mutagenesis, GSMM
+- **Cell biology & protein:** human primary T cell / Jurkat / HEK293T culture, viral
+  production & purification, flow cytometry, degranulation assay, protein expression &
+  purification, Western blot, immunofluorescence, confocal microscopy
+- **Languages:** English (IELTS 6.5), Chinese (native)
+
 ## Honors & Awards
 
 - **WEHI InSPIRE Scholarship**, 2026 — 8,000 AUD; competitively selected, ZJU-nominated
@@ -77,18 +89,6 @@ Mar 2025 – Feb 2026 · Rated Outstanding
 - **5th Place, Stand-Up Paddleboard 200 m**, Jun 2025 — ZJU Sports Championship
 - **Academic honors**, 2023–2025 — Professional Excellence Scholarship, Second-Class
   Scholarship, Innovation & Entrepreneurship Model, Academic Excellence Model
-
-## Skills
-
-- **Programming:** Python, R, Bash/Shell, C
-- **Computational biology:** Rosetta, AlphaFold3, GROMACS, ESM2, ThermoMPNN, PyMOL,
-  SnapGene, CHARMM-GUI, MEGA
-- **Molecular & synthetic biology:** CRISPR-i/a, optogenetics, Gibson assembly, molecular
-  cloning, site-directed mutagenesis, GSMM
-- **Cell biology & protein:** human primary T cell / Jurkat / HEK293T culture, viral
-  production & purification, flow cytometry, degranulation assay, protein expression &
-  purification, Western blot, immunofluorescence, confocal microscopy
-- **Languages:** English (IELTS 6.5), Chinese (native)
 
 ## Leadership & Volunteering
 
