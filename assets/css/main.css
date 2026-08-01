@@ -528,6 +528,17 @@ button {
   letter-spacing: 0.08em;
 }
 
+#my-title a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 23, 28, 0.32);
+  text-underline-offset: 3px;
+}
+
+#my-title a:hover {
+  text-decoration-color: currentColor;
+}
+
 #my-affiliation {
   margin-top: 4px;
   font-size: 13.5px;
@@ -2334,7 +2345,18 @@ button {
     letter-spacing: 0.08em;
   }
 
-  #my-affiliation {
+  #my-title a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 23, 28, 0.32);
+  text-underline-offset: 3px;
+}
+
+#my-title a:hover {
+  text-decoration-color: currentColor;
+}
+
+#my-affiliation {
     margin-top: 3px;
     font-size: 12.5px;
   }

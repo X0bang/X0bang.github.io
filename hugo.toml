@@ -24,13 +24,12 @@ enableEmoji = true
   description = "Boyue Zhang — undergraduate in Biological Sciences at Zhejiang University, working on computational biology and protein engineering."
   keywords = "computational biology,protein engineering,bioinformatics,Zhejiang University,PhD applicant"
 
-  # Shown under the name on the cover card.
-  # A list renders one line each. The institution is carried by `affiliation`
-  # below, so repeating it here would print it twice.
-  tagline = [
-    "Undergraduate in Biological Sciences",
-    "Computational Biology · Protein Engineering",
-  ]
+  # The one line under the name: what you are and where, with the institution
+  # linked. Keeping it to a single line is what makes it read as the point of
+  # the card. A list still works if a second line is ever needed.
+  tagline = "Undergraduate in Biological Sciences @ [Zhejiang University](https://www.zju.edu.cn/english/)"
+
+  # Used in the footer; the card carries the institution in `tagline` instead.
   affiliation = "College of Life Sciences, Zhejiang University"
 
   # Printed on the cover card, first one first. Leave the list empty to hide

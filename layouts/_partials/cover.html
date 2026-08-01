@@ -90,13 +90,12 @@
         {{ with site.Params.tagline }}
           <div id="my-title">
             {{- if reflect.IsSlice . -}}
-              {{- range . }}<span class="title-line">{{ . }}</span>{{ end -}}
+              {{- range . }}<span class="title-line">{{ . | markdownify }}</span>{{ end -}}
             {{- else -}}
-              <span class="title-line">{{ . }}</span>
+              <span class="title-line">{{ . | markdownify }}</span>
             {{- end -}}
           </div>
         {{ end }}
-        <div id="my-affiliation">{{ site.Params.affiliation }}</div>
         {{ with site.Params.emails }}
           <div id="my-email">
             {{ range $i, $e := . }}
