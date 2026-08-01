@@ -71,8 +71,8 @@ Mar 2025 – Feb 2026 · Rated Outstanding
   for Biotechnology & Shenzhen Institute of Synthetic Biology
 - **Gold Medal, 18th "Dandelion" Undergraduate Innovation Competition**, Mar 2026 — CTO,
   LumaManta eDNA-based aquatic pathogen detection
-- **First Prize (Champion), 2nd "Forbel Cup" National Pet Industry Innovation Competition**,
-  Jan 2025 — led the "Pet Smart Health" team
+- **First Prize (Champion), National Pet Industry Innovation Competition**, Jan 2025 — led
+  the "Pet Smart Health" team
 - **Provincial SRTP Research Grant**, 2025 — 12,000 RMB, rated Outstanding
 - **5th Place, Stand-Up Paddleboard 200 m**, Jun 2025 — ZJU Sports Championship
 - **Academic honors**, 2023–2025 — Professional Excellence Scholarship, Second-Class
