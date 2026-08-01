@@ -24,10 +24,12 @@ enableEmoji = true
   description = "Boyue Zhang — undergraduate in Biological Sciences at Zhejiang University, working on computational biology and protein engineering."
   keywords = "computational biology,protein engineering,bioinformatics,Zhejiang University,PhD applicant"
 
-  # The one line under the name: what you are and where, with the institution
-  # linked. Keeping it to a single line is what makes it read as the point of
-  # the card. A list still works if a second line is ever needed.
-  tagline = "Undergraduate in Biological Sciences @ [Zhejiang University](https://www.zju.edu.cn/english/)"
+  # Under the name: the role, then the institution on its own line with a link.
+  # A plain string works too if you ever want them on one line.
+  tagline = [
+    "Undergraduate in Biological Sciences",
+    "@ [Zhejiang University](https://www.zju.edu.cn/english/)",
+  ]
 
   # Used in the footer; the card carries the institution in `tagline` instead.
   affiliation = "College of Life Sciences, Zhejiang University"
