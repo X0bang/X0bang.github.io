@@ -19,49 +19,38 @@ Sep 2026 – Dec 2026 (Upcoming) · Hong Kong SAR
 
 ## Research Experience
 
-**[Walter and Eliza Hall Institute (WEHI)](https://www.wehi.edu.au/education/undergraduate/inspire/)** — InSPIRE Research Intern
-Jun 2026 – Present · Supervised by Dr. Emma Petley; PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)
+Each entry links to a fuller account — the question, the method and what came out
+of it — under [Projects](/projects/).
 
-- Investigating whether redesigning a CAR-T costimulatory receptor (4-1BBζ) TMD into its
-  natural trimeric form improves T cell activation, following the lab's proCAR3 hypothesis.
-- **Wet lab:** optimised 4 TMD variants and ran flow cytometry and degranulation assays
-  against 2 tumour cell lines — 73–74% surface expression, with T cell activation confirmed.
-- **Dry lab:** ran 2 µs MD across 4 designs independently, verifying stable trimer assembly
-  at 85%+ contact retention; screened mutations for expression with Rosetta and ESM2.
+**[WEHI](https://www.wehi.edu.au/)** — InSPIRE Research Intern, Call Lab · Jun 2026 – Present
+Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)
+Rebuilding a CAR-T costimulatory TMD into its native trimeric form: 73–74% surface
+expression, 85%+ contact retention across 2 µs MD.
+[→ Trimeric Redesign of a CAR-T Costimulatory Transmembrane Domain](/projects/procar3-trimer/)
 
-**Zhejiang University** — Computational enzyme design, [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)'s lab
-Sep 2025 – Present · Advised by Dr. Yangwei Jiang · [Code](https://github.com/X0bang/crtw-enzyme-design)
+**Zhejiang University** — Zhou Lab · Sep 2025 – Present
+Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)
+Redesigned CrtW, the rate-limiting ketolase in astaxanthin biosynthesis: G142P + I192L,
+**+46.7% yield in vitro**.
+[→ Computational Design of CrtW and CrtZ](/projects/crtw-enzyme/)
 
-- Engineered CrtW, the rate-limiting β-carotene ketolase in astaxanthin biosynthesis,
-  screening 320 residues into 268 candidates with Rosetta FuncLib, ESM2 and ThermoMPNN.
-- 2 µs MD on the top 6: **G142P + I192L** gave the most extended substrate positioning and
-  the most stable binding pocket, with no loss of stability — and **+46.7% yield in vitro**.
+**Zhejiang University, School of Medicine** — Sui Lab · Mar 2026 – Present
+PI [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)
+Multi-omics of sex-biased liver cancer across 174 mice: 12 sex-biased metabolites, and
+estrogen reversing the bile acid marker TUDCA (+97%).
+[→ Sex Dimorphism in DEN/TCPOBOP-Induced Hepatocellular Carcinoma](/projects/hcc-multiomics/)
 
-**Zhejiang University, School of Medicine** — Multi-omics of liver cancer, [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)'s lab
-Mar 2026 – Present · Advised by Dr. Wenbin Zhou
+**ZJU-China, iGEM 2025** — Technical Lead · Aug 2024 – Oct 2025
+PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & Prof. Fan Yang
+Led 14 people to a **Silver Medal**, building a light-controlled CRISPR logic circuit and
+the device around it.
+[→ LumaManta — Programmable Biosensing for Water Monitoring](/projects/igem-lumamanta/)
 
-- Analysed transcriptomic and metabolomic data across hepatitis, cirrhosis and HCC in
-  **174 mice**, identifying **12 sex-biased metabolites** in bile acid, tryptophan and
-  acylcarnitine pathways.
-- Estrogen supplementation reversed the bile acid marker **TUDCA (+97%)** and rescued half
-  the male–female gap in a composite disease score.
-- Linked WGCNA and PPI hub genes to the metabolomics through **155 connections**.
-
-**ZJU-China, iGEM 2025** — Technical Lead, [LumaManta](https://2025.igem.wiki/zju-china/)
-Aug 2024 – Oct 2025 · Advised by [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & Prof. Fan Yang
-
-- Led a 14-member team across wet lab, dry lab, hardware and software to a **Silver Medal**,
-  building an all-in-one device for real-time water pollutant and eDNA monitoring.
-- Engineered **BiChromaLogic**, a light-controlled circuit turning 2 light inputs into 4
-  sensor proteins on demand via CRISPR logic gates — 169% activation, 92% repression.
-
-**Zhejiang University** — Provincial SRTP, [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111)'s lab
-Mar 2025 – Feb 2026 · Rated Outstanding
-
-- Identified a **vioE mutant (+32% activity)** by semi-rational design and MD, plus two gene
-  knockouts (**+48% / +23% yield**) from genome-scale metabolic modelling.
-- Built dual orthogonal quorum-sensing circuits and a blue-light split-Cre system for
-  programmable, reversible control of pigment output.
+**Zhejiang University** — Provincial SRTP, Chen Lab · Mar 2025 – Feb 2026 · Rated Outstanding
+PI [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111)
+Engineered vioE (+32% activity) and pathway flux (+48% / +23% yield), with light- and
+quorum-controlled switching.
+[→ A Sustainable Pigment Biosynthesis System](/projects/srtp-pigment/)
 
 ## Skills
 
