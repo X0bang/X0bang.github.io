@@ -5,7 +5,7 @@ year: "2025"
 weight: 5
 selected: true
 venue: "ZJU"
-venueLogo: "images/logos/zju.svg"
+venueLogo: "images/logos/zju-eagle.png"
 lab: "Chen Lab"
 status: "Outstanding"
 thumb: "images/projects/srtp-design.png"

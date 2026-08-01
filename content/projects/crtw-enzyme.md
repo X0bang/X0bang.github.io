@@ -5,7 +5,7 @@ year: "2025"
 weight: 2
 selected: true
 venue: "ZJU"
-venueLogo: "images/logos/zju.svg"
+venueLogo: "images/logos/zju-eagle.png"
 lab: "Zhou Lab"
 thumbPoster: "images/projects/crtw-poster.jpg"
 thumb: "images/projects/crtw-design.mp4"
