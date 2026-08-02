@@ -439,9 +439,11 @@ button {
   0% {
     stroke-dashoffset: 1;
   }
-  /* Drawn over the first 10% of the period, from the head of the chain. The
-     reset happens later, while the trace is already dark. */
-  10%,
+  /* Drawn over the first 8% of the period, from the head of the chain — the
+     generator sets each period from its chain's length against this same
+     fraction, which is what keeps the light at one speed across all of them.
+     The reset happens later, while the trace is already dark. */
+  8%,
   100% {
     stroke-dashoffset: 0;
   }
@@ -451,14 +453,14 @@ button {
   0% {
     opacity: 0;
   }
-  0.8%,
-  13% {
+  0.6%,
+  9% {
     opacity: var(--cm-alpha);
   }
   /* Held, then out as a whole — the reveal stays open so it fades rather than
-     un-drawing. At a 20% duty and five coprime periods the band is completely
-     still about a third of the time. */
-  20%,
+     un-drawing. Lit for 11% of each period: across 19 structures on coprime
+     periods that is about two alight at once, and long stretches of stillness. */
+  11%,
   100% {
     opacity: 0;
   }
