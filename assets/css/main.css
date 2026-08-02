@@ -390,11 +390,10 @@ button {
    image. Children are then placed in plain % of the 2172x724 source and stay
    registered at any viewport width. */
 .fx-chain {
-  /* The cover's own accent. Every colour in the artwork has R = 0 and its
-     brightest cells are pure cyan, so screening this ink can only land a lit
-     cell on a colour already in the image. */
-  --cm-ink: #00e6f0;
-  --cm-alpha: 0.6;
+  /* No ink: a lit cell is its own colour sampled out of the artwork and raised,
+     composited with `screen`. Painting a single ink over them instead would
+     flatten the picture's blue-to-green gradients into one stripe. */
+  --cm-alpha: 0.72;
 
   position: absolute;
   left: 0;
@@ -425,11 +424,26 @@ button {
   image-rendering: pixelated;
 }
 
+/* The two cover images are different palettes — the first is cyan-to-blue with
+   R = 0 throughout, the hover one is warm, orange through violet. So each trace
+   carries a cut-out sampled from each, and they crossfade with the artwork
+   underneath. Hue-rotating one set instead landed the cells in colours neither
+   picture contains: CSS hue-rotate is a linear matrix, not an HSL turn, and it
+   holds neither saturation nor lightness. */
+.cm-deep {
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+
+.cover.deep .cm-deep {
+  opacity: 1;
+}
+
 /* pathLength="1" normalises every centreline, so one keyframe set drives all of
    them; the generator picks each period from its chain's length, which makes
    the light travel at the same speed along every structure. */
+/* Inside a <mask>, so white shows and the colour comes from the artwork. */
 .cm-run {
-  stroke: var(--cm-ink);
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   animation: cm-run var(--d) var(--dl) cubic-bezier(0.4, 0, 0.3, 1) infinite;
@@ -783,15 +797,6 @@ button {
 .cover.deep .fx-grid {
   --fg-alpha: 0.5;
   --fg-glow: 0.3;
-}
-
-/* The second artwork is a warm palette — orange and amber around hue 0–42°,
-   against the first image's pure cyan-to-blue at 180–216°. Rotating the motifs
-   by ~165° lands them in the same family as whichever image is showing, and
-   the transition matches the 0.6s crossfade between the two. */
-.cover.deep .fx-chain {
-  --cm-ink: #f0c000;
-  --cm-alpha: 0.55;
 }
 
 /* Deep state darkens the card and swaps the contact face for the epigraph. */
