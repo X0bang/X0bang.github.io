@@ -15,184 +15,128 @@
  },
  {
   "n": 2,
-  "kind": "strand",
-  "cells": 48,
-  "chain": 11,
-  "stroke": 7.2
- },
- {
-  "n": 3,
-  "kind": "turn",
-  "cells": 60,
-  "chain": 11,
-  "stroke": 7.5
- },
- {
-  "n": 4,
-  "kind": "turn",
-  "cells": 70,
-  "chain": 12,
-  "stroke": 13.2
- },
- {
-  "n": 5,
-  "kind": "strand",
-  "cells": 55,
-  "chain": 13,
-  "stroke": 6.9
- },
- {
-  "n": 6,
-  "kind": "turn",
-  "cells": 59,
-  "chain": 13,
-  "stroke": 6.9
- },
- {
-  "n": 7,
   "kind": "turn",
   "cells": 28,
   "chain": 13,
   "stroke": 14.5
  },
  {
-  "n": 8,
+  "n": 3,
   "kind": "turn",
   "cells": 72,
   "chain": 14,
   "stroke": 9.7
  },
  {
-  "n": 9,
-  "kind": "turn",
-  "cells": 56,
-  "chain": 17,
-  "stroke": 6.9
- },
- {
-  "n": 10,
+  "n": 4,
   "kind": "turn",
   "cells": 62,
   "chain": 18,
   "stroke": 12.8
  },
  {
-  "n": 11,
+  "n": 5,
   "kind": "strand",
   "cells": 94,
   "chain": 19,
   "stroke": 6.9
  },
  {
-  "n": 12,
-  "kind": "turn",
-  "cells": 100,
-  "chain": 19,
-  "stroke": 12.1
- },
- {
-  "n": 13,
+  "n": 6,
   "kind": "turn",
   "cells": 89,
   "chain": 21,
   "stroke": 7.5
  },
  {
-  "n": 14,
-  "kind": "strand",
-  "cells": 66,
-  "chain": 21,
-  "stroke": 6.9
- },
- {
-  "n": 15,
-  "kind": "helix",
-  "cells": 95,
-  "chain": 21,
-  "stroke": 15.6
- },
- {
-  "n": 16,
+  "n": 7,
   "kind": "turn",
   "cells": 113,
   "chain": 22,
   "stroke": 9.0
  },
  {
-  "n": 17,
-  "kind": "helix",
-  "cells": 75,
-  "chain": 25,
-  "stroke": 6.9
- },
- {
-  "n": 18,
+  "n": 8,
   "kind": "strand",
   "cells": 123,
   "chain": 25,
   "stroke": 7.3
  },
  {
-  "n": 19,
-  "kind": "helix",
-  "cells": 138,
-  "chain": 26,
-  "stroke": 9.4
- },
- {
-  "n": 20,
+  "n": 9,
   "kind": "helix",
   "cells": 102,
   "chain": 30,
   "stroke": 13.9
  },
  {
-  "n": 21,
-  "kind": "helix",
-  "cells": 132,
-  "chain": 31,
-  "stroke": 12.7
- },
- {
-  "n": 22,
-  "kind": "helix",
-  "cells": 161,
-  "chain": 32,
-  "stroke": 13.3
- },
- {
-  "n": 23,
+  "n": 10,
   "kind": "strand",
   "cells": 113,
   "chain": 35,
   "stroke": 7.3
  },
  {
-  "n": 24,
+  "n": 11,
   "kind": "strand",
   "cells": 180,
   "chain": 37,
   "stroke": 11.0
  },
  {
-  "n": 25,
+  "n": 12,
   "kind": "strand",
   "cells": 126,
   "chain": 39,
   "stroke": 6.3
  },
  {
-  "n": 26,
+  "n": 13,
   "kind": "strand",
   "cells": 142,
   "chain": 40,
   "stroke": 6.5
  },
  {
-  "n": 27,
+  "n": 14,
+  "kind": "helix",
+  "cells": 238,
+  "chain": 48,
+  "stroke": 12.1
+ },
+ {
+  "n": 15,
   "kind": "strand",
   "cells": 245,
   "chain": 55,
   "stroke": 6.9
+ },
+ {
+  "n": 16,
+  "kind": "helix",
+  "cells": 256,
+  "chain": 58,
+  "stroke": 15.6
+ },
+ {
+  "n": 17,
+  "kind": "strand",
+  "cells": 185,
+  "chain": 62,
+  "stroke": 7.5
+ },
+ {
+  "n": 18,
+  "kind": "helix",
+  "cells": 201,
+  "chain": 68,
+  "stroke": 13.2
+ },
+ {
+  "n": 19,
+  "kind": "helix",
+  "cells": 235,
+  "chain": 69,
+  "stroke": 12.7
  }
 ]

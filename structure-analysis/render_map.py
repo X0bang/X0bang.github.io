@@ -25,6 +25,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from detect import (LIT, MAX_STROKE, MAX_STROKE_RATIO, MIN_CELLS,
                     NARROW_STROKE, PITCH, SQUARE, SRC, cell_grid, centreline,
                     classify, elements, stroke_cells)
+from gen_traces import load_groups
 from PIL import Image, ImageDraw, ImageFont
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out")
@@ -52,7 +53,9 @@ def collect(grid, rows, cols):
         if sw > MAX_STROKE or (sw > NARROW_STROKE
                                and sw / max(1, chain) > MAX_STROKE_RATIO):
             continue
-        out.append({"cells": cs, "kind": kind, "chain": chain, "stroke": sw})
+        out.append({"cells": cs, "line": line, "kind": kind,
+                    "chain": chain, "stroke": sw})
+    out = load_groups(out)      # same grouping the generator applies
     out.sort(key=lambda e: e["chain"])
     return out
 

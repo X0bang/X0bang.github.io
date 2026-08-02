@@ -22,6 +22,8 @@ Sizing and rhythm are derived, not guessed:
 """
 
 import argparse
+import json
+import math
 import os
 import random
 import sys
@@ -34,6 +36,7 @@ from detect import (CELLS_PER_SEC, DRAW_FRACTION, MIN_CELLS, PITCH, PRIMES,
 from PIL import Image
 
 OUTDIR = "assets/images/bg/traces"
+GROUPS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "groups.json")
 PARTIAL = "layouts/_partials/fx/chain.html"
 
 HEAD = '''{{{{- /*
@@ -80,6 +83,78 @@ SVG = '''
   {{{{- end }}}}'''
 
 
+def join_chain(members):
+    """One chain from several elements, in the order they were listed.
+
+    Which elements belong to the same chain is not recoverable from the pixels:
+    adjacency does not separate them (elements one cell apart are as often in
+    different chains as the same one), and neither does the shape of the merged
+    result. It is read off the picture by eye and kept in groups.json, whose
+    order is also the chain's direction — so each element's own path is flipped
+    if need be to carry on from where the last one ended.
+    """
+    cells, path = [], []
+    for cs, line in members:
+        cells += cs
+        if path:
+            a = math.dist(path[-1], line[0])
+            b = math.dist(path[-1], line[-1])
+            if b < a:
+                line = line[::-1]
+            # Skeleton endpoints stop short of each other, leaving up to eight
+            # cells between one element and the next. Bridged at one cell a
+            # step, so the light crosses the join at the speed it travels
+            # everywhere else instead of jumping it.
+            gap = math.dist(path[-1], line[0])
+            if gap > 1.5:
+                x0, y0 = path[-1]
+                x1, y1 = line[0]
+                for k in range(1, int(gap)):
+                    t = k / gap
+                    path.append((x0 + (x1 - x0) * t, y0 + (y1 - y0) * t))
+        elif len(members) > 1:
+            # Start at whichever end is further from the next element.
+            nxt = members[1][1][0]
+            if math.dist(line[0], nxt) < math.dist(line[-1], nxt):
+                line = line[::-1]
+        path += line
+    return sorted(set(cells)), path
+
+
+def load_groups(picked):
+    """Fold the hand-made groupings into `picked`, in their listed order."""
+    if not os.path.exists(GROUPS):
+        return picked
+    chains = json.load(open(GROUPS))["chains"]
+    owner, taken = {}, set()
+    for gi, chain in enumerate(chains):
+        for anchor in chain:
+            a = tuple(anchor)
+            for i, e in enumerate(picked):
+                if a in set(e["cells"]):
+                    owner.setdefault((gi, tuple(anchor)), i)
+                    taken.add(i)
+                    break
+    out = [e for i, e in enumerate(picked) if i not in taken]
+    for gi, chain in enumerate(chains):
+        seq, seen = [], set()
+        for anchor in chain:
+            i = owner.get((gi, tuple(anchor)))
+            if i is not None and i not in seen:
+                seen.add(i)
+                seq.append(picked[i])
+        if len(seq) < 2:
+            out += seq
+            continue
+        cells, path = join_chain([(e["cells"], e["line"]) for e in seq])
+        out.append({"cells": cells, "line": path, "chain": len(path) - 1,
+                    "kind": max(seq, key=lambda e: len(e["cells"]))["kind"],
+                    "stroke": max(e["stroke"] for e in seq)})
+        print(f"  chain of {len(seq)}: {sum(len(e['cells']) for e in seq)} cells, "
+              f"path {len(path) - 1}")
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", type=int, default=3)
@@ -110,7 +185,8 @@ def main():
         sw = stroke_cells(cs, line)
         if sw <= MAX_STROKE and (sw <= NARROW_STROKE
                                  or sw / max(1, chain_cells) <= MAX_STROKE_RATIO):
-            ok.append((cs, line, chain_cells, k, sw))
+            ok.append({"cells": cs, "line": line, "chain": chain_cells,
+                       "kind": k, "stroke": sw})
             return True
         return False
 
@@ -125,10 +201,11 @@ def main():
         print(f"   {k:9s} {kinds.get(k, 0):5d} cells  {kinds.get(k, 0) / lit:5.1%}")
     # Assign periods shortest-chain first, so each structure gets the prime
     # nearest its own ideal and the light keeps the same speed on all of them.
-    chosen = sorted(ok, key=lambda t: t[2])
+    ok = load_groups(ok)
+    chosen = sorted(ok, key=lambda e: e["chain"])
     n = len(chosen)
     print(f"animating {n} structures = "
-          f"{sum(len(t[0]) for t in chosen) / lit:.0%} of the lit area")
+          f"{sum(len(e['cells']) for e in chosen) / lit:.0%} of the lit area")
 
     os.makedirs(OUTDIR, exist_ok=True)
     for f in os.listdir(OUTDIR):
@@ -136,7 +213,9 @@ def main():
 
     parts = [HEAD.format(seed=args.seed, ncomp=len(comps), n=n, sw=SW, sh=SH)]
     total = 0
-    for i, (cs, line, chain_cells, kind, sw_cells) in enumerate(chosen):
+    for i, e in enumerate(chosen):
+        cs, line, chain_cells = e["cells"], e["line"], e["chain"]
+        kind, sw_cells = e["kind"], e["stroke"]
         name = f"s{i}"
         w, h, r0, c0 = silhouette(cs, im, ox, oy, os.path.join(OUTDIR, name + ".png"))
         silhouette(cs, deep, ox, oy, os.path.join(OUTDIR, name + "-deep.png"))
