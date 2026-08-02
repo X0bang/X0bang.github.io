@@ -75,7 +75,7 @@ enableRobotsTXT = true
     #   "meteors"   thin streaks falling across the band
     #   "backbone"  protein Cα traces that draw themselves (reads as scribble
     #               at this scale next to the real ribbon art — kept for reference)
-    #   "chain"     real helices and strands cut from the artwork, drawing themselves
+    #   "chain"     the artwork's own structures light up along their backbone
     #   "grid"      squares flickering on the artwork's own pixel pitch
     #   "off"       nothing
     # Each is a partial in layouts/_partials/fx/, all CSS-only. Space-separated
