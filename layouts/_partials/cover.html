@@ -56,8 +56,11 @@
 
   {{- /* Above both artwork layers, below the name card, so the motion passes
          behind the card and is dimmed by it. Pick the effect in hugo.toml. */ -}}
-  {{- $fx := site.Params.cover.effect | default "sweep" -}}
-  {{- if ne $fx "off" }}{{ partial (printf "fx/%s.html" $fx) . }}{{ end }}
+  {{- /* Space-separated, so effects can be layered — "chain grid" runs the
+         structures over the ambient flicker. */ -}}
+  {{- range split (site.Params.cover.effect | default "chain") " " }}
+    {{- with . }}{{ if ne . "off" }}{{ partial (printf "fx/%s.html" .) $ }}{{ end }}{{ end }}
+  {{- end }}
 
   <div class="profile-wrapper" id="profile-namecard">
     <div class="profile-col profile-col-1" id="my-pic">

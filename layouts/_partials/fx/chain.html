@@ -1,0 +1,36 @@
+{{- /*
+  Secondary-structure motifs that draw themselves in the clear band below the
+  artwork.
+
+  The shapes are not synthesised. They are connected components lifted straight
+  out of the cover image — a flood fill over the artwork's own 7px cell grid
+  found 209 structures, and these are three of the cleanest: two α-helices and
+  a β-strand. Drawing them by hand kept failing because a smooth curve next to
+  pixel art reads as a foreign object, and a hand-built pixel helix loses the
+  occlusion between turns that makes a coil legible. Reusing the real cells
+  sidesteps both: the geometry is right because it is the same geometry.
+
+  Cells are stamped at the artwork's own pitch and square size, then lifted in
+  value — these sit on bare background rather than among other structures, so
+  they have to carry on their own.
+
+  Widths are percentages of the band and the height comes from the image's own
+  ratio, so a motif tracks the artwork as it scales instead of drifting off its
+  pitch. `image-rendering: pixelated` keeps the cell edges hard.
+
+  Tunables live on `.fx-chain` in css/main.css (§ cover).
+*/ -}}
+{{- $motifs := slice
+  (dict "name" "helix-a" "pos" "--l: 5%"    "style" "--b: 8%; --w: 9.5%; --d: 19s; --dl: -2s")
+  (dict "name" "strand"  "pos" "--l: 45%"   "style" "--b: 5%; --w: 5.0%; --d: 23s; --dl: -13s")
+  (dict "name" "helix-b" "pos" "--r: 6%"    "style" "--b: 6%; --w: 9.8%; --d: 29s; --dl: -22s")
+-}}
+<div class="fx-chain" aria-hidden="true">
+  {{- range $m := $motifs }}
+    {{- with resources.Get (printf "images/bg/motifs/%s.png" $m.name) }}
+      {{- $css := printf "%s; %s; --ar: %d / %d; --src: url('%s')"
+            $m.pos $m.style .Width .Height .RelPermalink -}}
+      <span class="cm" style="{{ $css | safeCSS }}"></span>
+    {{- end }}
+  {{- end }}
+</div>

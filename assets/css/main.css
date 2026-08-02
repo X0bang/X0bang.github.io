@@ -372,6 +372,67 @@ button {
   opacity: 1;
 }
 
+/* --- Cover effect: chain motifs --------------------------------------------
+   Real secondary structures, cut out of the artwork itself, drawing themselves
+   in the clear band below it. The reveal is a clip-path inset opening from the
+   left, which for a coil or a strand runs along the chain — the same direction
+   you would draw it in. */
+.fx-chain {
+  --cm-alpha: 0.92; /* peak opacity of a drawn motif */
+  --cm-hue: 0deg; /* palette shift, see deep state */
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cm {
+  position: absolute;
+  left: var(--l, auto);
+  right: var(--r, auto);
+  bottom: var(--b);
+  width: var(--w);
+  aspect-ratio: var(--ar);
+  background-image: var(--src);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /* The source is pixel art at the artwork's own pitch — never smooth it. */
+  image-rendering: pixelated;
+  filter: hue-rotate(var(--cm-hue));
+  transition: filter 0.55s ease;
+  opacity: 0;
+  animation: cm-draw var(--d) var(--dl) ease-in-out infinite;
+}
+
+@keyframes cm-draw {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  2% {
+    opacity: var(--cm-alpha);
+  }
+  /* Drawn over ~24% of the cycle, held, then faded — the clip stays open while
+     it fades, so it goes out as a whole rather than being wiped away. */
+  26% {
+    clip-path: inset(0 0 0 0);
+  }
+  44% {
+    clip-path: inset(0 0 0 0);
+    opacity: var(--cm-alpha);
+  }
+  56% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+}
+
 /* --- Cover effect: flickering grid -----------------------------------------
    Squares on the artwork's own cell pitch, lighting up and going out. Colours
    are sampled from the structures in the image, so the flicker reads as the
@@ -689,6 +750,15 @@ button {
 .cover.deep .fx-grid {
   --fg-alpha: 0.5;
   --fg-glow: 0.3;
+}
+
+/* The second artwork is a warm palette — orange and amber around hue 0–42°,
+   against the first image's pure cyan-to-blue at 180–216°. Rotating the motifs
+   by ~165° lands them in the same family as whichever image is showing, and
+   the transition matches the 0.6s crossfade between the two. */
+.cover.deep .fx-chain {
+  --cm-hue: 165deg;
+  --cm-alpha: 0.85;
 }
 
 /* Deep state darkens the card and swaps the contact face for the epigraph. */
@@ -2360,6 +2430,10 @@ button {
     --fg-alpha: 0.6;
   }
 
+  .fx-chain {
+    --cm-alpha: 0.75;
+  }
+
   .nav-toggle {
     display: block;
   }
@@ -2763,6 +2837,7 @@ button {
   /* Not just paused: the blanket rule below would collapse every cycle to
      0.001ms and strobe them. Cover motion has to go entirely. */
   .backbone,
+  .fx-chain,
   .fx-grid,
   .fx-sweep,
   .fx-meteors {
@@ -2797,6 +2872,7 @@ button {
   .segmented,
   .pub-more,
   .backbone,
+  .fx-chain,
   .fx-grid,
   .fx-sweep,
   .fx-meteors {

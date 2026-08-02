@@ -75,10 +75,13 @@ enableRobotsTXT = true
     #   "meteors"   thin streaks falling across the band
     #   "backbone"  protein Cα traces that draw themselves (reads as scribble
     #               at this scale next to the real ribbon art — kept for reference)
+    #   "chain"     real helices and strands cut from the artwork, drawing themselves
     #   "grid"      squares flickering on the artwork's own pixel pitch
     #   "off"       nothing
-    # Each is a partial in layouts/_partials/fx/, all CSS-only.
-    effect = "grid"
+    # Each is a partial in layouts/_partials/fx/, all CSS-only. Space-separated
+    # values are layered, e.g. "chain grid" for structures over an ambient
+    # flicker.
+    effect = "chain"
 
     # The band spans the full window and takes the artwork's aspect ratio, so
     # on a 1920px screen a 2:1 image would stand 960px tall — the whole first
