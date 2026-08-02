@@ -1,0 +1,41 @@
+{{- /*
+  Backbone traces: three protein Cα paths that draw themselves over the cover
+  artwork and fade, on long coprime cycles.
+
+  The geometry is real. α-helices come from the helical parameters — rise over
+  radius ≈ 0.27, the ratio that produces the overlapping coil of a genuine side
+  view; larger and it unwinds into a wave. β-strands are a shallow pleat, not a
+  sine. The connecting loops are Catmull-Rom splines seeded with the preceding
+  tangent, and each helix starts and ends at t = 3π/2, where the tangent points
+  along +x — otherwise a loop leaves at whatever phase the helix was cut at and
+  visibly kinks.
+
+  Placement: the artwork is itself a ribbon diagram and its structures fill the
+  top ~62% of the frame (p95 luminance 32–96 there, 8–11 below). Backbones drawn
+  over backbones read as scratches, so each trace is its own small SVG anchored
+  by CSS to the bottom of the cover — which stays in the clear dark band however
+  the artwork happens to be cropped. One shared viewBox cannot do this: the
+  artwork is positioned at `center 30%`, and preserveAspectRatio only offers
+  0/50/100%, so the two croppings drift apart as the band's ratio changes.
+
+  pathLength="1" puts the dash animation in normalised units, so one set of
+  keyframes drives all three whatever their real length. The <use> re-renders
+  the same geometry with a short dash, which rides the drawing frontier as a
+  bright head — same `d`, no duplicated path data.
+
+  Tunables live on `.backbone` in css/main.css (§ cover).
+*/ -}}
+<div class="backbone" aria-hidden="true">
+  <svg class="bb-trace bb-t1" viewBox="0 0 473 159" fill="none" focusable="false">
+    <path id="bb-1" pathLength="1" d="M 0.0 109.2 L 11.4 109.8 L 22.0 113.4 L 30.9 119.5 L 37.1 127.5 L 40.3 136.3 L 40.4 144.8 L 37.7 152.0 L 32.7 156.9 L 26.4 159.1 L 19.9 158.1 L 14.1 154.0 L 10.2 147.4 L 8.8 139.0 L 10.4 129.8 L 15.2 120.9 L 22.8 113.3 L 32.7 107.9 L 43.8 105.4 L 55.2 105.9 L 65.9 109.5 L 74.7 115.7 L 80.9 123.7 L 84.2 132.5 L 84.2 141.0 L 81.5 148.1 L 76.5 153.1 L 70.3 155.2 L 63.7 154.2 L 57.9 150.2 L 54.0 143.6 L 52.6 135.2 L 54.3 126.0 L 59.0 117.1 L 66.6 109.5 L 76.5 104.1 L 87.6 101.5 L 99.1 102.1 L 109.7 105.7 L 118.5 111.9 L 124.7 119.8 L 128.0 128.6 L 128.1 137.1 L 125.3 144.3 L 120.4 149.3 L 114.1 151.4 L 107.5 150.4 L 101.8 146.4 L 97.8 139.8 L 96.4 131.4 L 98.1 122.2 L 102.8 113.2 L 110.5 105.6 L 120.3 100.2 L 131.4 97.7 L 131.8 97.7 L 132.2 97.7 L 132.6 97.7 L 133.1 97.7 L 133.6 97.7 L 134.3 97.7 L 135.1 97.6 L 136.1 97.3 L 137.3 97.0 L 138.6 96.6 L 140.3 96.0 L 142.2 95.2 L 144.4 94.3 L 147.0 93.3 L 149.8 92.3 L 152.9 91.1 L 156.1 89.9 L 159.6 88.5 L 163.1 87.0 L 166.7 85.4 L 170.4 83.7 L 174.1 81.9 L 177.7 79.9 L 181.2 77.7 L 184.6 75.4 L 188.0 72.9 L 191.2 70.0 L 194.5 66.9 L 197.8 63.6 L 201.1 60.1 L 204.4 56.5 L 207.7 52.9 L 211.1 49.3 L 214.5 45.8 L 218.0 42.4 L 221.6 39.1 L 225.3 36.1 L 229.1 33.4 L 233.1 30.8 L 237.1 28.3 L 241.3 25.9 L 245.5 23.5 L 249.8 21.3 L 254.2 19.1 L 258.6 17.1 L 263.1 15.2 L 267.5 13.5 L 272.0 11.9 L 276.4 10.5 L 280.8 9.4 L 285.2 8.4 L 289.7 7.7 L 294.4 7.4 L 299.3 7.3 L 304.4 7.4 L 309.4 7.7 L 314.5 8.1 L 319.3 8.7 L 324.0 9.3 L 328.4 9.9 L 332.5 10.4 L 336.1 10.9 L 339.2 11.3 L 341.7 11.5 L 353.1 12.1 L 363.7 15.7 L 372.5 21.8 L 378.8 29.8 L 382.0 38.6 L 382.1 47.1 L 379.3 54.3 L 374.4 59.3 L 368.1 61.4 L 361.5 60.4 L 355.8 56.4 L 351.8 49.8 L 350.5 41.4 L 352.1 32.2 L 356.9 23.2 L 364.5 15.6 L 374.3 10.2 L 385.5 7.7 L 396.9 8.2 L 407.5 11.8 L 416.3 18.0 L 422.6 26.0 L 425.8 34.8 L 425.9 43.3 L 423.2 50.5 L 418.2 55.4 L 411.9 57.6 L 405.4 56.6 L 399.6 52.5 L 395.7 45.9 L 394.3 37.5 L 395.9 28.3 L 400.7 19.4 L 408.3 11.8 L 418.1 6.4 L 429.3 3.8 L 440.7 4.4 L 451.3 8.0 L 460.2 14.2 L 466.4 22.2 L 469.6 30.9 L 469.7 39.4 L 467.0 46.6 L 462.0 51.6 L 455.7 53.7 L 449.2 52.7 L 443.4 48.7 L 439.5 42.1 L 438.1 33.7 L 439.7 24.5 L 444.5 15.6 L 452.1 7.9 L 461.9 2.6 L 473.1 0.0" />
+    <use class="bb-head" href="#bb-1" />
+  </svg>
+  <svg class="bb-trace bb-t2" viewBox="0 0 272 55" fill="none" focusable="false">
+    <path id="bb-2" pathLength="1" d="M 0.0 1.2 L 6.5 4.5 L 13.2 6.5 L 20.0 6.6 L 26.9 4.8 L 33.8 2.3 L 40.7 0.3 L 47.6 0.0 L 54.2 1.7 L 60.8 4.9 L 67.3 8.3 L 73.9 10.6 L 80.7 11.0 L 87.6 9.5 L 94.5 7.0 L 101.5 4.8 L 108.3 4.2 L 115.0 5.6 L 121.5 8.7 L 128.1 12.1 L 134.7 14.7 L 141.4 15.4 L 148.3 14.2 L 155.2 11.8 L 162.2 9.5 L 169.0 8.5 L 175.7 9.6 L 182.3 12.4 L 188.8 15.9 L 195.4 18.7 L 202.1 19.8 L 209.0 18.8 L 215.9 16.5 L 222.9 14.1 L 229.7 12.9 L 230.0 12.7 L 230.2 12.5 L 230.4 12.3 L 230.6 12.0 L 230.9 11.8 L 231.3 11.5 L 231.8 11.4 L 232.4 11.2 L 233.1 11.2 L 234.0 11.3 L 235.1 11.4 L 236.4 11.7 L 238.0 12.2 L 239.9 12.7 L 242.1 13.3 L 244.5 14.0 L 247.1 14.8 L 249.7 15.6 L 252.4 16.5 L 255.1 17.4 L 257.7 18.5 L 260.1 19.5 L 262.2 20.6 L 264.1 21.7 L 265.7 22.8 L 267.0 24.0 L 268.1 25.3 L 269.2 26.7 L 270.1 28.1 L 270.8 29.6 L 271.5 31.2 L 272.0 32.7 L 272.3 34.3 L 272.4 35.8 L 272.4 37.2 L 272.3 38.7 L 271.9 40.0 L 271.4 41.2 L 270.6 42.4 L 269.3 43.6 L 267.8 44.8 L 266.0 45.9 L 264.0 47.1 L 261.9 48.1 L 259.7 49.2 L 257.6 50.1 L 255.5 51.0 L 253.6 51.8 L 251.9 52.6 L 250.5 53.2 L 249.5 53.7 L 243.0 50.5 L 236.5 48.4 L 229.9 48.3 L 223.1 50.0 L 216.2 52.4 L 209.4 54.5 L 202.7 55.0 L 196.2 53.5 L 189.7 50.6 L 183.3 47.1 L 176.8 44.6 L 170.2 43.8 L 163.5 44.9 L 156.6 47.3 L 149.8 49.6 L 143.1 50.7 L 136.5 49.9 L 130.0 47.3 L 123.6 43.9 L 117.1 40.9 L 110.5 39.5 L 103.8 40.1 L 97.0 42.1 L 90.2 44.6 L 83.4 46.2 L 76.8 46.1 L 70.2 44.0 L 63.8 40.7 L 57.4 37.5 L 50.9 35.4 L 44.2 35.4 L 37.4 37.0 L 30.6 39.5 L 23.8 41.5" />
+    <use class="bb-head" href="#bb-2" />
+  </svg>
+  <svg class="bb-trace bb-t3" viewBox="0 0 404 68" fill="none" focusable="false">
+    <path id="bb-3" pathLength="1" d="M 0.0 46.8 L 2.0 45.4 L 4.3 43.8 L 7.0 41.9 L 10.0 39.7 L 13.3 37.3 L 16.7 34.8 L 20.4 32.1 L 24.3 29.4 L 28.3 26.7 L 32.3 24.0 L 36.5 21.3 L 40.6 18.8 L 44.8 16.4 L 48.9 14.3 L 52.9 12.4 L 56.8 10.8 L 60.7 9.3 L 64.7 8.0 L 68.8 6.8 L 73.0 5.6 L 77.2 4.5 L 81.5 3.6 L 85.8 2.7 L 90.1 2.0 L 94.4 1.3 L 98.7 0.8 L 102.9 0.4 L 107.0 0.1 L 111.1 0.0 L 115.0 0.0 L 118.8 0.2 L 122.5 0.5 L 126.1 1.0 L 129.7 1.8 L 133.4 2.9 L 137.0 4.3 L 140.6 5.8 L 144.1 7.4 L 147.6 9.2 L 151.0 11.0 L 154.2 12.8 L 157.3 14.6 L 160.2 16.3 L 162.9 18.0 L 165.4 19.5 L 167.6 20.8 L 169.6 21.9 L 171.3 22.8 L 181.4 23.8 L 190.8 27.5 L 198.4 33.3 L 203.6 40.7 L 206.2 48.6 L 206.0 56.1 L 203.3 62.3 L 198.8 66.4 L 193.3 68.0 L 187.6 66.8 L 182.9 63.0 L 179.8 57.0 L 179.1 49.5 L 181.0 41.4 L 185.8 33.8 L 193.0 27.4 L 202.0 23.1 L 212.1 21.3 L 222.3 22.4 L 231.6 26.0 L 239.2 31.9 L 244.5 39.2 L 247.0 47.1 L 246.8 54.6 L 244.1 60.9 L 239.6 65.0 L 234.1 66.6 L 228.5 65.4 L 223.7 61.6 L 220.6 55.6 L 219.9 48.1 L 221.9 40.0 L 226.6 32.3 L 233.8 26.0 L 242.8 21.7 L 252.9 19.9 L 253.2 19.7 L 253.5 19.4 L 253.8 19.0 L 254.1 18.7 L 254.5 18.3 L 255.1 18.0 L 255.8 17.7 L 256.7 17.6 L 257.7 17.5 L 259.1 17.6 L 260.7 17.8 L 262.6 18.3 L 264.9 19.0 L 267.5 19.8 L 270.5 20.8 L 273.7 21.9 L 277.1 23.1 L 280.7 24.5 L 284.4 25.9 L 288.2 27.3 L 292.1 28.8 L 295.9 30.3 L 299.8 31.8 L 303.6 33.3 L 307.2 34.8 L 310.8 36.3 L 314.5 38.0 L 318.2 39.8 L 322.0 41.8 L 325.7 43.7 L 329.5 45.7 L 333.3 47.6 L 337.1 49.4 L 340.9 51.0 L 344.7 52.5 L 348.5 53.7 L 352.2 54.5 L 356.0 55.1 L 359.8 55.2 L 363.8 54.9 L 368.0 54.3 L 372.3 53.5 L 376.5 52.4 L 380.8 51.2 L 384.9 49.8 L 388.8 48.5 L 392.5 47.2 L 395.9 45.9 L 398.9 44.9 L 401.5 44.0 L 403.6 43.4" />
+    <use class="bb-head" href="#bb-3" />
+  </svg>
+</div>

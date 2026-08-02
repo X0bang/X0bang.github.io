@@ -372,6 +372,325 @@ button {
   opacity: 1;
 }
 
+/* --- Cover effect: flickering grid -----------------------------------------
+   Squares on the artwork's own cell pitch, lighting up and going out. Colours
+   are sampled from the structures in the image, so the flicker reads as the
+   same substance rather than as an overlay. Only `opacity` animates. */
+.fx-grid {
+  --fg-size: 4px; /* cell, matching the artwork at a 1440px band */
+  --fg-alpha: 0.8; /* peak brightness                             */
+  --fg-glow: 0.55; /* halo strength on the occasional bright cell  */
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fg {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--fg-size);
+  height: var(--fg-size);
+  background: var(--k);
+  opacity: 0;
+  animation: fg-blink var(--d) var(--dl) linear infinite;
+}
+
+/* Sampled from the ribbon art: pure cyan-to-blue, lifted in value so a lit
+   cell reads brighter than the structures around it. */
+.k1 {
+  --k: #4fe0d0;
+}
+
+.k2 {
+  --k: #4aa8ff;
+}
+
+.k3 {
+  --k: #6ff0c0;
+}
+
+.k4 {
+  --k: #7fd4ff;
+}
+
+/* A few cells carry a halo, so the field has some depth instead of reading as
+   one flat layer of identical dots. */
+.fg.b {
+  box-shadow: 0 0 7px 1px rgba(120, 210, 255, var(--fg-glow));
+}
+
+/* Lit for roughly 1.5s of a 7–17s cycle: in, hold, out, then dark. */
+@keyframes fg-blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  3% {
+    opacity: var(--fg-alpha);
+  }
+  9% {
+    opacity: var(--fg-alpha);
+  }
+  14% {
+    opacity: 0;
+  }
+}
+
+/* --- Cover effect: sweep ---------------------------------------------------
+   A band of light crossing the artwork. `mix-blend-mode: screen` means it can
+   only ever add light, so the near-black field stays black and only the
+   blue-green structures brighten as the front passes over them — the artwork
+   animates itself instead of being covered by new shapes. */
+.fx-sweep {
+  --sw-core: 0.22; /* peak brightness of the narrow core */
+  --sw-body: 0.09; /* the wide soft body around it       */
+  --sw-tint: 190, 225, 255; /* faint cool cast, RGB               */
+  --sw-cycle: 14s; /* one pass, including the pause      */
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sw-band {
+  position: absolute;
+  /* Overhangs top and bottom so the skew never exposes a corner. */
+  top: -60%;
+  bottom: -60%;
+  left: 0;
+  width: 26%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(var(--sw-tint), var(--sw-body)) 34%,
+    rgba(255, 255, 255, var(--sw-core)) 50%,
+    rgba(var(--sw-tint), var(--sw-body)) 66%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  transform: translateX(-140%) skewX(-14deg);
+  animation: sw-pass var(--sw-cycle) ease-in-out infinite;
+}
+
+@keyframes sw-pass {
+  0% {
+    transform: translateX(-140%) skewX(-14deg);
+  }
+  /* Crosses in the first 55%, then waits offstage — a continuous sweep reads
+     as a scanner; a pause between passes reads as light. */
+  55%,
+  100% {
+    transform: translateX(500%) skewX(-14deg);
+  }
+}
+
+/* --- Cover effect: meteors -------------------------------------------------
+   Rotate first, then translate along the element's own -x axis, so a meteor
+   always travels in the direction it points and the tail trails behind it at
+   any angle. Only transform and opacity animate. */
+.fx-meteors {
+  --mt-alpha: 0.85; /* peak brightness            */
+  --mt-thick: 1px; /* streak thickness           */
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mt {
+  position: absolute;
+  left: var(--l);
+  top: var(--t);
+  width: var(--len);
+  height: var(--mt-thick);
+  /* The bright end is at x = 0, which is also the leading edge, because the
+     travel below is toward -x. */
+  background: linear-gradient(
+    270deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 55%,
+    #fff 100%
+  );
+  transform-origin: 0 0;
+  opacity: 0;
+  animation: mt-fall var(--dur) var(--delay) linear infinite;
+}
+
+.mt::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 7px 1px rgba(190, 225, 255, 0.7);
+}
+
+@keyframes mt-fall {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--ang)) translateX(0);
+  }
+  3% {
+    opacity: var(--mt-alpha);
+  }
+  17% {
+    opacity: var(--mt-alpha);
+  }
+  /* In flight for 21% of the cycle; dark for the rest. */
+  21%,
+  100% {
+    opacity: 0;
+    transform: rotate(var(--ang)) translateX(calc(-1 * var(--dist)));
+  }
+}
+
+/* --- Backbone traces ------------------------------------------------------
+   Protein Cα paths that draw themselves across the artwork and fade. The
+   cover art is 9–31 in luminance everywhere and does not follow the theme,
+   so one white treatment works in both light and dark mode.
+
+   Everything worth adjusting is here. */
+.backbone {
+  --bb-alpha: 0.5; /* peak opacity of the drawn trace */
+  --bb-head-alpha: 0.95; /* the bright leading segment      */
+  --bb-head-len: 0.035; /* leading segment, as a fraction  */
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Each trace is its own SVG, sized by width and anchored to the bottom of the
+   band. `height: auto` lets the viewBox supply the ratio, so the box is always
+   exactly the artwork's bounding box and the bottom offsets below mean what
+   they say. */
+.bb-trace {
+  position: absolute;
+  height: auto;
+  /* The viewBox is the path's tight bbox, so half the stroke sits outside it. */
+  overflow: visible;
+}
+
+.bb-trace path,
+.bb-trace use {
+  fill: none;
+  stroke: #fff;
+  /* In viewBox units, set per trace so all three land on the same screen
+     weight despite being scaled differently. `non-scaling-stroke` would do
+     this for us, but its interaction with stroke-dasharray is unreliable
+     across engines — and the resting state here is a fully hidden dash, so
+     any miscomputation shows up as nothing at all. */
+  stroke-width: var(--bb-sw);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  animation: bb-draw var(--bb-dur, 33s) var(--bb-delay, 0s) ease-in-out infinite;
+}
+
+/* Coprime cycles, so the three never settle into a group rhythm. */
+.bb-t1 {
+  left: 3%;
+  bottom: 5%;
+  width: clamp(190px, 19%, 340px);
+  --bb-sw: 2.2;
+  --bb-dur: 29s;
+  --bb-delay: -3s;
+}
+
+.bb-t2 {
+  left: 37%;
+  bottom: 3%;
+  width: clamp(160px, 19%, 300px);
+  --bb-sw: 1.3;
+  --bb-dur: 37s;
+  --bb-delay: -19s;
+}
+
+.bb-t3 {
+  right: 4%;
+  bottom: 7%;
+  width: clamp(170px, 20%, 320px);
+  --bb-sw: 1.8;
+  --bb-dur: 43s;
+  --bb-delay: -31s;
+}
+
+/* pathLength="1" on the path means the dash pattern is in normalised units,
+   so one set of keyframes drives all three regardless of their real length. */
+.bb-trace path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* Same geometry via <use>, but a short dash instead of a full one: it rides
+   the drawing frontier as a bright head. Costs no extra path data. */
+.bb-head {
+  --bb-alpha: var(--bb-head-alpha);
+  stroke-dasharray: var(--bb-head-len) 1;
+  stroke-dashoffset: 1;
+}
+
+@keyframes bb-draw {
+  0% {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  3% {
+    opacity: var(--bb-alpha);
+  }
+  22% {
+    stroke-dashoffset: 0;
+  }
+  36% {
+    stroke-dashoffset: 0;
+    opacity: var(--bb-alpha);
+  }
+  46% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  /* Rest of the cycle: dark. Resetting the offset here is invisible. */
+  100% {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+}
+
+/* Deep state dims the artwork; pull the motion back so it does not start
+   competing with the epigraph. */
+.cover.deep .backbone {
+  --bb-alpha: 0.3;
+  --bb-head-alpha: 0.6;
+}
+
+.cover.deep .fx-sweep {
+  --sw-core: 0.13;
+  --sw-body: 0.05;
+}
+
+.cover.deep .fx-meteors {
+  --mt-alpha: 0.5;
+}
+
+.cover.deep .fx-grid {
+  --fg-alpha: 0.5;
+  --fg-glow: 0.3;
+}
+
 /* Deep state darkens the card and swaps the contact face for the epigraph. */
 .profile-wrapper {
   position: relative;
@@ -1980,6 +2299,13 @@ button {
     min-height: 0;
   }
 
+  /* The band is squarer here and the SVG is sliced from a 3:1 viewBox, so
+     less of each trace is on screen. Pull them back rather than crop-and-shout. */
+  .backbone {
+    --bb-alpha: 0.36;
+    --bb-head-alpha: 0.7;
+  }
+
   /* Stacked card is tall, so let the box grow with it and re-centre; the
      artwork falls back to covering whatever shape that leaves. */
   /* The stacked card is taller than any capped band, and the cover clips its
@@ -2010,6 +2336,28 @@ button {
 @media screen and (max-width: 600px) {
   :root {
     --gutter: 20px;
+  }
+
+  /* Phone covers are close to square and the stacked card fills most of them,
+     so there is little left to animate over. Meteors and the sweep still read
+     fine at that size; only the traces do not — slicing their 3:1 viewBox into
+     a near-square shows about a third of one shape. */
+  .backbone {
+    display: none;
+  }
+
+  .fx-sweep {
+    --sw-core: 0.16;
+    --sw-body: 0.06;
+  }
+
+  .fx-meteors {
+    --mt-alpha: 0.6;
+  }
+
+  .fx-grid {
+    --fg-size: 3px;
+    --fg-alpha: 0.6;
   }
 
   .nav-toggle {
@@ -2412,6 +2760,15 @@ button {
     scroll-behavior: auto;
   }
 
+  /* Not just paused: the blanket rule below would collapse every cycle to
+     0.001ms and strobe them. Cover motion has to go entirely. */
+  .backbone,
+  .fx-grid,
+  .fx-sweep,
+  .fx-meteors {
+    display: none;
+  }
+
   .anim #my-name {
     animation: none !important;
   }
@@ -2438,7 +2795,11 @@ button {
   .scroll-progress,
   .list-toggle,
   .segmented,
-  .pub-more {
+  .pub-more,
+  .backbone,
+  .fx-grid,
+  .fx-sweep,
+  .fx-meteors {
     display: none !important;
   }
 

@@ -1,0 +1,16 @@
+{{- /*
+  A slow band of light travelling across the cover.
+
+  The artwork is already a ribbon diagram; rather than drawing new shapes on
+  top of it, this lights the shapes that are there. The band blends with
+  `screen`, so it can only add light — the near-black field underneath stays
+  black and the blue-green structures brighten as it passes over them.
+
+  Two layers on one element: a wide soft body and a narrow bright core, so the
+  edge reads as a leading front rather than a uniform slab.
+
+  Tunables live on `.fx-sweep` in css/main.css (§ cover).
+*/ -}}
+<div class="fx-sweep" aria-hidden="true">
+  <span class="sw-band"></span>
+</div>

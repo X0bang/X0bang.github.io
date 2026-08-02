@@ -13,27 +13,49 @@
 
   /* ---- Theme -------------------------------------------------------- */
 
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+
+  function stored() {
+    try {
+      return localStorage.getItem("theme");
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function store(v) {
+    try {
+      if (v) localStorage.setItem("theme", v);
+      else localStorage.removeItem("theme");
+    } catch (e) {}
+  }
+
+  /* A stored theme is an *override*, and an override only means anything while
+     it disagrees with the system. Once the two coincide — because the system
+     changed, or because the toggle was clicked back — drop it and resume
+     following the system. Without this, one click on a dark evening pins the
+     site to that theme permanently, which is the bug this replaces. */
+  function syncTheme() {
+    var sys = mq.matches ? "dark" : "light";
+    if (stored() === sys) store(null);
+    /* Applies the override too, rather than leaving that to the inline script
+       in head.html — same result on load, but this stays correct on its own. */
+    root.setAttribute("data-theme", stored() || sys);
+  }
+
+  syncTheme();
+
   var toggle = document.getElementById("theme-toggle");
   if (toggle) {
     toggle.addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
-      try {
-        localStorage.setItem("theme", next);
-      } catch (e) {}
+      store(next === (mq.matches ? "dark" : "light") ? null : next);
     });
   }
 
-  var mq = window.matchMedia("(prefers-color-scheme: dark)");
-  var onScheme = function (e) {
-    var stored = null;
-    try {
-      stored = localStorage.getItem("theme");
-    } catch (err) {}
-    if (!stored) root.setAttribute("data-theme", e.matches ? "dark" : "light");
-  };
-  if (mq.addEventListener) mq.addEventListener("change", onScheme);
-  else if (mq.addListener) mq.addListener(onScheme);
+  if (mq.addEventListener) mq.addEventListener("change", syncTheme);
+  else if (mq.addListener) mq.addListener(syncTheme);
 
   /* ---- Mobile navigation -------------------------------------------- */
 

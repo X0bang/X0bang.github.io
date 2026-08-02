@@ -1,0 +1,24 @@
+{{- /*
+  Meteors: thin streaks crossing the cover.
+
+  Each span is a one-pixel bar carrying a gradient tail, rotated to its angle
+  and then translated along its own -x axis — so it always travels in the
+  direction it points, with the tail trailing correctly behind whatever angle
+  it was given. Only `transform` and `opacity` animate, so the whole thing
+  stays on the compositor.
+
+  Cycles are coprime (13/17/19/23 s) and each meteor is only in flight for 21%
+  of its cycle, so on average about 1.5 are on screen and the group never
+  settles into a visible rhythm.
+
+  Tunables live on `.fx-meteors` in css/main.css (§ cover).
+*/ -}}
+<div class="fx-meteors" aria-hidden="true">
+  <span class="mt" style="--l: 118%; --t: -12%; --ang: -21deg; --len: 170px; --dist: 1850px; --dur: 13s; --delay: -1s"></span>
+  <span class="mt" style="--l: 92%; --t: 10%; --ang: -24deg; --len: 120px; --dist: 1500px; --dur: 17s; --delay: -9s"></span>
+  <span class="mt" style="--l: 105%; --t: 26%; --ang: -19deg; --len: 195px; --dist: 1700px; --dur: 19s; --delay: -14s"></span>
+  <span class="mt" style="--l: 74%; --t: -6%; --ang: -23deg; --len: 140px; --dist: 1450px; --dur: 23s; --delay: -5s"></span>
+  <span class="mt" style="--l: 128%; --t: 14%; --ang: -20deg; --len: 110px; --dist: 1900px; --dur: 17s; --delay: -13s"></span>
+  <span class="mt" style="--l: 61%; --t: 20%; --ang: -25deg; --len: 165px; --dist: 1250px; --dur: 19s; --delay: -3s"></span>
+  <span class="mt" style="--l: 112%; --t: 2%; --ang: -22deg; --len: 135px; --dist: 1650px; --dur: 13s; --delay: -7s"></span>
+</div>

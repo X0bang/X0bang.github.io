@@ -54,6 +54,11 @@
     <div class="cover-deep" aria-hidden="true" style="background-image: url('{{ . }}')"></div>
   {{ end }}
 
+  {{- /* Above both artwork layers, below the name card, so the motion passes
+         behind the card and is dimmed by it. Pick the effect in hugo.toml. */ -}}
+  {{- $fx := site.Params.cover.effect | default "sweep" -}}
+  {{- if ne $fx "off" }}{{ partial (printf "fx/%s.html" $fx) . }}{{ end }}
+
   <div class="profile-wrapper" id="profile-namecard">
     <div class="profile-col profile-col-1" id="my-pic">
       <span
