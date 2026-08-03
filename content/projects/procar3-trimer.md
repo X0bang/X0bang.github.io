@@ -92,4 +92,5 @@ surface in working form.
 The project is ongoing. The current focus is a functional comparison against the
 conventional 4-1BBζ architecture, and the free-energy work above is still being refined.
 
-_Fully funded through the WEHI InSPIRE program._
+_Fully funded through the InSPIRE program at the Walter and Eliza Hall Institute, the
+Department of Medical Biology of the University of Melbourne._

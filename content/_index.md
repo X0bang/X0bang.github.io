@@ -5,8 +5,9 @@ bioShort: >-
   I am an undergraduate in Biological Sciences at
   [Zhejiang University](https://www.zju.edu.cn/english/), on the bioinformatics track, and
   currently a research intern at the
-  [Walter and Eliza Hall Institute](https://www.wehi.edu.au/) through the InSPIRE program,
-  working on CAR-T receptor design.
+  [Walter and Eliza Hall Institute](https://www.wehi.edu.au/) — the Department of Medical
+  Biology of the [University of Melbourne](https://www.unimelb.edu.au/) — through the
+  InSPIRE program, working on CAR-T receptor design.
 
 
   I work on **protein and enzyme design**, **molecular dynamics**, and the **multi-omics**
