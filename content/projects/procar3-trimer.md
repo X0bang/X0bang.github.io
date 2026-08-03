@@ -5,7 +5,7 @@ year: "2026"
 weight: 1
 selected: true
 venue: "WEHI"
-venueLogo: "images/logos/wehi.jpg"
+venueLogo: "images/logos/wehi.png"
 lab: "Call Lab"
 status: "Ongoing"
 thumbPoster: "images/projects/procar3-poster.jpg"

@@ -6,7 +6,7 @@ weight: 3
 selected: true
 venue: "iGEM 2025"
 venueLogo: "images/logos/igem.svg"
-lab: "Chen Lab"
+lab: "Bioinformatics Group"
 status: "Silver Medal"
 thumbPoster: "images/projects/lumamanta-detection-poster.webp"
 thumb: "images/projects/lumamanta-detection.webp"

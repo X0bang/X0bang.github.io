@@ -1204,16 +1204,26 @@ button {
   display: block;
 }
 
-/* The affiliation line. 600, not 700: IBM Plex Mono is loaded at 400/500/600,
-   so 700 would be a synthesised bold, which smears a monospace face.
-   `--body` rather than `--muted` because at 13px this is normal-size text for
-   WCAG, and muted over the translucent card measures 3.44:1 — bolding it does
-   not change that, the colour does. */
+/* Three lines, each a step more prominent than the last: the degree, the track
+   within it, then where. 600 and not 700 throughout — IBM Plex Mono is loaded
+   at 400/500/600, and 700 would be a synthesised bold, which smears a
+   monospace face. `--body` rather than `--muted` because at this size they are
+   normal-size text for WCAG, and muted over the translucent card measures
+   3.44:1; weight does not fix that, the colour does. */
 .title-line + .title-line {
   margin-top: 2px;
   color: var(--body);
   font-weight: 600;
   letter-spacing: 0.08em;
+}
+
+.title-line:nth-child(2) {
+  font-size: 13.5px;
+}
+
+.title-line:nth-child(3) {
+  font-size: 15px;
+  letter-spacing: 0.06em;
 }
 
 #my-title a {
