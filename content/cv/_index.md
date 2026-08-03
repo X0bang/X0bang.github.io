@@ -4,7 +4,7 @@ date: 2026-07-31
 description: "Curriculum vitae of Boyue Zhang — education, research experience, skills and awards. PDF available."
 ---
 
-📄 **[Download PDF](/files/CV_Boyue_Zhang_ZJU.pdf)**
+<p class="pdf-link"><a href="/files/CV_Boyue_Zhang_ZJU.pdf">{{< icon cv >}}<span>Download PDF</span></a></p>
 
 ## Education
 
@@ -61,26 +61,26 @@ and quorum-controlled switching.
 
 ## Honors & Awards
 
-{{< cv title="**WEHI InSPIRE Scholarship**" when="2026" meta="Walter and Eliza Hall Institute — 8,000 AUD; competitively selected, ZJU-nominated" >}}{{< /cv >}}
+{{< cv title="**WEHI InSPIRE Scholarship**" when="2026" logo="images/logos/unimelb.png, images/logos/wehi.png" meta="Walter and Eliza Hall Institute — 8,000 AUD; competitively selected, ZJU-nominated" >}}{{< /cv >}}
 
-{{< cv title="**Silver Medal, iGEM 2025**" when="Oct 2025" meta="Technical Lead, ZJU-China" >}}{{< /cv >}}
+{{< cv title="**Silver Medal, iGEM 2025**" when="Oct 2025" logo="images/logos/igem.svg, images/logos/igem-zjuchina.png" meta="Technical Lead, ZJU-China" >}}{{< /cv >}}
 
-{{< cv title="**Grand Prize, [SynBio Challenges](http://www.synbiochallenges.com/)**" when="Aug 2025" meta="1st nationally — Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology" >}}{{< /cv >}}
+{{< cv title="**Grand Prize, [SynBio Challenges](http://www.synbiochallenges.com/)**" when="Aug 2025" logo="images/logos/synbio-competition.png, images/logos/csbt.png" meta="1st nationally — Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology" >}}{{< /cv >}}
 
-{{< cv title="**Gold Medal, 18th &ldquo;Dandelion&rdquo; Undergraduate Innovation Competition**" when="Mar 2026" meta="CTO — LumaManta eDNA-based aquatic pathogen detection" >}}{{< /cv >}}
+{{< cv title="**Gold Medal, 18th &ldquo;Dandelion&rdquo; Undergraduate Innovation Competition**" when="Mar 2026" logo="images/logos/zju-eagle.png" meta="CTO — LumaManta eDNA-based aquatic pathogen detection" >}}{{< /cv >}}
 
-{{< cv title="**First Prize (Champion), National Pet Industry Innovation Competition**" when="Jan 2025" meta="Led the &ldquo;Pet Smart Health&rdquo; team" >}}{{< /cv >}}
+{{< cv title="**First Prize (Champion), National Pet Industry Innovation Competition**" when="Jan 2025" logo="images/logos/fubei.png, images/logos/g60-corridor.png" meta="Led the &ldquo;Pet Smart Health&rdquo; team" >}}{{< /cv >}}
 
-{{< cv title="**Provincial SRTP Research Grant** — rated Outstanding" when="2025" meta="Zhejiang Provincial Department of Science and Technology — 12,000 RMB" >}}{{< /cv >}}
+{{< cv title="**Provincial SRTP Research Grant** — rated Outstanding" when="2025" logo="images/logos/zju-eagle.png" meta="Zhejiang Provincial Department of Science and Technology — 12,000 RMB" >}}{{< /cv >}}
 
-{{< cv title="**Academic Honors & Scholarships**" when="2023 – 2025" meta="Zhejiang University" >}}
+{{< cv title="**Academic Honors & Scholarships**" when="2023 – 2025" logo="images/logos/zju-eagle.png" meta="Zhejiang University" >}}
 - Professional Excellence Scholarship (2023–2024)
 - Second-Class Scholarship (2024–2025)
 - Innovation & Entrepreneurship Model (2024–2025)
 - Academic Excellence Model (2024–2025)
 {{< /cv >}}
 
-{{< cv title="**5th Place, Stand-Up Paddleboard 200 m**" when="Jun 2025" meta="ZJU Sports Championship" >}}{{< /cv >}}
+{{< cv title="**5th Place, Stand-Up Paddleboard 200 m**" when="Jun 2025" logo="images/logos/zju-eagle.png" meta="ZJU Sports Championship" >}}{{< /cv >}}
 
 ## Leadership & Volunteering
 

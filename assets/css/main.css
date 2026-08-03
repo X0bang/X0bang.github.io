@@ -1640,20 +1640,23 @@ button {
 }
 
 .tmline-logo {
-  /* min-width, not width: one mark keeps every row's dates aligned, and a
-     jointly-run entry may carry a second without being squeezed. */
+  /* Wide enough for two marks on every row, filled from the left: a row's
+     first logo then lands in the same column whether it carries one mark or
+     two, and a second mark extends to the right of it. */
   flex: 0 0 auto;
-  min-width: 48px;
+  width: 106px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   padding-top: 2px;
 }
 
 .tmline-logo img {
-  max-width: 48px;
-  max-height: 48px;
+  /* A fixed cell rather than a max: each mark is centred in its own square,
+     so marks of different proportions still line up column to column. */
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
 
@@ -2393,6 +2396,24 @@ button {
   border-left: 2px solid var(--line);
 }
 
+/* The download link above the CV. An emoji would be the one coloured thing on
+   a monochrome page; the site's own PDF glyph takes the surrounding type. */
+.pdf-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+.pdf-link .icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
 .cv-head {
   display: flex;
   align-items: baseline;
@@ -2923,13 +2944,13 @@ button {
   }
 
   .tmline-logo {
-    min-width: 38px;
+    width: 84px;
     gap: 8px;
   }
 
   .tmline-logo img {
-    max-width: 38px;
-    max-height: 38px;
+    width: 38px;
+    height: 38px;
   }
 }
 
