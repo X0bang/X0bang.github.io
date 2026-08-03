@@ -38,7 +38,9 @@
                     {{- if eq .MediaType.SubType "svg" -}}
                       {{- $src = .RelPermalink -}}
                     {{- else -}}
-                      {{- $src = ((.Resize "x48").Process "webp q85").RelPermalink -}}
+                      {{- /* Twice the 30px the mark is drawn at, so it stays
+                             sharp on a retina screen. */ -}}
+                      {{- $src = ((.Resize "x60").Process "webp q85").RelPermalink -}}
                     {{- end -}}
                     <img class="entry-logo" src="{{ $src }}" alt="" loading="lazy" />
                   {{- end -}}
