@@ -8,7 +8,7 @@ description: "Curriculum vitae of Boyue Zhang — education, research experience
 
 ## Education
 
-{{< cv title="**Zhejiang University** — B.S. in Biological Sciences" when="Sep 2023 – Jun 2027 (Expected)" meta="GPA 3.69 / 4.0" >}}
+{{< cv title="**Zhejiang University** — B.S. in Biological Sciences" when="Sep 2023 – Jun 2027 (Expected)" meta="GPA 3.7 / 4.0" >}}
 - **Coursework:** Computational Biology (98/100), Bioinformatics (97/100), Biophysics (96/100)
 - **Honors:** Professional Excellence Scholarship, Academic Excellence Model
 {{< /cv >}}
@@ -74,8 +74,10 @@ and quorum-controlled switching.
 {{< cv title="**Provincial SRTP Research Grant** — rated Outstanding" when="2025" meta="Zhejiang Provincial Department of Science and Technology — 12,000 RMB" >}}{{< /cv >}}
 
 {{< cv title="**Academic Honors & Scholarships**" when="2023 – 2025" meta="Zhejiang University" >}}
-Professional Excellence Scholarship · Second-Class Scholarship · Innovation &
-Entrepreneurship Model · Academic Excellence Model
+- Professional Excellence Scholarship (2023–2024)
+- Second-Class Scholarship (2024–2025)
+- Innovation & Entrepreneurship Model (2024–2025)
+- Academic Excellence Model (2024–2025)
 {{< /cv >}}
 
 {{< cv title="**5th Place, Stand-Up Paddleboard 200 m**" when="Jun 2025" meta="ZJU Sports Championship" >}}{{< /cv >}}

@@ -1,4 +1,4 @@
-baseURL = "https://boyuezhang.com/"
+baseURL = "https://x0bang.github.io/"
 locale = "en-us"
 defaultContentLanguage = "en"
 title = "Boyue Zhang"
@@ -81,7 +81,7 @@ enableRobotsTXT = true
     # Each is a partial in layouts/_partials/fx/, all CSS-only. Space-separated
     # values are layered, e.g. "chain grid" for structures over an ambient
     # flicker.
-    effect = "chain"
+    effect = "chain pixels spark"
 
     # The band spans the full window and takes the artwork's aspect ratio, so
     # on a 1920px screen a 2:1 image would stand 960px tall — the whole first

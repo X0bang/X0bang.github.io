@@ -389,12 +389,15 @@ button {
    `background-size: cover` with `background-position: center 30%` puts the
    image. Children are then placed in plain % of the 2172x724 source and stay
    registered at any viewport width. */
+/* Every cover layer is registered to the artwork's *rendered rectangle*, not to
+   the band, so its children can be placed in plain percentages of the 2172x724
+   source and stay on the artwork's own cell grid at any viewport width.
+   `top: 30%` resolves against the band's height while `margin-top: -10%`
+   resolves against its width — percentage margins always do — which lands the
+   box exactly where `background-size: cover` with `background-position:
+   center 30%` puts the image. */
+.fx-reg,
 .fx-chain {
-  /* No ink: a lit cell is its own colour sampled out of the artwork and raised,
-     composited with `screen`. Painting a single ink over them instead would
-     flatten the picture's blue-to-green gradients into one stripe. */
-  --cm-alpha: 0.72;
-
   position: absolute;
   left: 0;
   top: 30%; /* = background-position-y */
@@ -403,7 +406,14 @@ button {
   aspect-ratio: 3; /* 2172 / 724 */
   pointer-events: none;
   /* Deliberately no z-index and no transform: either opens a stacking context,
-     and the traces would stop blending with the artwork underneath. */
+     and the layers would stop blending with the artwork underneath. */
+}
+
+.fx-chain {
+  /* No ink: a lit cell is its own colour sampled out of the artwork and raised,
+     composited with `screen`. Painting a single ink over them instead would
+     flatten the picture's blue-to-green gradients into one stripe. */
+  --cm-alpha: 0.72;
 }
 
 .cm {
@@ -477,6 +487,141 @@ button {
   11%,
   100% {
     opacity: 0;
+  }
+}
+
+/* --- Cover effect: pixel surfacing -----------------------------------------
+   Cells rising out of the field and going under again, on the artwork's own
+   pitch and in the colour that cell already is. Only `opacity` animates, so
+   the whole layer stays on the compositor. */
+.fx-px {
+  --px-alpha: 0.62;
+}
+
+.px {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  background: var(--c);
+  /* Screen: a cell can only add light, never a colour the picture lacks. */
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: px-surface var(--d) var(--dl) ease-in-out infinite;
+}
+
+@keyframes px-surface {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  /* Up over a fifth of the cycle, held briefly, back down — "surfacing", not
+     flickering. A hard on/off at this size reads as dead pixels. */
+  20% {
+    opacity: var(--px-alpha);
+  }
+  34% {
+    opacity: var(--px-alpha);
+  }
+  54% {
+    opacity: 0;
+  }
+}
+
+/* --- Cover effect: sparks --------------------------------------------------
+   A streak crossing the band and bursting into fragments where it lands. The
+   streak is a repeating gradient on the cell pitch rather than a smooth one, so
+   it is a trail of squares — a drawn line beside pixel art reads as something
+   laid over the picture instead of part of it.
+
+   Each `.sp` spans the whole registered box rather than sitting at its impact
+   point, because a percentage inside a zero-size positioned box resolves to
+   zero and nothing renders at all. `translate()` percentages are of the
+   element's own box, not its parent's, so the generator emits travel and reach
+   in multiples of that. */
+.fx-spark {
+  --sp-ink: #7fe4ff;
+  --sp-alpha: 0.85;
+  --sp-frag: 0.95;
+}
+
+.sp {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+}
+
+.st {
+  position: absolute;
+  left: var(--sx);
+  top: var(--iy);
+  width: var(--len);
+  height: var(--ch);
+  /* Pivot on the impact end, so rotating does not move where it lands. */
+  transform-origin: 100% 50%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--sp-ink) 0 calc(var(--cw) * 0.72),
+    transparent calc(var(--cw) * 0.72) var(--cw)
+  );
+  /* Thin the far end out rather than stopping it dead. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 88%);
+  mask-image: linear-gradient(90deg, transparent, #000 88%);
+  opacity: 0;
+  animation: sp-fly var(--d) var(--dl) cubic-bezier(0.3, 0, 0.55, 1) infinite;
+}
+
+@keyframes sp-fly {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--ang)) translateX(calc(var(--back) * -1));
+  }
+  1.5% {
+    opacity: var(--sp-alpha);
+  }
+  /* In flight for a tenth of the cycle; the fragments fire at 11%. */
+  11% {
+    opacity: var(--sp-alpha);
+    transform: rotate(var(--ang)) translateX(0);
+  }
+  13%,
+  100% {
+    opacity: 0;
+    transform: rotate(var(--ang)) translateX(0);
+  }
+}
+
+.sf {
+  position: absolute;
+  left: var(--ix);
+  top: var(--iy);
+  width: var(--cw);
+  height: var(--ch);
+  background: var(--sp-ink);
+  opacity: 0;
+  animation: sp-burst var(--d) calc(var(--dl) + var(--fd)) ease-out infinite;
+}
+
+@keyframes sp-burst {
+  0%,
+  10.5% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  12% {
+    opacity: var(--sp-frag);
+    transform: translate(0, 0);
+  }
+  /* Thrown out and fading. ease-out gives the deceleration of something
+     stopped by the impact rather than launched by it. */
+  21% {
+    opacity: 0;
+    transform: translate(var(--fx), var(--fy));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--fx), var(--fy));
   }
 }
 
@@ -2409,7 +2554,9 @@ button {
      than 3:1, and the artwork starts cropping horizontally instead of
      vertically — so the traces would no longer sit on the structures they were
      cut from. The stacked card covers most of the band here anyway. */
-  .fx-chain {
+  .fx-chain,
+  .fx-px,
+  .fx-spark {
     display: none;
   }
 
@@ -2860,6 +3007,8 @@ button {
      removed outright anyway, so the compositor layers go too. */
   .backbone,
   .fx-chain,
+  .fx-px,
+  .fx-spark,
   .fx-grid,
   .fx-sweep,
   .fx-meteors {
@@ -2895,6 +3044,8 @@ button {
   .pub-more,
   .backbone,
   .fx-chain,
+  .fx-px,
+  .fx-spark,
   .fx-grid,
   .fx-sweep,
   .fx-meteors {

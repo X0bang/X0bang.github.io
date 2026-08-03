@@ -1,4 +1,4 @@
-# boyuezhang.com
+# x0bang.github.io
 
 Personal academic homepage of Boyue Zhang. Hugo, no third-party theme, no
 JavaScript framework.
@@ -24,16 +24,21 @@ hugo build --gc       # production build into ./public
 | Timeline, honours | `data/timeline.yml`, `data/honors.yml` |
 | Layouts, styles, behaviour | `layouts/`, `assets/css/main.css`, `assets/js/main.js` |
 | Cover animation | `structure-analysis/` (see its README) |
-| Custom domain | `static/CNAME` |
 
 ## Deployment
 
 Every push to `main` runs `.github/workflows/hugo.yml`, which builds with the
-pinned Hugo version and publishes to GitHub Pages. `baseURL` comes from
-`hugo.toml`, so the custom domain always wins.
+pinned Hugo version and publishes to GitHub Pages at `x0bang.github.io`.
 
 Repository settings → Pages → Build and deployment → Source must be
-**GitHub Actions**.
+**GitHub Actions**, and the Custom domain field must be **empty** — set it and
+`x0bang.github.io` starts redirecting there instead of serving the site.
+
+To build the same site for another host, override the base URL:
+
+```bash
+hugo --gc --minify --baseURL https://example.com/
+```
 
 ## Third-party material
 
