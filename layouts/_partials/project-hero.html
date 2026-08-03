@@ -1,0 +1,50 @@
+{{- /*
+  The project's own clip, at the top of its page. Same media as the card on the
+  index — a `thumb` ending .mp4/.webm becomes a muted looping <video>, anything
+  else is an <img> that swaps to the animation once it is in view.
+
+  Animated sources live in static/ (the asset pipeline would flatten them), so
+  they ship at their authored size; the box is capped to match rather than
+  upscaling them across the column.
+*/ -}}
+{{- /* Only for a thumb that actually moves. A still one is either already a
+       figure further down the page or is not worth the space up here — an
+       animated image is marked by carrying a `thumbPoster` to stand in for
+       it, and a clip by its extension. */ -}}
+{{- $t := .Params.thumb -}}
+{{- $animated := and $t (or (in (slice ".mp4" ".webm") (path.Ext $t)) (ne (.Params.thumbPoster | default "") "")) -}}
+
+{{- with cond $animated ($t | default "") "" -}}
+  {{- $src := . | relURL -}}
+  {{- with resources.Get . -}}
+    {{- $i := . -}}
+    {{- if gt .Width 1040 }}{{ $i = .Resize "1040x" }}{{ end -}}
+    {{- if ne .MediaType.SubType "svg" }}{{ $i = $i.Process "webp q82" }}{{ end -}}
+    {{- $src = $i.RelPermalink -}}
+  {{- end -}}
+
+  {{- $poster := "" -}}
+  {{- with $.Params.thumbPoster -}}
+    {{- $poster = . | relURL -}}
+    {{- with resources.Get . -}}
+      {{- $i := . -}}
+      {{- if gt .Width 1040 }}{{ $i = .Resize "1040x" }}{{ end -}}
+      {{- $poster = ($i.Process "webp q82").RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+
+  <div class="page-hero">
+    {{ if in (slice ".mp4" ".webm") (path.Ext .) }}
+      {{- /* preload="none" as on the cards: the observer in main.js starts it,
+             which is also what begins the download. */ -}}
+      <video muted loop playsinline preload="none"
+        {{ with $poster }}poster="{{ . }}"{{ end }} aria-label="{{ $.Title }}">
+        <source src="{{ $src }}" type="video/{{ strings.TrimPrefix "." (path.Ext .) }}" />
+      </video>
+    {{ else if $poster }}
+      <img src="{{ $poster }}" data-anim="{{ $src }}" loading="lazy" alt="{{ $.Title }}" />
+    {{ else }}
+      <img src="{{ $src }}" loading="lazy" alt="{{ $.Title }}" />
+    {{ end }}
+  </div>
+{{- end -}}

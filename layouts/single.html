@@ -33,6 +33,8 @@
         {{ end }}
       </header>
 
+      {{ if eq .Section "projects" }}{{ partial "project-hero.html" . }}{{ end }}
+
       <div class="prose">{{ .Content }}</div>
 
       {{ if eq .Section "projects" }}

@@ -233,7 +233,8 @@
   }
 
   var animThumbs = document.querySelectorAll(
-    ".pub-thumb img[data-anim], .pub-thumb video"
+    ".pub-thumb img[data-anim], .pub-thumb video, " +
+      ".page-hero img[data-anim], .page-hero video"
   );
   if (!reduced && animThumbs.length && "IntersectionObserver" in window) {
     var animIO = new IntersectionObserver(

@@ -2367,6 +2367,26 @@ button {
   padding: 0;
 }
 
+/* The project's clip, above the prose. Capped at the width the sources were
+   authored for — the animated WebPs are 300px wide, and stretching them across
+   the column would only make them soft. */
+.page-hero {
+  max-width: 540px;
+  margin: 1.4em auto 2em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--card);
+  line-height: 0;
+}
+
+.page-hero img,
+.page-hero video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .fig {
   /* Narrower than the text column: these panels are wide, and at full width
      they overpower the prose around them. */
