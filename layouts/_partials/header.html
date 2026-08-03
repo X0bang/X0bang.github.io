@@ -1,6 +1,15 @@
 <header class="site-header" id="top">
   <div class="wrapper">
-    <a class="site-title" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+    {{- /* On the home page this is the site's name and goes nowhere useful; on
+           every other page it is the way back, and should say so. */ -}}
+    <a class="site-title{{ if not .IsHome }} is-back{{ end }}" href="{{ "/" | relURL }}"
+      {{- if not .IsHome }} aria-label="Back to the home page"{{ end }}>
+      {{- if .IsHome -}}
+        {{ site.Title }}
+      {{- else -}}
+        <span class="back-arrow" aria-hidden="true">&larr;</span> Home
+      {{- end -}}
+    </a>
 
     <nav class="site-nav" aria-label="Main">
       <button

@@ -247,6 +247,24 @@ button {
   color: #ffffff;
 }
 
+/* Away from the home page the title becomes the way back, so it reads as a
+   control rather than a name: lighter, with the arrow shifting on hover. */
+.site-title.is-back {
+  font-size: 15px;
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  color: var(--chrome-dim);
+}
+
+.back-arrow {
+  display: inline-block;
+  transition: transform 0.18s var(--ease);
+}
+
+.site-title.is-back:hover .back-arrow {
+  transform: translateX(-3px);
+}
+
 .site-nav {
   line-height: 44px;
 }
