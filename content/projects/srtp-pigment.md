@@ -6,7 +6,7 @@ weight: 5
 selected: true
 venue: "ZJU"
 venueLogo: "images/logos/zju-eagle.png"
-lab: "Bioinformatics Group"
+lab: "Chen Lab"
 status: "Outstanding"
 thumb: "images/projects/srtp-design.png"
 authors: "PI: [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111)"

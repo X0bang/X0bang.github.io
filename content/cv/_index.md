@@ -30,7 +30,7 @@ Redesigned CrtW, the rate-limiting ketolase in the pathway: G142P + I192L, **+46
 in vitro**.
 {{< /cv >}}
 
-{{< cv title="**LumaManta (ZJU-China iGEM 2025): Technical Lead**" when="Aug 2024 – Oct 2025" meta="[Bioinformatics Group](https://bis.zju.edu.cn/binfo/), Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
+{{< cv title="**LumaManta (ZJU-China iGEM 2025): Technical Lead**" when="Aug 2024 – Oct 2025" meta="[Chen Lab](https://bis.zju.edu.cn/binfo/), Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
 Led 14 people to a **Silver Medal**, building a light-controlled CRISPR logic circuit and
 the device around it.
 {{< /cv >}}
@@ -40,7 +40,7 @@ Multi-omics across **174 mice** — 12 sex-biased metabolites, and estrogen reve
 bile acid marker TUDCA (**+97%**).
 {{< /cv >}}
 
-{{< cv title="**Provincial Research Grant (SRTP): A Sustainable Pigment Biosynthesis System**" when="Mar 2025 – Feb 2026" meta="[Bioinformatics Group](https://bis.zju.edu.cn/binfo/), Zhejiang University · PI [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) · Rated Outstanding" logo="images/logos/zju-eagle.png" link="/projects/srtp-pigment/" >}}
+{{< cv title="**Provincial Research Grant (SRTP): A Sustainable Pigment Biosynthesis System**" when="Mar 2025 – Feb 2026" meta="[Chen Lab](https://bis.zju.edu.cn/binfo/), Zhejiang University · PI [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) · Rated Outstanding" logo="images/logos/zju-eagle.png" link="/projects/srtp-pigment/" >}}
 Engineered vioE (**+32% activity**) and pathway flux (**+48% / +23% yield**), with light-
 and quorum-controlled switching.
 {{< /cv >}}
