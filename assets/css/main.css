@@ -2196,8 +2196,8 @@ button {
 
 /* Opt-in per entry (honors.yml: logoSize: lg). */
 .entry-logos.is-lg .entry-logo {
-  height: 29px;
-  max-width: 132px;
+  height: 31px;
+  max-width: 143px;
 }
 
 .entry:hover .entry-logo {
