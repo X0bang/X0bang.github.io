@@ -218,9 +218,14 @@
 
   /* ---- Animated thumbnails -------------------------------------------
      They start as a still and swap to the animation once the card scrolls
-     into view. Only the active Projects view can intersect — the other two
-     are display:none — so a handful of clips animate rather than every copy
-     of every card. Reduced motion leaves the still in place. */
+     into view, and from then on they keep running — scrolling past one no
+     longer stops it.
+
+     The observer is still what starts them, and that is deliberate: only the
+     active Projects view can intersect, since the other two are display:none,
+     so a handful of clips load rather than every copy of every card. Autoplay
+     on the element itself would fetch all five copies of both videos at load,
+     which is the 7.6MB regression this replaced. */
 
   function playAnimatedThumb(img) {
     var anim = img.getAttribute("data-anim");
@@ -234,21 +239,16 @@
     var animIO = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
           var el = entry.target;
           if (el.tagName === "VIDEO") {
-            // Unlike an animated image, a video can be stopped again.
-            if (entry.isIntersecting) {
-              var p = el.play();
-              if (p && p.catch) p.catch(function () {});
-            } else {
-              el.pause();
-            }
-            return;
-          }
-          if (entry.isIntersecting) {
+            var p = el.play();
+            if (p && p.catch) p.catch(function () {});
+          } else {
             playAnimatedThumb(el);
-            animIO.unobserve(el);
           }
+          // Started once, left running: stop observing so nothing pauses it.
+          animIO.unobserve(el);
         });
       },
       { rootMargin: "150px 0px", threshold: 0.01 }
