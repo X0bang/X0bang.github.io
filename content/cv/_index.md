@@ -1,6 +1,7 @@
 ---
 title: "Curriculum Vitae"
 date: 2026-07-31
+description: "Curriculum vitae of Boyue Zhang — education, research experience, skills and awards. PDF available."
 ---
 
 📄 **[Download PDF](/files/CV_Boyue_Zhang_ZJU.pdf)**

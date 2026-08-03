@@ -33,3 +33,6 @@ Icon?
 *.log
 *.out
 *.synctex.gz
+
+# regenerable diagnostics from structure-analysis/render_map.py
+structure-analysis/out/

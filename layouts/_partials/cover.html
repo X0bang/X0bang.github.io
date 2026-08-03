@@ -51,7 +51,12 @@
   {{ end }}
 >
   {{ with $bgDeep }}
-    <div class="cover-deep" aria-hidden="true" style="background-image: url('{{ . }}')"></div>
+    {{- /* The URL is handed over as data, not as a background: the warm twin
+           only ever appears while the portrait is hovered, but an element at
+           opacity 0 still fetches its background image — 117KB on every load,
+           the largest single asset on the page. main.js attaches it the first
+           time the card is opened. */ -}}
+    <div class="cover-deep" aria-hidden="true" data-src="{{ . }}"></div>
   {{ end }}
 
   {{- /* Above both artwork layers, below the name card, so the motion passes

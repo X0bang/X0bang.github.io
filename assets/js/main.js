@@ -126,6 +126,15 @@
 
   if (cover && avatar && desc && desc.textContent.trim() !== "") {
     var setDeep = function (on) {
+      if (on) {
+        // First open: attach the warm artwork. Held back until now so the
+        // page does not fetch it for a state most visitors never enter.
+        var twin = cover.querySelector(".cover-deep[data-src]");
+        if (twin) {
+          twin.style.backgroundImage = 'url("' + twin.dataset.src + '")';
+          twin.removeAttribute("data-src");
+        }
+      }
       cover.classList.toggle("deep", on);
       avatar.setAttribute("aria-pressed", on ? "true" : "false");
     };

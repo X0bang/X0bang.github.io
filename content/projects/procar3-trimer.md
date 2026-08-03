@@ -47,11 +47,11 @@ Rosetta, ESM2.
 
 ## Results
 
-- **Surface expression of 73–74%** was confirmed for the TMD variants across both tumour
-  cell lines, along with T cell activation — the redesigned constructs traffic correctly and
-  work.
-- **85%+ contact retention** across the MD screen, confirming the redesigned TMD assembles
-  into a stable trimer and holds that form.
+- Flow cytometry confirmed **73–74% surface expression** of the TMD variants, and
+  degranulation assays against two tumour cell lines showed T cell activation — the
+  redesigned constructs traffic correctly and remain functional.
+- **85%+ contact retention** across the MD screen, indicating the redesigned TMD assembles
+  into a stable trimer.
 
 Work is ongoing, with functional comparison against the conventional 4-1BBζ architecture as
 the current focus.

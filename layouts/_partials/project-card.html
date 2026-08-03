@@ -37,7 +37,12 @@
       {{- /* Video thumbs play and pause on demand, which an animated image
              cannot do — and H.264 is a fraction of the bytes. */ -}}
       {{ if in (slice ".mp4" ".webm") (path.Ext .) }}
-        <video class="pub-thumb-video" muted loop playsinline preload="auto"
+        {{- /* preload="none": every card is rendered into all three views, two
+               of them display:none, and `auto` fetched the file once per copy —
+               ten requests and 7.6MB on a cold load. The observer in main.js
+               calls play(), which is what actually starts the download, and a
+               hidden copy never intersects so it never loads at all. */ -}}
+        <video class="pub-thumb-video" muted loop playsinline preload="none"
           {{ with $poster }}poster="{{ . }}"{{ end }} aria-label="{{ $.Title }}">
           <source src="{{ $src }}" type="video/{{ strings.TrimPrefix "." (path.Ext .) }}" />
         </video>
@@ -66,8 +71,13 @@
           <span class="venue-pill">
             {{- with $.Params.venueLogo -}}
               {{- with resources.Get . -}}
-                {{- $l := .RelPermalink -}}
-                {{- if ne .MediaType.SubType "svg" -}}
+                {{- /* Only the SVG branch may touch .RelPermalink on the original:
+                       reading it marks the file for publishing, so the untouched
+                       source shipped alongside the derivative it was replaced by. */ -}}
+                {{- $l := "" -}}
+                {{- if eq .MediaType.SubType "svg" -}}
+                  {{- $l = .RelPermalink -}}
+                {{- else -}}
                   {{- $l = ((.Resize "x40").Process "webp q85").RelPermalink -}}
                 {{- end -}}
                 <img class="venue-logo" src="{{ $l }}" alt="" loading="lazy" />

@@ -5,7 +5,18 @@
 {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
 {{- /* The home page takes the curated site description; a generated summary
        would open mid-sentence in a search result. */ -}}
-{{- $desc := cond .IsHome site.Params.description (or .Description .Summary site.Params.description) -}}
+{{- /* A tag page has no body, so `.Summary` is empty and every one of them used to
+       fall back to the site description — seventeen pages sharing one string. */ -}}
+{{- $desc := "" -}}
+{{- if .IsHome -}}
+  {{- $desc = site.Params.description -}}
+{{- else if eq .Kind "term" -}}
+  {{- $desc = printf "Projects tagged %s — %d in total." .Title (len .Pages) -}}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $desc = "Browse Boyue Zhang's research projects by topic." -}}
+{{- else -}}
+  {{- $desc = or .Description .Summary site.Params.description -}}
+{{- end -}}
 {{- $desc = $desc | plainify | chomp -}}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}" />

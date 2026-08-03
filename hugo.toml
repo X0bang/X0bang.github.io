@@ -132,15 +132,21 @@ enableRobotsTXT = true
 
 [[menu.main]]
   name = "Projects"
+  # pageRef, not url: IsMenuCurrent cannot match a URL-defined
+  # entry, so the "you are here" state never rendered.
+  pageRef = "/projects/"
   weight = 1
-  url = "/projects/"
 
 [[menu.main]]
   name = "CV"
+  # pageRef, not url: IsMenuCurrent cannot match a URL-defined
+  # entry, so the "you are here" state never rendered.
+  pageRef = "/cv/"
   weight = 2
-  url = "/cv/"
 
 [[menu.main]]
   name = "Contact"
+  # pageRef, not url: IsMenuCurrent cannot match a URL-defined
+  # entry, so the "you are here" state never rendered.
+  pageRef = "/contact/"
   weight = 3
-  url = "/contact/"

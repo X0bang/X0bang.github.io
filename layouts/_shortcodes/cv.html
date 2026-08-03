@@ -11,8 +11,13 @@
   <div class="cv-head">
     {{- with .Get "logo" -}}
       {{- with resources.Get . -}}
-        {{- $src := .RelPermalink -}}
-        {{- if ne .MediaType.SubType "svg" -}}
+        {{- /* Only the SVG branch may touch .RelPermalink on the original:
+               reading it marks the file for publishing, so the untouched
+               source shipped alongside the derivative it was replaced by. */ -}}
+        {{- $src := "" -}}
+        {{- if eq .MediaType.SubType "svg" -}}
+          {{- $src = .RelPermalink -}}
+        {{- else -}}
           {{- $src = ((.Resize "x56").Process "webp q85").RelPermalink -}}
         {{- end -}}
         <img class="cv-logo" src="{{ $src }}" alt="" loading="lazy" />

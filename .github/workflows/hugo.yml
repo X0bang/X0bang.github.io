@@ -51,7 +51,7 @@ jobs:
           HUGO_ENV: production
           TZ: Asia/Shanghai
         # baseURL is intentionally NOT overridden here — it comes from hugo.toml
-        # (https://bang.x0bang.com/) so the custom domain always wins.
+        # (https://boyuezhang.com/) so the custom domain always wins.
         run: hugo build --gc --minify
 
       - name: Upload artifact
