@@ -8,6 +8,9 @@
 #   desc  optional. One line of detail — scale, rank, or your role. A list
 #         instead of a string renders as bullets.
 #   url   optional. Links the title.
+#   logoSize optional. "lg" draws this entry's marks larger — for crests
+#         whose name is set small beneath the device, which go illegible at
+#         the size a wordmark reads fine at.
 #   logos optional. List of awarding-body marks, relative to ./assets — one
 #         per body, all shown. `logo:` with a single path also works.
 #         See assets/images/logos/README.md. Omit and the row is text only.
@@ -22,6 +25,7 @@
   logos:
     - "images/logos/unimelb.png"
     - "images/logos/wehi.png"
+  logoSize: "lg"
   brief: true
 
 - date: "Oct 2025"

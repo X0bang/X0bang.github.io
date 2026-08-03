@@ -1662,12 +1662,14 @@ button {
 }
 
 /* The Melbourne mark is navy line-work on transparency — legible on a white
-   page, nearly invisible on a dark one. It is monochrome, so forcing every
-   opaque pixel to white reproduces the university's own reversed logo. */
+   page, nearly invisible on a dark one. Dark mode swaps in the university's
+   own roundel, which carries its own ground. Served from static/ rather than
+   the asset pipeline so the path here stays valid without fingerprinting. */
 [data-theme="dark"] .tmline-logo img[src*="unimelb"],
 [data-theme="dark"] .cv-logo[src*="unimelb"],
+[data-theme="dark"] .entry-logo[src*="unimelb"],
 [data-theme="dark"] .venue-logo[src*="unimelb"] {
-  filter: brightness(0) invert(1);
+  content: url("/images/logos/unimelb-dark.webp");
 }
 
 .tmline-date {
@@ -2185,11 +2187,17 @@ button {
 }
 
 .entry-logo {
-  height: 30px;
+  height: 24px;
   width: auto;
-  max-width: 130px;
+  max-width: 110px;
   object-fit: contain;
   transition: transform 0.15s ease;
+}
+
+/* Opt-in per entry (honors.yml: logoSize: lg). */
+.entry-logos.is-lg .entry-logo {
+  height: 27px;
+  max-width: 124px;
 }
 
 .entry:hover .entry-logo {

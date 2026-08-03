@@ -25,12 +25,15 @@
             {{- with .logos }}{{ $logos = . }}
             {{- else }}{{ with .logo }}{{ $logos = slice . }}{{ end }}{{ end -}}
 
+            {{- /* `logoSize: lg` draws this entry's marks larger. Marks that
+                   are mostly a crest, with the name set small beneath it, read
+                   as a smudge at the size a wordmark is legible at. */ -}}
+            {{- $lg := eq (.logoSize | default "") "lg" -}}
+
             {{ with $logos }}
-              <span class="entry-logos">
+              <span class="entry-logos{{ if $lg }} is-lg{{ end }}">
                 {{- range . -}}
                   {{- with resources.Get . -}}
-                    {{- /* SVGs are served as-is; raster marks are resized to
-                           48px tall — 2x their 24px display size. */ -}}
                     {{- /* Only the SVG branch may touch .RelPermalink on the original:
                            reading it marks the file for publishing, so the untouched
                            source shipped alongside the derivative it was replaced by. */ -}}
@@ -38,9 +41,9 @@
                     {{- if eq .MediaType.SubType "svg" -}}
                       {{- $src = .RelPermalink -}}
                     {{- else -}}
-                      {{- /* Twice the 30px the mark is drawn at, so it stays
+                      {{- /* Twice the height the mark is drawn at, so it stays
                              sharp on a retina screen. */ -}}
-                      {{- $src = ((.Resize "x60").Process "webp q85").RelPermalink -}}
+                      {{- $src = ((.Resize (cond $lg "x56" "x48")).Process "webp q85").RelPermalink -}}
                     {{- end -}}
                     <img class="entry-logo" src="{{ $src }}" alt="" loading="lazy" />
                   {{- end -}}
