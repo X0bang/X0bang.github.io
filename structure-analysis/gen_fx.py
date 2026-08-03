@@ -129,16 +129,20 @@ def main():
         tail = rng.uniform(9, 16) * PITCH
         dur = prime[i % len(prime)]
         frags = ['    <i class="fl"></i>']    # the flash at the point of impact
+        # Weighted to the artwork's own cyan-to-green, with white at the core
+        # and a little amber: a single-hue burst reads flat, and the warm pieces
+        # are what make it look hot.
+        hues = ["c0"] * 4 + ["c1"] * 4 + ["c2"] * 3 + ["c3"] * 3 + ["c4"] * 2 + ["c5"]
         for _ in range(rng.randint(11, 16)):
             a = math.radians(rng.uniform(0, 360))
             reach = rng.uniform(2.5, 11.0)        # in cells; a few throw far
             big = rng.random() < 0.3              # mixed sizes read as debris
+            # No per-fragment delay. It used to stagger them, which meant some
+            # were already travelling before the streak had landed.
             frags.append(
-                '    <i class="sf{}" style="--fx:{:.0f}%;--fy:{:.0f}%;--fd:{:.2f}s">'
-                '</i>'.format(" big" if big else "",
-                              math.cos(a) * reach * 100,
-                              math.sin(a) * reach * 100,
-                              rng.uniform(0, 0.10)))
+                '    <i class="sf {}{}" style="--fx:{:.0f}%;--fy:{:.0f}%"></i>'.format(
+                    rng.choice(hues), " big" if big else "",
+                    math.cos(a) * reach * 100, math.sin(a) * reach * 100))
         sparks.append(
             '  <div class="sp" style="--ix:{:.3f}%;--iy:{:.3f}%;--sx:{:.3f}%;'
             '--ang:{:.1f}deg;--len:{:.3f}%;--back:{:.0f}%;--cw:{:.4f}%;'

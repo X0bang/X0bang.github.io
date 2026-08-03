@@ -620,8 +620,35 @@ button {
   height: var(--ch);
   background: var(--sp-ink);
   opacity: 0;
-  animation: sp-burst var(--d) calc(var(--dl) + var(--fd)) cubic-bezier(0.12, 0.8, 0.3, 1)
-    infinite;
+  /* Shares the spark's own delay exactly. A per-fragment offset used to stagger
+     these, which put some of them in flight before the streak had landed. */
+  animation: sp-burst var(--d) var(--dl) cubic-bezier(0.12, 0.8, 0.3, 1) infinite;
+}
+
+/* Debris takes its colour from the artwork's range, with white at the hot end
+   and a little amber: one hue for everything reads flat. */
+.sf.c0 {
+  --sp-ink: #ffffff;
+}
+
+.sf.c1 {
+  --sp-ink: #7fe4ff;
+}
+
+.sf.c2 {
+  --sp-ink: #4fe0d0;
+}
+
+.sf.c3 {
+  --sp-ink: #6ff0c0;
+}
+
+.sf.c4 {
+  --sp-ink: #a9f0ff;
+}
+
+.sf.c5 {
+  --sp-ink: #ffc978;
 }
 
 /* A third of the debris is twice the size, so the burst reads as fragments of
@@ -632,12 +659,13 @@ button {
 }
 
 @keyframes sp-burst {
+  /* The streak reaches its impact point at 11%; nothing moves before then. */
   0%,
-  10.6% {
+  11% {
     opacity: 0;
     transform: translate(0, 0);
   }
-  11.4% {
+  11.3% {
     opacity: var(--sp-frag);
     transform: translate(0, 0);
   }
@@ -673,7 +701,7 @@ button {
 
 @keyframes sp-flash {
   0%,
-  10.6% {
+  11% {
     opacity: 0;
     visibility: hidden;
     transform: scale(0.6);
