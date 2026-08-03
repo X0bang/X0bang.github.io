@@ -2098,17 +2098,8 @@ button {
   border-top: 1px solid var(--line-soft);
 }
 
-.honor-extra {
-  display: none;
-}
 
-#honors.expanded .honor-extra {
-  display: flex;
-}
 
-.anim #honors.expanded .honor-extra {
-  animation: fadeUp 0.35s var(--ease) both;
-}
 
 .entry {
   display: flex;

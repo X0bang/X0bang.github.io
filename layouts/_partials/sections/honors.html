@@ -1,12 +1,14 @@
 {{- /*
   Section: Selected Honors. Data lives in data/honors.yml (newest first).
 
-  Entries marked `brief: true` are always visible; the rest appear behind
-  "Show all". The section disappears on its own if the data file is removed.
+  Every entry is shown. There were eight, three of them behind a "Show all"
+  toggle — a click to reveal three lines, which is not a trade worth making.
+  `brief` is still honoured for the reveal animation only.
+
+  The section disappears on its own if the data file is removed.
 */ -}}
 {{- $items := hugo.Data.honors -}}
 {{- if $items -}}
-  {{- $extra := where $items "brief" "!=" true -}}
   <div class="honors" id="honors">
     <div class="section-head">
       <h2 class="section-title">Selected Honors</h2>
@@ -14,7 +16,7 @@
 
     <div class="honors-body">
       {{ range $items }}
-        <div class="entry{{ if not .brief }} honor-extra{{ else }} reveal{{ end }}">
+        <div class="entry reveal">
           <div class="entry-date">{{ .date }}</div>
           <div class="entry-body">
             {{- /* `logos` takes a list — an award with several awarding bodies
@@ -62,14 +64,5 @@
         </div>
       {{ end }}
     </div>
-
-    {{ if gt (len $extra) 0 }}
-      <button class="list-toggle" id="honors-toggle" type="button" aria-expanded="false"
-        aria-controls="honors">
-        <span class="chev" aria-hidden="true">&#9662;</span>
-        <span class="more-label">Show all {{ len $items }}</span>
-        <span class="less-label">Show selected only</span>
-      </button>
-    {{ end }}
   </div>
 {{- end -}}
