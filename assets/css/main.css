@@ -1640,23 +1640,24 @@ button {
 }
 
 .tmline-logo {
-  /* Wide enough for two marks on every row, filled from the right: the mark
-     that names the row lands in the same column whether it stands alone or
-     has a parent institution beside it, which extends to its left. */
+  /* One column wide, whatever a row carries. A second mark stacks under the
+     first rather than widening the column, so no row juts out past the others
+     and none of them give up text width to a case only one row needs. */
   flex: 0 0 auto;
-  width: 106px;
+  width: 48px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: flex-start;
+  gap: 7px;
   padding-top: 2px;
 }
 
 .tmline-logo img {
   /* A fixed cell rather than a max: each mark is centred in its own square,
      so marks of different proportions still line up column to column. */
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
 }
 
@@ -2944,13 +2945,13 @@ button {
   }
 
   .tmline-logo {
-    width: 84px;
-    gap: 8px;
+    width: 38px;
+    gap: 6px;
   }
 
   .tmline-logo img {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 }
 
