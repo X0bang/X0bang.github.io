@@ -40,9 +40,6 @@ the ligand-binding pocket stays.
 
 Tools: Rosetta, GROMACS, ESM2, PyMOL, AlphaFold3, HPLC.
 
-{{< figure src="images/projects/crtw-strategy.png"
-  caption="Design strategy — structure-based and sequence-based screening feeding into MD evaluation." >}}
-
 ## Results
 
 - **G142P + I192L** emerged as the strongest design, giving the most extended substrate
