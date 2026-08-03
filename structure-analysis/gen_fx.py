@@ -133,9 +133,9 @@ def main():
         # and a little amber: a single-hue burst reads flat, and the warm pieces
         # are what make it look hot.
         hues = ["c0"] * 4 + ["c1"] * 4 + ["c2"] * 3 + ["c3"] * 3 + ["c4"] * 2 + ["c5"]
-        for _ in range(rng.randint(11, 16)):
+        for _ in range(rng.randint(22, 30)):
             a = math.radians(rng.uniform(0, 360))
-            reach = rng.uniform(2.5, 11.0)        # in cells; a few throw far
+            reach = rng.uniform(2.0, 13.0)        # in cells; a few throw far
             big = rng.random() < 0.3              # mixed sizes read as debris
             # No per-fragment delay. It used to stagger them, which meant some
             # were already travelling before the streak had landed.

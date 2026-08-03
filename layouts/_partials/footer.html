@@ -20,9 +20,20 @@
 
       <div class="footer-col footer-col-3">
         <p class="footer-meta">
-          &copy; {{ site.Params.since }}&ndash;{{ now.Year }} {{ site.Params.author }}.<br />
-          Built with <a href="https://gohugo.io/">Hugo</a>, hosted on
-          <a href="https://pages.github.com/">GitHub Pages</a>.
+          {{- /* A range reading 2026–2026 is just noise; show one year until
+                 there are two. */ -}}
+          &copy;
+          {{- if eq (int site.Params.since) now.Year }}
+            {{ now.Year }}
+          {{- else }}
+            {{ site.Params.since }}&ndash;{{ now.Year }}
+          {{- end }}
+          {{ site.Params.author }}.<br />
+          {{- /* Says what is collected, because the server logs visits. IP
+                 addresses are personal data in the EU and part of the audience
+                 is there. */ -}}
+          This site keeps server access logs (page, IP, browser, referrer).<br />
+          Built with <a href="https://gohugo.io/">Hugo</a>.
         </p>
       </div>
     </div>

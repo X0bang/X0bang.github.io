@@ -595,20 +595,27 @@ button {
 @keyframes sp-fly {
   0% {
     opacity: 0;
-    transform: rotate(var(--ang)) translateX(calc(var(--back) * -1));
+    transform: rotate(var(--ang)) translateX(calc(var(--back) * -1)) scaleX(1);
   }
   1.5% {
     opacity: var(--sp-alpha);
   }
-  /* In flight for a tenth of the cycle; the fragments fire at 11%. */
+  /* Arrives at 11%, still at full length and full speed. */
   11% {
     opacity: var(--sp-alpha);
-    transform: rotate(var(--ang)) translateX(0);
+    transform: rotate(var(--ang)) translateX(0) scaleX(1);
   }
-  13%,
+  /* Then the tail is swallowed rather than parked: the transform origin is the
+     impact end, so collapsing scaleX runs the trail into the point it hit.
+     Holding it in place and fading instead made the meteor look like it braked. */
+  12.4% {
+    opacity: var(--sp-alpha);
+    transform: rotate(var(--ang)) translateX(0) scaleX(0);
+  }
+  12.5%,
   100% {
     opacity: 0;
-    transform: rotate(var(--ang)) translateX(0);
+    transform: rotate(var(--ang)) translateX(0) scaleX(0);
   }
 }
 
@@ -616,8 +623,10 @@ button {
   position: absolute;
   left: var(--ix);
   top: var(--iy);
-  width: var(--cw);
-  height: var(--ch);
+  /* Well under a cell: the burst should read as a shower, not as the structure
+     breaking into blocks. */
+  width: calc(var(--cw) * 0.55);
+  height: calc(var(--ch) * 0.55);
   background: var(--sp-ink);
   opacity: 0;
   /* Shares the spark's own delay exactly. A per-fragment offset used to stagger
@@ -651,11 +660,10 @@ button {
   --sp-ink: #ffc978;
 }
 
-/* A third of the debris is twice the size, so the burst reads as fragments of
-   something rather than a uniform spray of dots. */
+/* A third of it is a little heavier, so the shower is not perfectly uniform. */
 .sf.big {
-  width: calc(var(--cw) * 2);
-  height: calc(var(--ch) * 2);
+  width: var(--cw);
+  height: var(--ch);
 }
 
 @keyframes sp-burst {
