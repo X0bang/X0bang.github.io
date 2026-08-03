@@ -9,7 +9,12 @@
             <span class="page-meta-year">
               {{ with .Params.year }}{{ . }}{{ else }}[TODO: 填入年份]{{ end }}
             </span>
-            {{ with .Params.venue }}<span class="venue-pill">{{ . }}</span>{{ end }}
+            {{- /* `venue` may name two institutions, comma-separated, the same
+                   way the cards read it — a pill each, not one pill holding a
+                   comma. */ -}}
+            {{ range split (or .Params.venue "") "," }}
+              {{ with trim . " " }}<span class="venue-pill">{{ . }}</span>{{ end }}
+            {{ end }}
             {{ with .Params.lab }}<span class="venue-pill">{{ . }}</span>{{ end }}
             {{ with .Params.status }}<span class="venue-status">{{ . }}</span>{{ end }}
             {{ with .Params.tags }}
