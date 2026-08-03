@@ -2,6 +2,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+{{- /* The same site is published twice — GitHub Pages at x0bang.github.io and
+       a self-hosted copy at the custom domain — so both builds point search
+       engines at one address. Without it the two are duplicate content: the
+       ranking splits between them and the engine picks which to keep, not us.
+       `canonicalHost` in hugo.toml decides; unset, each build speaks for
+       itself. */ -}}
+{{- $canonical := .Permalink -}}
+{{- with site.Params.canonicalHost -}}
+  {{- $canonical = printf "%s%s" (strings.TrimSuffix "/" .) $.RelPermalink -}}
+{{- end -}}
+
 {{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) -}}
 {{- /* The home page takes the curated site description; a generated summary
        would open mid-sentence in a search result. */ -}}
@@ -26,7 +37,7 @@
 <meta property="og:title" content="{{ $title }}" />
 <meta property="og:description" content="{{ $desc }}" />
 <meta property="og:type" content="{{ cond .IsPage "article" "website" }}" />
-<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:url" content="{{ $canonical }}" />
 <meta property="og:site_name" content="{{ site.Title }}" />
 {{- /* The source lives in ./assets and is never published under that name —
        point at what the pipeline actually emits. */ -}}
@@ -51,7 +62,7 @@
   <meta name="google-site-verification" content="{{ . }}" />
 {{- end }}
 
-<link rel="canonical" href="{{ .Permalink }}" />
+<link rel="canonical" href="{{ $canonical }}" />
 {{ with .OutputFormats.Get "rss" -}}
   <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}" />
 {{ end -}}

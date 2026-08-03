@@ -51,6 +51,11 @@ enableRobotsTXT = true
   # X/Twitter handle (no @) for the twitter:site meta tag. Empty = omitted.
   twitterHandle = "" # TODO: 有 X/Twitter 就填,没有留空
 
+  # The address search engines should treat as the site's own, whichever build
+  # they arrive at. The GitHub Pages copy and the self-hosted one are identical,
+  # and this is the one that counts.
+  canonicalHost = "https://boyuezhang.com/"
+
   dateFormat = "Jan 2, 2006"
   since = 2026
 
