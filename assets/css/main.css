@@ -1707,6 +1707,24 @@ button {
   color: var(--muted);
 }
 
+/* The host institution is the one thing on this line worth picking out, so a
+   link here steps back up to body colour rather than staying muted. */
+.tmline-host a {
+  font-weight: 600;
+  color: var(--body);
+  text-decoration: underline;
+  text-decoration-color: rgba(17, 17, 17, 0.28);
+  text-underline-offset: 2px;
+}
+
+[data-theme="dark"] .tmline-host a {
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+.tmline-host a:hover {
+  text-decoration-color: currentColor;
+}
+
 /* --------------------------------------------------------------------------
    7. News
    -------------------------------------------------------------------------- */

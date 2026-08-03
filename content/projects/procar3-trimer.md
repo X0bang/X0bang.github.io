@@ -6,7 +6,6 @@ weight: 1
 selected: true
 venue: "Melbourne U, WEHI"
 venueLogo: "images/logos/unimelb.png, images/logos/wehi.png"
-lab: "Call Lab"
 status: "Ongoing"
 thumbPoster: "images/projects/procar3-poster.jpg"
 thumb: "images/projects/procar3-trimer.mp4"
