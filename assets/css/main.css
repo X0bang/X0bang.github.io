@@ -215,36 +215,11 @@ button {
   z-index: -1;
   background: linear-gradient(
     180deg,
-    rgba(6, 8, 12, 0.86) 0%,
-    rgba(6, 8, 12, 0.62) 70%,
-    rgba(6, 8, 12, 0.34) 100%
+    rgba(6, 8, 12, 0.72) 0%,
+    rgba(6, 8, 12, 0.38) 55%,
+    rgba(6, 8, 12, 0) 100%
   );
   pointer-events: none;
-}
-
-/* A blur and a hairline give the floating bar an edge, so it reads as a bar
-   over the artwork rather than dissolving into it. The rule fades out at both
-   ends so it does not cut the cover in half. */
-.is-home .site-header {
-  backdrop-filter: blur(10px) saturate(1.15);
-  -webkit-backdrop-filter: blur(10px) saturate(1.15);
-}
-
-.is-home .site-header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.22) 12%,
-    rgba(255, 255, 255, 0.22) 88%,
-    rgba(255, 255, 255, 0) 100%
-  );
 }
 
 /* Room for the floating bar, so the artwork is not hidden behind it. */
@@ -301,7 +276,7 @@ button {
 
 .page-link {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -310,7 +285,7 @@ button {
 }
 
 .page-link:not(:first-child) {
-  margin-left: 24px;
+  margin-left: 28px;
 }
 
 .page-link:hover,
@@ -2480,6 +2455,12 @@ button {
   max-width: 64px;
   object-fit: contain;
   align-self: center;
+}
+
+/* Opt-in per entry (shortcode: logoSize="lg"). */
+.cv-logo.is-lg {
+  height: 34px;
+  max-width: 83px;
 }
 
 .cv-title {

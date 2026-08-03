@@ -37,6 +37,8 @@ Icon?
 # regenerable diagnostics from structure-analysis/render_map.py
 structure-analysis/out/
 
-# Raw WEHI report and slide exports; only the selected figures are committed
+# Raw report exports — trajectories, screening CSVs, analysis scripts and the
+# full figure set. Only the figures actually used on a page are committed.
 /WEHI-project-Report-*/
 /WEHI-project- images-from-slide/
+/Crtw-project-Report-*/

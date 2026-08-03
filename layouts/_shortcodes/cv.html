@@ -11,7 +11,11 @@
 */ -}}
 <div class="cv-entry">
   <div class="cv-head">
-    {{- /* One path, or several separated by commas for a joint affiliation. */ -}}
+    {{- /* One path, or several separated by commas for a joint affiliation.
+           `logoSize="lg"` draws this entry's marks larger — a crest that sets
+           its name small beneath the device goes illegible at the size a
+           wordmark reads fine at. */ -}}
+    {{- $lg := eq (.Get "logoSize" | default "") "lg" -}}
     {{- with .Get "logo" -}}
       {{- range split . "," -}}
         {{- with resources.Get (trim . " ") -}}
@@ -22,9 +26,9 @@
           {{- if eq .MediaType.SubType "svg" -}}
             {{- $src = .RelPermalink -}}
           {{- else -}}
-            {{- $src = ((.Resize "x56").Process "webp q85").RelPermalink -}}
+            {{- $src = ((.Resize (cond $lg "x72" "x56")).Process "webp q85").RelPermalink -}}
           {{- end -}}
-          <img class="cv-logo" src="{{ $src }}" alt="" loading="lazy" />
+          <img class="cv-logo{{ if $lg }} is-lg{{ end }}" src="{{ $src }}" alt="" loading="lazy" />
         {{- end -}}
       {{- end -}}
     {{- end -}}
