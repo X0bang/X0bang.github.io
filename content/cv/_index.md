@@ -30,7 +30,7 @@ Redesigned CrtW, the rate-limiting ketolase in the pathway: G142P + I192L, **+46
 in vitro**.
 {{< /cv >}}
 
-{{< cv title="**LumaManta (ZJU-China iGEM 2025): Technical Lead**" when="Aug 2024 – Oct 2025" meta="[Chen Lab](https://bis.zju.edu.cn/binfo/), Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
+{{< cv title="**LumaManta (ZJU-China iGEM 2025): Technical Lead**" when="Aug 2024 – Oct 2025" meta="Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
 Led 14 people to a **Silver Medal**, building a light-controlled CRISPR logic circuit and
 the device around it.
 {{< /cv >}}
