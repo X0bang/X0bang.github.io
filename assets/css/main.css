@@ -1640,18 +1640,31 @@ button {
 }
 
 .tmline-logo {
+  /* min-width, not width: one mark keeps every row's dates aligned, and a
+     jointly-run entry may carry a second without being squeezed. */
   flex: 0 0 auto;
-  width: 48px;
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   padding-top: 2px;
 }
 
 .tmline-logo img {
-  max-width: 100%;
+  max-width: 48px;
   max-height: 48px;
   object-fit: contain;
+}
+
+/* The Melbourne crest is white line-work on a solid navy plate: correct on a
+   white page, a hole on a dark one. A hairline ring gives the plate an edge so
+   it reads as a mark rather than a gap. */
+[data-theme="dark"] .tmline-logo img[src*="unimelb"],
+[data-theme="dark"] .cv-logo[src*="unimelb"],
+[data-theme="dark"] .venue-logo[src*="unimelb"] {
+  outline: 1px solid rgba(255, 255, 255, 0.28);
+  outline-offset: -1px;
 }
 
 .tmline-date {
@@ -2906,10 +2919,12 @@ button {
   }
 
   .tmline-logo {
-    width: 38px;
+    min-width: 38px;
+    gap: 8px;
   }
 
   .tmline-logo img {
+    max-width: 38px;
     max-height: 38px;
   }
 }

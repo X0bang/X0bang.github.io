@@ -10,18 +10,25 @@
     {{ with .desc }}<div class="tmline-host">{{ . | markdownify }}</div>{{ end }}
   </div>
 
+  {{- /* `logo` takes one path or several separated by commas — WEHI is the
+         University of Melbourne's Department of Medical Biology and carries
+         both marks. */ -}}
   {{- with .logo -}}
-    {{- with resources.Get . -}}
-      {{- /* Only the SVG branch may touch .RelPermalink on the original:
-             reading it marks the file for publishing, so the untouched
-             source shipped alongside the derivative it was replaced by. */ -}}
-      {{- $src := "" -}}
-      {{- if eq .MediaType.SubType "svg" -}}
-        {{- $src = .RelPermalink -}}
-      {{- else -}}
-        {{- $src = ((.Resize "x96").Process "webp q85").RelPermalink -}}
+    <div class="tmline-logo">
+      {{- range split . "," -}}
+        {{- with resources.Get (trim . " ") -}}
+          {{- /* Only the SVG branch may touch .RelPermalink on the original:
+                 reading it marks the file for publishing, so the untouched
+                 source shipped alongside the derivative it was replaced by. */ -}}
+          {{- $src := "" -}}
+          {{- if eq .MediaType.SubType "svg" -}}
+            {{- $src = .RelPermalink -}}
+          {{- else -}}
+            {{- $src = ((.Resize "x96").Process "webp q85").RelPermalink -}}
+          {{- end -}}
+          <img src="{{ $src }}" alt="" loading="lazy" />
+        {{- end -}}
       {{- end -}}
-      <div class="tmline-logo"><img src="{{ $src }}" alt="" loading="lazy" /></div>
-    {{- end -}}
+    </div>
   {{- end -}}
 </div>

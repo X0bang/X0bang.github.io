@@ -67,23 +67,33 @@
 
     {{ if or .Params.venue .Params.lab .Params.status .Params.year }}
       <div class="pub-venue">
-        {{- with .Params.venue -}}
-          <span class="venue-pill">
-            {{- with $.Params.venueLogo -}}
-              {{- with resources.Get . -}}
-                {{- /* Only the SVG branch may touch .RelPermalink on the original:
-                       reading it marks the file for publishing, so the untouched
-                       source shipped alongside the derivative it was replaced by. */ -}}
-                {{- $l := "" -}}
-                {{- if eq .MediaType.SubType "svg" -}}
-                  {{- $l = .RelPermalink -}}
-                {{- else -}}
-                  {{- $l = ((.Resize "x40").Process "webp q85").RelPermalink -}}
+        {{- /* `venue` and `venueLogo` may each be a comma-separated list, so a
+               project run jointly by two institutions gets a pill apiece. The
+               nth name takes the nth logo; a name past the end of the logo
+               list simply goes without one. */ -}}
+        {{- $logos := split (or .Params.venueLogo "") "," -}}
+        {{- range $i, $v := split (or .Params.venue "") "," -}}
+          {{- $v = trim $v " " -}}
+          {{- with $v -}}
+            <span class="venue-pill">
+              {{- $lp := "" -}}
+              {{- if lt $i (len $logos) -}}{{- $lp = trim (index $logos $i) " " -}}{{- end -}}
+              {{- with $lp -}}
+                {{- with resources.Get . -}}
+                  {{- /* Only the SVG branch may touch .RelPermalink on the original:
+                         reading it marks the file for publishing, so the untouched
+                         source shipped alongside the derivative it was replaced by. */ -}}
+                  {{- $l := "" -}}
+                  {{- if eq .MediaType.SubType "svg" -}}
+                    {{- $l = .RelPermalink -}}
+                  {{- else -}}
+                    {{- $l = ((.Resize "x40").Process "webp q85").RelPermalink -}}
+                  {{- end -}}
+                  <img class="venue-logo" src="{{ $l }}" alt="" loading="lazy" />
                 {{- end -}}
-                <img class="venue-logo" src="{{ $l }}" alt="" loading="lazy" />
               {{- end -}}
-            {{- end -}}
-            {{ . }}</span>
+              {{ $v }}</span>
+          {{- end -}}
         {{- end }}
         {{ with .Params.lab }}<span class="venue-pill">{{ . }}</span>{{ end }}
         {{ with .Params.year }}<span class="venue-pill">{{ . }}</span>{{ end }}

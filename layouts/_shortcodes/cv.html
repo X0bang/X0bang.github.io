@@ -4,23 +4,28 @@
 
     {{< cv title="…" when="…" meta="…" logo="images/logos/wehi.png"
            link="/projects/foo/" linkText="Read more" >}}
+
+  `logo` accepts several comma-separated paths for a joint affiliation.
     Body markdown.
     {{< /cv >}}
 */ -}}
 <div class="cv-entry">
   <div class="cv-head">
+    {{- /* One path, or several separated by commas for a joint affiliation. */ -}}
     {{- with .Get "logo" -}}
-      {{- with resources.Get . -}}
-        {{- /* Only the SVG branch may touch .RelPermalink on the original:
-               reading it marks the file for publishing, so the untouched
-               source shipped alongside the derivative it was replaced by. */ -}}
-        {{- $src := "" -}}
-        {{- if eq .MediaType.SubType "svg" -}}
-          {{- $src = .RelPermalink -}}
-        {{- else -}}
-          {{- $src = ((.Resize "x56").Process "webp q85").RelPermalink -}}
+      {{- range split . "," -}}
+        {{- with resources.Get (trim . " ") -}}
+          {{- /* Only the SVG branch may touch .RelPermalink on the original:
+                 reading it marks the file for publishing, so the untouched
+                 source shipped alongside the derivative it was replaced by. */ -}}
+          {{- $src := "" -}}
+          {{- if eq .MediaType.SubType "svg" -}}
+            {{- $src = .RelPermalink -}}
+          {{- else -}}
+            {{- $src = ((.Resize "x56").Process "webp q85").RelPermalink -}}
+          {{- end -}}
+          <img class="cv-logo" src="{{ $src }}" alt="" loading="lazy" />
         {{- end -}}
-        <img class="cv-logo" src="{{ $src }}" alt="" loading="lazy" />
       {{- end -}}
     {{- end -}}
     <span class="cv-title">{{ .Get "title" | markdownify }}</span>
