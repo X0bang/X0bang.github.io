@@ -8,7 +8,7 @@ description: "Curriculum vitae of Boyue Zhang — education, research experience
 
 ## Education
 
-{{< cv title="**Zhejiang University** — B.S. in Biological Sciences" when="Sep 2023 – Jun 2027 (Expected)" meta="GPA 3.7 / 4.0" >}}
+{{< cv title="**Zhejiang University** — B.S. in Biological Sciences, Bioinformatics track" when="Sep 2023 – Jun 2027 (Expected)" meta="GPA 3.7 / 4.0" >}}
 - **Coursework:** Computational Biology (98/100), Bioinformatics (97/100), Biophysics (96/100)
 - **Honors:** Professional Excellence Scholarship, Academic Excellence Model
 {{< /cv >}}

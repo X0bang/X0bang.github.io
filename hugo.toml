@@ -22,13 +22,14 @@ enableRobotsTXT = true
 
 [params]
   author = "Boyue Zhang"
-  description = "Boyue Zhang — undergraduate in Biological Sciences at Zhejiang University, working on computational biology and protein engineering."
+  description = "Boyue Zhang — undergraduate in Biological Sciences (Bioinformatics track) at Zhejiang University, working on computational biology and protein engineering."
   keywords = "computational biology,protein engineering,bioinformatics,Zhejiang University,PhD applicant"
 
   # Under the name: the role, then the institution on its own line with a link.
   # A plain string works too if you ever want them on one line.
   tagline = [
     "Undergraduate in Biological Sciences",
+    "Bioinformatics track",
     "@ [Zhejiang University](https://www.zju.edu.cn/english/)",
   ]
 
