@@ -122,9 +122,17 @@ def main():
     sparks = []
     prime = [19, 23, 29, 31, 37, 41, 43]
     for i in range(N_SPARKS):
+        # The registered box is the whole artwork, but the band only shows a
+        # slice of it, and which slice depends on the viewport: 11-74% at
+        # 1920x400, 16-63% at 2560x400, 6-85% at 1440x378. Impacts have to sit
+        # inside the intersection or the meteor lands off-screen — which is
+        # exactly what 0.58-0.90 was doing on a wide display.
         ix = rng.uniform(0.14, 0.86) * W          # impact point, source px
-        iy = rng.uniform(0.58, 0.90) * H          # the clear lower band
-        ang = rng.uniform(20, 34)                 # descending, right to left
+        iy = rng.uniform(0.30, 0.60) * H
+        # Half come down to the right, half to the left. A single direction for
+        # all of them reads as a wipe rather than as weather.
+        ang = (rng.uniform(18, 42) if i % 2 == 0
+               else rng.uniform(138, 162))
         travel = rng.uniform(0.22, 0.40) * W
         tail = rng.uniform(9, 16) * PITCH
         dur = prime[i % len(prime)]
