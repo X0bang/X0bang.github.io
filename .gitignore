@@ -36,3 +36,7 @@ Icon?
 
 # regenerable diagnostics from structure-analysis/render_map.py
 structure-analysis/out/
+
+# Raw WEHI report and slide exports; only the selected figures are committed
+/WEHI-project-Report-*/
+/WEHI-project- images-from-slide/
