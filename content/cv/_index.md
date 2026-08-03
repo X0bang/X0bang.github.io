@@ -20,7 +20,7 @@ description: "Curriculum vitae of Boyue Zhang — education, research experience
 Each entry links to a fuller account — the question, the method and what came of it —
 under [Projects](/projects/).
 
-{{< cv title="**Walter and Eliza Hall Institute (WEHI) InSPIRE Research Intern**" when="Jun 2026 – Present" meta="Call Lab · Department of Medical Biology, [University of Melbourne](https://www.unimelb.edu.au/) · Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)" logo="images/logos/wehi.png, images/logos/unimelb.png" link="/projects/procar3-trimer/" >}}
+{{< cv title="**WEHI InSPIRE Research Intern**" when="Jun 2026 – Present" meta="Call Lab · Department of Medical Biology, [University of Melbourne](https://www.unimelb.edu.au/) · Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)" logo="images/logos/unimelb.png, images/logos/wehi.png" link="/projects/procar3-trimer/" >}}
 Rebuilding a CAR-T costimulatory TMD into its native trimeric form — **73–74% surface
 expression** and **85%+ contact retention** across 2 µs MD.
 {{< /cv >}}

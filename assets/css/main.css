@@ -1657,14 +1657,13 @@ button {
   object-fit: contain;
 }
 
-/* The Melbourne crest is white line-work on a solid navy plate: correct on a
-   white page, a hole on a dark one. A hairline ring gives the plate an edge so
-   it reads as a mark rather than a gap. */
+/* The Melbourne mark is navy line-work on transparency — legible on a white
+   page, nearly invisible on a dark one. It is monochrome, so forcing every
+   opaque pixel to white reproduces the university's own reversed logo. */
 [data-theme="dark"] .tmline-logo img[src*="unimelb"],
 [data-theme="dark"] .cv-logo[src*="unimelb"],
 [data-theme="dark"] .venue-logo[src*="unimelb"] {
-  outline: 1px solid rgba(255, 255, 255, 0.28);
-  outline-offset: -1px;
+  filter: brightness(0) invert(1);
 }
 
 .tmline-date {
@@ -1974,6 +1973,9 @@ button {
   justify-self: end;
   display: flex;
   flex-wrap: wrap;
+  /* A jointly-run project carries enough pills to need a second row; wrapped
+     rows stay flush with the right edge the first one sits against. */
+  justify-content: flex-end;
   align-items: center;
   gap: 8px;
   margin: 0 0 0 12px;
@@ -2832,6 +2834,7 @@ button {
 
   .pub-venue {
     justify-self: start;
+    justify-content: flex-start;
     margin: 4px 0 6px;
   }
 
@@ -2892,6 +2895,7 @@ button {
 
   .pub-venue {
     justify-self: start;
+    justify-content: flex-start;
     margin: 4px 0 6px;
   }
 

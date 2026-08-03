@@ -4,8 +4,8 @@ date: 2026-06-01
 year: "2026"
 weight: 1
 selected: true
-venue: "WEHI, University of Melbourne"
-venueLogo: "images/logos/wehi.png, images/logos/unimelb.png"
+venue: "Melbourne U, WEHI"
+venueLogo: "images/logos/unimelb.png, images/logos/wehi.png"
 lab: "Call Lab"
 status: "Ongoing"
 thumbPoster: "images/projects/procar3-poster.jpg"
