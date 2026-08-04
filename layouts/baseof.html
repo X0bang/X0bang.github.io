@@ -27,8 +27,14 @@
     <a class="back-to-top" href="#top" aria-label="Back to top">&uarr;</a>
 
     {{ with resources.Get "js/main.js" }}
+      {{- /* Fingerprinted like the stylesheet. Without it the file kept the
+             same name for ever while being served immutable for a year, so a
+             browser that had it once never asked for another — the change was
+             deployed and the visitor still ran last month's script. */ -}}
       {{ $js := . | js.Build (dict "minify" hugo.IsProduction) }}
-      <script src="{{ $js.RelPermalink }}" defer></script>
+      {{ if hugo.IsProduction }}{{ $js = $js | fingerprint }}{{ end }}
+      <script src="{{ $js.RelPermalink }}" defer
+        {{ with $js.Data.Integrity }}integrity="{{ . }}"{{ end }}></script>
     {{ end }}
 
     {{ partial "pixel.html" . }}
