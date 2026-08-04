@@ -11,7 +11,7 @@ thumbPoster: "images/projects/crtw-poster.jpg"
 thumb: "images/projects/crtw-design.mp4"
 status: "Ongoing"
 authors: "Supervised by Dr. Yangwei Jiang · PI: [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)"
-tags: ["enzyme engineering", "protein design", "molecular dynamics"]
+tags: ["enzyme engineering", "protein engineering", "structural biology", "molecular dynamics"]
 links:
   - name: "Code"
     url: "https://github.com/X0bang/crtw-enzyme-design"

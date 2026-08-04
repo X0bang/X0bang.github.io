@@ -1898,11 +1898,6 @@ button {
 }
 
 .pub-card:hover .pub-thumb,
-.pub-card.open .pub-thumb {
-  flex-basis: 300px;
-  width: 300px;
-}
-
 .pub-thumb img,
 .pub-thumb video {
   max-width: 100%;
@@ -2054,14 +2049,6 @@ button {
   color: var(--muted);
   line-height: 1.55;
   margin: 0 0 11px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.pub-card.open .pub-desc {
-  -webkit-line-clamp: 6;
 }
 
 .pub-tags {
@@ -2089,26 +2076,6 @@ button {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--page);
-}
-
-.pub-more {
-  position: absolute;
-  left: 50%;
-  bottom: 4px;
-  transform: translateX(-50%);
-  color: var(--subtle);
-  font-size: 11px;
-  line-height: 1;
-  z-index: 2;
-}
-
-.pub-more .chev {
-  display: block;
-  transition: transform 0.25s ease;
-}
-
-.pub-card.open .pub-more .chev {
-  transform: rotate(180deg);
 }
 
 .section-more {
@@ -3033,13 +3000,7 @@ button {
 
   .pub-thumb,
   .pub-card:hover .pub-thumb,
-  .pub-card.open .pub-thumb {
-    flex-basis: auto;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-  }
-
-  .pub-body {
+    .pub-body {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "title" "venue" "authors" "links" "desc" "tags";
   }
@@ -3093,14 +3054,7 @@ button {
 
   .pub-thumb,
   .pub-card:hover .pub-thumb,
-  .pub-card.open .pub-thumb {
-    flex-basis: auto;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    max-height: 260px;
-  }
-
-  .pub-body {
+    .pub-body {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "title" "venue" "authors" "links" "desc" "tags";
   }
@@ -3116,10 +3070,7 @@ button {
     -webkit-line-clamp: 4;
   }
 
-  .pub-more {
-    display: none;
   }
-}
 
 @media screen and (max-width: 860px) {
   /* The switch would otherwise squeeze the heading onto two cramped lines. */
@@ -3383,7 +3334,6 @@ button {
   .scroll-progress,
   .list-toggle,
   .segmented,
-  .pub-more,
   .backbone,
   .fx-chain,
   .fx-px,

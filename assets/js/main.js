@@ -278,13 +278,6 @@
         });
       }
 
-      var more = card.querySelector(".pub-more");
-      if (more) {
-        more.addEventListener("click", function (e) {
-          e.preventDefault();
-          card.classList.toggle("open");
-        });
-      }
     }
   );
 
