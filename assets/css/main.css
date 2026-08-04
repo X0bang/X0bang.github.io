@@ -2614,6 +2614,14 @@ button {
   line-height: 1.6;
 }
 
+/* Carried by the mirror build only — see _partials/pixel.html. Out of flow so
+   it cannot shift anything, and at a real size rather than a single pixel. */
+.mark {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* The way in to the count. A footnote, not a call to action. */
 .footer-visitors-link {
   margin: 20px 0 0;

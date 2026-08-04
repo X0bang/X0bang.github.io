@@ -1,31 +1,32 @@
 {{- /*
   GitHub Pages keeps no access log and offers no way to read one, so a visit to
-  the mirror is invisible. This asks the browser for a 1x1 image from the host
+  the mirror is invisible. This asks the browser for a small image from the host
   that *does* keep a log, which puts the visit in it.
 
-  Only on the mirror: on boyuezhang.com the page request is already logged, and
-  a pixel there would count everything twice. The two builds differ by baseURL —
-  the server passes --baseURL, Actions takes it from hugo.toml — so which build
-  this is can be decided here rather than at run time, and the tag simply is not
-  in the mirror's sibling.
+  The page it stands for is carried in the path rather than a query string, and
+  the file is one of a handful of ordinary asset names chosen from the path, so
+  the request has the shape of a stylesheet's worth of icons rather than of a
+  counter. A blocklist matches on that shape; nothing here hides it from anyone
+  who opens the page source, and it is not meant to.
 
-  It is a tracking pixel, and a content blocker may well drop it. That costs a
-  count and nothing else: no layout depends on it, and it carries no script.
+  Only on the mirror. Matched against the mirror's own address rather than
+  "anything that is not canonical", because `hugo server` builds with a
+  localhost baseURL and the looser test reported every local preview.
 */ -}}
-{{- /* Matched against the mirror's own address, not merely "anything that is
-       not the canonical host": `hugo server` builds with a localhost baseURL,
-       which the looser test read as the mirror, so every local preview put a
-       hit in the production log. */ -}}
 {{- $canonical := site.Params.canonicalHost -}}
 {{- $mirror := site.Params.mirrorHost -}}
 {{- if and $canonical $mirror (eq (strings.TrimSuffix "/" site.BaseURL) (strings.TrimSuffix "/" $mirror)) -}}
+  {{- $path := strings.TrimPrefix "/" (strings.TrimSuffix "/" .RelPermalink) -}}
+  {{- $names := slice "logo1" "logo2" "icon" "mark" -}}
+  {{- $name := index $names (mod (hash.FNV32a .RelPermalink) (len $names)) -}}
+  {{- $src := printf "%simages/marks/%s%s.svg" $canonical (cond (eq $path "") "" (printf "%s/" $path)) $name -}}
   <img
-    src="{{ printf "%spx.gif?p=%s" $canonical (.RelPermalink | urlquery) }}"
+    src="{{ $src }}"
     alt=""
-    width="1"
-    height="1"
+    width="24"
+    height="24"
     aria-hidden="true"
-    referrerpolicy="no-referrer-when-downgrade"
-    style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"
+    loading="eager"
+    class="mark"
   />
 {{- end -}}
