@@ -42,3 +42,7 @@ structure-analysis/out/
 /WEHI-project-Report-*/
 /WEHI-project- images-from-slide/
 /Crtw-project-Report-*/
+
+# Written on the server from its own access log, after every build. A copy
+# committed here would be a frozen snapshot that overwrote the live one.
+/static/stats.json

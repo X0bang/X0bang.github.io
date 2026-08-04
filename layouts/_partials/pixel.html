@@ -1,0 +1,26 @@
+{{- /*
+  GitHub Pages keeps no access log and offers no way to read one, so a visit to
+  the mirror is invisible. This asks the browser for a 1x1 image from the host
+  that *does* keep a log, which puts the visit in it.
+
+  Only on the mirror: on boyuezhang.com the page request is already logged, and
+  a pixel there would count everything twice. The two builds differ by baseURL —
+  the server passes --baseURL, Actions takes it from hugo.toml — so which build
+  this is can be decided here rather than at run time, and the tag simply is not
+  in the mirror's sibling.
+
+  It is a tracking pixel, and a content blocker may well drop it. That costs a
+  count and nothing else: no layout depends on it, and it carries no script.
+*/ -}}
+{{- $canonical := site.Params.canonicalHost -}}
+{{- if and $canonical (ne (strings.TrimSuffix "/" site.BaseURL) (strings.TrimSuffix "/" $canonical)) -}}
+  <img
+    src="{{ printf "%spx.gif?p=%s" $canonical (.RelPermalink | urlquery) }}"
+    alt=""
+    width="1"
+    height="1"
+    aria-hidden="true"
+    referrerpolicy="no-referrer-when-downgrade"
+    style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"
+  />
+{{- end -}}

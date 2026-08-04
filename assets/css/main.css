@@ -2607,6 +2607,127 @@ button {
   line-height: 1.6;
 }
 
+/* The way in to the count. A footnote, not a call to action. */
+.footer-visitors-link {
+  margin: 20px 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-visitors-link a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-visitors-link a:hover {
+  color: var(--body);
+  border-bottom-color: var(--line);
+}
+
+/* --- /visitors/ ------------------------------------------------------- */
+
+.visitors-figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 44px;
+  margin: 4px 0 2px;
+}
+
+.visitors-figure {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.visitors-figure-n {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.visitors-figure-label,
+.visitors-since {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.visitors-since {
+  margin: 10px 0 26px;
+}
+
+.visitors-table {
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+  max-width: 520px;
+}
+
+.visitors-table li {
+  display: grid;
+  grid-template-columns: 22px 1fr 120px 34px;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.visitors-table li:last-child {
+  border-bottom: 0;
+}
+
+.visitors-flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.visitors-bar {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.visitors-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--body);
+}
+
+.visitors-n {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+
+.visitors-empty {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.visitors-note {
+  max-width: 620px;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 560px) {
+  .visitors-table li {
+    grid-template-columns: 20px 1fr 60px 30px;
+  }
+}
+
 .footer-meta a {
   color: var(--muted);
   text-decoration: underline;

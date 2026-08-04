@@ -30,5 +30,7 @@
       {{ $js := . | js.Build (dict "minify" hugo.IsProduction) }}
       <script src="{{ $js.RelPermalink }}" defer></script>
     {{ end }}
+
+    {{ partial "pixel.html" . }}
   </body>
 </html>

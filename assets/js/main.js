@@ -287,4 +287,98 @@
       }
     }
   );
+
+  /* ---- Where readers came from ---------------------------------------
+
+     Only on /visitors/. stats.json is written by the server from its own
+     access log — no analytics service, no cookie, no beacon, and nothing
+     about a visitor reaches this page beyond a country and a count. */
+
+  var visitors = document.getElementById("visitors");
+  if (visitors && window.fetch) {
+    // Two regional indicator letters make the flag; no image, no font.
+    function flag(cc) {
+      if (!/^[A-Z]{2}$/.test(cc)) return "";
+      return String.fromCodePoint(
+        0x1f1e6 + cc.charCodeAt(0) - 65,
+        0x1f1e6 + cc.charCodeAt(1) - 65
+      );
+    }
+
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text !== undefined) n.textContent = text;
+      return n;
+    }
+
+    // The mirror keeps no log of its own — read the totals from the host that
+    // does. Cross-origin there, which is why that response carries an
+    // Access-Control-Allow-Origin header.
+    var local =
+      location.hostname === "boyuezhang.com" ||
+      location.hostname === "www.boyuezhang.com" ||
+      location.hostname === "localhost" ||
+      location.hostname === "127.0.0.1";
+    var statsUrl = local ? "/stats.json" : "https://boyuezhang.com/stats.json";
+
+    fetch(statsUrl, { cache: "no-cache" })
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      })
+      .then(function (d) {
+        if (!d || !d.visits) throw new Error("empty");
+
+        visitors.textContent = "";
+
+        var since = new Date(d.since * 1000).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        });
+
+        var figures = el("div", "visitors-figures");
+        [
+          [d.visits, d.visits === 1 ? "visit" : "visits"],
+          [d.views, d.views === 1 ? "page view" : "page views"],
+          [d.countries.length, d.countries.length === 1 ? "country" : "countries"],
+        ].forEach(function (pair) {
+          var f = el("div", "visitors-figure");
+          f.appendChild(el("span", "visitors-figure-n", String(pair[0])));
+          f.appendChild(el("span", "visitors-figure-label", pair[1]));
+          figures.appendChild(f);
+        });
+        visitors.appendChild(figures);
+        visitors.appendChild(el("p", "visitors-since", "since " + since));
+
+        // Bars are relative to the busiest country, not to the total: with one
+        // country at two thirds of all traffic the rest would be invisible.
+        var top = d.countries[0].n;
+        var list = el("ol", "visitors-table");
+        d.countries.forEach(function (c) {
+          var li = el("li");
+          li.appendChild(el("span", "visitors-flag", flag(c.cc)));
+          li.appendChild(el("span", "visitors-name", c.name));
+          var bar = el("span", "visitors-bar");
+          var fill = el("span", "visitors-bar-fill");
+          fill.style.width = Math.max(2, (c.n / top) * 100) + "%";
+          bar.appendChild(fill);
+          li.appendChild(bar);
+          li.appendChild(el("span", "visitors-n", String(c.n)));
+          list.appendChild(li);
+        });
+        visitors.appendChild(list);
+      })
+      .catch(function () {
+        visitors.textContent = "";
+        visitors.appendChild(
+          el(
+            "p",
+            "visitors-empty",
+            "The count is not reachable from here right now."
+          )
+        );
+      });
+  }
 })();
