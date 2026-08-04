@@ -3,28 +3,39 @@
   index — a `thumb` ending .mp4/.webm becomes a muted looping <video>, anything
   else is an <img> that swaps to the animation once it is in view.
 
-  Animated sources live in static/ (the asset pipeline would flatten them), so
-  they ship at their authored size; the box is capped to match rather than
-  upscaling them across the column.
-*/ -}}
-{{- /* Only for a thumb that actually moves. A still one is either already a
-       figure further down the page or is not worth the space up here — an
-       animated image is marked by carrying a `thumbPoster` to stand in for
-       it, and a clip by its extension. */ -}}
-{{- $t := .Params.thumb -}}
-{{- $animated := and $t (or (in (slice ".mp4" ".webm") (path.Ext $t)) (ne (.Params.thumbPoster | default "") "")) -}}
+  Only for a thumb that actually moves: a still one is either already a figure
+  further down the page or is not worth the space up here. An animated image is
+  marked by carrying a `thumbPoster` to stand in for it, a clip by its
+  extension.
 
-{{- with cond $animated ($t | default "") "" -}}
-  {{- $src := . | relURL -}}
-  {{- with resources.Get . -}}
+  If a `-hero` sibling exists next to the thumb it wins — the card copies are
+  cut down for a small tile (the animations are 300px wide) and would be a 3x
+  upscale in this box. Animated sources live under static/, since the asset
+  pipeline would flatten them.
+*/ -}}
+{{- $t := .Params.thumb | default "" -}}
+{{- $ext := path.Ext $t -}}
+{{- $animated := and $t (or (in (slice ".mp4" ".webm") $ext) (ne (.Params.thumbPoster | default "") "")) -}}
+
+{{- if $animated -}}
+  {{- $poster := .Params.thumbPoster | default "" -}}
+
+  {{- $big := replace $t $ext (printf "-hero%s" $ext) -}}
+  {{- if fileExists (printf "static/%s" $big) -}}
+    {{- $t = $big -}}
+    {{- $bigPoster := replace $big $ext (printf "-poster%s" $ext) -}}
+    {{- if fileExists (printf "static/%s" $bigPoster) -}}{{- $poster = $bigPoster -}}{{- end -}}
+  {{- end -}}
+
+  {{- $src := $t | relURL -}}
+  {{- with resources.Get $t -}}
     {{- $i := . -}}
     {{- if gt .Width 1040 }}{{ $i = .Resize "1040x" }}{{ end -}}
     {{- if ne .MediaType.SubType "svg" }}{{ $i = $i.Process "webp q82" }}{{ end -}}
     {{- $src = $i.RelPermalink -}}
   {{- end -}}
 
-  {{- $poster := "" -}}
-  {{- with $.Params.thumbPoster -}}
+  {{- with $poster -}}
     {{- $poster = . | relURL -}}
     {{- with resources.Get . -}}
       {{- $i := . -}}
@@ -34,17 +45,17 @@
   {{- end -}}
 
   <div class="page-hero">
-    {{ if in (slice ".mp4" ".webm") (path.Ext .) }}
+    {{ if in (slice ".mp4" ".webm") $ext }}
       {{- /* preload="none" as on the cards: the observer in main.js starts it,
              which is also what begins the download. */ -}}
       <video muted loop playsinline preload="none"
-        {{ with $poster }}poster="{{ . }}"{{ end }} aria-label="{{ $.Title }}">
-        <source src="{{ $src }}" type="video/{{ strings.TrimPrefix "." (path.Ext .) }}" />
+        {{ with $poster }}poster="{{ . }}"{{ end }} aria-label="{{ .Title }}">
+        <source src="{{ $src }}" type="video/{{ strings.TrimPrefix "." $ext }}" />
       </video>
     {{ else if $poster }}
-      <img src="{{ $poster }}" data-anim="{{ $src }}" loading="lazy" alt="{{ $.Title }}" />
+      <img src="{{ $poster }}" data-anim="{{ $src }}" loading="lazy" alt="{{ .Title }}" />
     {{ else }}
-      <img src="{{ $src }}" loading="lazy" alt="{{ $.Title }}" />
+      <img src="{{ $src }}" loading="lazy" alt="{{ .Title }}" />
     {{ end }}
   </div>
 {{- end -}}
