@@ -320,9 +320,10 @@
       location.hostname === "www.boyuezhang.com" ||
       location.hostname === "localhost" ||
       location.hostname === "127.0.0.1";
-    var statsUrl = local ? "/stats.json" : "https://boyuezhang.com/stats.json";
 
-    fetch(statsUrl, { cache: "no-cache" })
+    fetch(local ? "/stats.json" : "https://boyuezhang.com/stats.json", {
+      cache: "no-cache",
+    })
       .then(function (r) {
         if (!r.ok) throw new Error(r.status);
         return r.json();
@@ -330,12 +331,26 @@
       .then(function (d) {
         if (!d || !d.visits) throw new Error("empty");
 
-        visitors.textContent = "";
+        var empty = visitors.querySelector(".visitors-empty");
+        if (empty) empty.remove();
 
-        var since = new Date(d.since * 1000).toLocaleDateString("en-GB", {
-          day: "numeric",
-          month: "short",
-          year: "numeric",
+        // Shade against the busiest country: with one of them at a third of
+        // all traffic, sharing a scale with the total leaves the rest flat.
+        // The square root keeps the small ones visible without pretending
+        // they are close to the top.
+        var top = d.countries[0].n;
+        d.countries.forEach(function (c) {
+          var t = Math.sqrt(c.n / top);
+          var land = document.getElementById("c" + c.cc);
+          var dot = document.getElementById("d" + c.cc);
+          [land, dot].forEach(function (n) {
+            if (!n) return;
+            n.classList.add("is-hit");
+            n.style.setProperty("--t", t.toFixed(3));
+            var t2 = n.querySelector("title") || el("title");
+            t2.textContent = c.name + " — " + c.n;
+            n.appendChild(t2);
+          });
         });
 
         var figures = el("div", "visitors-figures");
@@ -349,36 +364,28 @@
           f.appendChild(el("span", "visitors-figure-label", pair[1]));
           figures.appendChild(f);
         });
-        visitors.appendChild(figures);
-        visitors.appendChild(el("p", "visitors-since", "since " + since));
+        visitors.insertBefore(figures, visitors.firstChild);
 
-        // Bars are relative to the busiest country, not to the total: with one
-        // country at two thirds of all traffic the rest would be invisible.
-        var top = d.countries[0].n;
-        var list = el("ol", "visitors-table");
+        var since = new Date(d.since * 1000).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        });
+
+        var list = el("ul", "visitors-chips");
         d.countries.forEach(function (c) {
           var li = el("li");
           li.appendChild(el("span", "visitors-flag", flag(c.cc)));
           li.appendChild(el("span", "visitors-name", c.name));
-          var bar = el("span", "visitors-bar");
-          var fill = el("span", "visitors-bar-fill");
-          fill.style.width = Math.max(2, (c.n / top) * 100) + "%";
-          bar.appendChild(fill);
-          li.appendChild(bar);
           li.appendChild(el("span", "visitors-n", String(c.n)));
           list.appendChild(li);
         });
         visitors.appendChild(list);
+        visitors.appendChild(el("p", "visitors-since", "since " + since));
       })
       .catch(function () {
-        visitors.textContent = "";
-        visitors.appendChild(
-          el(
-            "p",
-            "visitors-empty",
-            "The count is not reachable from here right now."
-          )
-        );
+        var empty = visitors.querySelector(".visitors-empty");
+        if (empty) empty.textContent = "The count is not reachable from here.";
       });
   }
 })();

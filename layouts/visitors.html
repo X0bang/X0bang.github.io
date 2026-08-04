@@ -5,34 +5,16 @@
         <h1 class="page-title">{{ .Title }}</h1>
       </header>
 
-      {{- /* Filled by main.js from stats.json, which the server writes from
-             its own access log. Everything below is a fallback: if the file
-             cannot be reached, the note stays and the numbers never appear. */ -}}
-      <div class="visitors-page" id="visitors">
-        <p class="visitors-empty">Loading the count&hellip;</p>
-      </div>
-
-      <div class="prose visitors-note">
-        <p>
-          These numbers come from this server's own access log — the record it
-          keeps of every request it answers, which it would write down whether
-          anyone read it or not. There is no analytics service, no cookie and no
-          script reporting anything about you: the page you are reading fetches
-          a single small file of totals, and nothing about a visitor travels the
-          other way.
-        </p>
-        <p>
-          A visit is a run of requests from one address with no half-hour gap.
-          Search engines and the link scanners that sit in front of university
-          mailboxes are counted the same as anyone else, because from the
-          server's side they are indistinguishable from a reader — so read the
-          total as traffic, not as people.
-        </p>
-        <p>
-          The country comes from the address blocks the five regional internet
-          registries publish, matched offline. No address is stored here, and
-          none is shown.
-        </p>
+      {{- /* Shaded by main.js from stats.json, which the server reduces from
+             its own access log. The map is inlined rather than an <img> so its
+             countries can be reached and filled — Natural Earth geometry, in
+             the public domain, projected to Robinson at build time, so nothing
+             is fetched from anywhere at run time. */ -}}
+      <div class="visitors" id="visitors">
+        <figure class="visitors-map">
+          {{ with resources.Get "images/world.svg" }}{{ .Content | safeHTML }}{{ end }}
+        </figure>
+        <p class="visitors-empty">Loading&hellip;</p>
       </div>
 
       <p class="page-back"><a href="{{ "/" | relURL }}">&larr; Home</a></p>

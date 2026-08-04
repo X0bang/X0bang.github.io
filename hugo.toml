@@ -57,6 +57,13 @@ enableRobotsTXT = true
   # and this is the one that counts.
   canonicalHost = "https://boyuezhang.com/"
 
+  # The GitHub Pages copy. It keeps no access log and offers no way to read
+  # one, so the build for this address — and only that build — carries a
+  # counting pixel pointing at canonicalHost, which does keep one. Matched
+  # against baseURL exactly: `hugo server` runs on localhost, and a looser
+  # test read that as the mirror and reported every local preview.
+  mirrorHost = "https://x0bang.github.io/"
+
   dateFormat = "Jan 2, 2006"
   since = 2026
 

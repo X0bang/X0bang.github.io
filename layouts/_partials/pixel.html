@@ -12,8 +12,13 @@
   It is a tracking pixel, and a content blocker may well drop it. That costs a
   count and nothing else: no layout depends on it, and it carries no script.
 */ -}}
+{{- /* Matched against the mirror's own address, not merely "anything that is
+       not the canonical host": `hugo server` builds with a localhost baseURL,
+       which the looser test read as the mirror, so every local preview put a
+       hit in the production log. */ -}}
 {{- $canonical := site.Params.canonicalHost -}}
-{{- if and $canonical (ne (strings.TrimSuffix "/" site.BaseURL) (strings.TrimSuffix "/" $canonical)) -}}
+{{- $mirror := site.Params.mirrorHost -}}
+{{- if and $canonical $mirror (eq (strings.TrimSuffix "/" site.BaseURL) (strings.TrimSuffix "/" $mirror)) -}}
   <img
     src="{{ printf "%spx.gif?p=%s" $canonical (.RelPermalink | urlquery) }}"
     alt=""

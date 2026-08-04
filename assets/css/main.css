@@ -47,6 +47,10 @@
   --wrap: 1024px;
   --gutter: 30px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* The world map on /visitors/: the sheet, and the ink on it. */
+  --map-land: #e4e7ec;
+  --map-hit: #12151b;
 }
 
 [data-theme="dark"] {
@@ -70,6 +74,9 @@
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 10px 24px -12px rgba(0, 0, 0, 0.6),
     0 4px 8px -6px rgba(0, 0, 0, 0.5);
+
+  --map-land: #262b33;
+  --map-hit: #e8ecf2;
 }
 
 /* --------------------------------------------------------------------------
@@ -2634,7 +2641,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 14px 44px;
-  margin: 4px 0 2px;
+  margin: 4px 0 22px;
 }
 
 .visitors-figure {
@@ -2659,73 +2666,75 @@ button {
   color: var(--muted);
 }
 
-.visitors-since {
-  margin: 10px 0 26px;
+.visitors-map {
+  margin: 0 0 20px;
 }
 
-.visitors-table {
-  list-style: none;
-  margin: 0 0 30px;
+.worldmap {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Unvisited countries are the sheet the visited ones are printed on: present,
+   so the shape of the world reads, but not competing with the data. */
+.worldmap-land path {
+  fill: var(--map-land);
+  stroke: var(--page);
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.worldmap-dots circle {
+  fill: none;
+}
+
+/* --t is set per country from its share of the busiest one. */
+.worldmap-land path.is-hit {
+  fill: color-mix(in srgb, var(--map-hit) calc(var(--t) * 100%), var(--map-land));
+}
+
+.worldmap-dots circle.is-hit {
+  fill: var(--map-hit);
+  fill-opacity: calc(0.35 + var(--t) * 0.65);
+  stroke: var(--page);
+  stroke-width: 1.2;
+}
+
+.visitors-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 9px;
+  margin: 0 0 14px;
   padding: 0;
-  max-width: 520px;
+  list-style: none;
 }
 
-.visitors-table li {
-  display: grid;
-  grid-template-columns: 22px 1fr 120px 34px;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 14px;
-}
-
-.visitors-table li:last-child {
-  border-bottom: 0;
+.visitors-chips li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13px;
 }
 
 .visitors-flag {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1;
-}
-
-.visitors-bar {
-  display: block;
-  height: 6px;
-  border-radius: 3px;
-  background: var(--line);
-  overflow: hidden;
-}
-
-.visitors-bar-fill {
-  display: block;
-  height: 100%;
-  border-radius: 3px;
-  background: var(--body);
 }
 
 .visitors-n {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
-  text-align: right;
 }
 
 .visitors-empty {
   font-family: var(--mono);
   font-size: 12px;
   color: var(--muted);
-}
-
-.visitors-note {
-  max-width: 620px;
-  font-size: 14px;
-}
-
-@media screen and (max-width: 560px) {
-  .visitors-table li {
-    grid-template-columns: 20px 1fr 60px 30px;
-  }
 }
 
 .footer-meta a {
