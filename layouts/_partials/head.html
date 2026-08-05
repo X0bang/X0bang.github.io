@@ -79,6 +79,11 @@
 
 <meta name="theme-color" content="#0b0c0e" />
 
+{{- /* Pages that exist but are not for finding. Not listed in robots.txt on
+       purpose: that file is public, and naming a path there is the surest way
+       to tell everyone it exists. */ -}}
+{{ if .Params.noindex }}<meta name="robots" content="noindex, nofollow" />{{ end }}
+
 {{ with resources.Get "css/main.css" }}
   {{ $css := . }}
   {{ if hugo.IsProduction }}{{ $css = $css | minify | fingerprint }}{{ end }}
