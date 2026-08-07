@@ -1,0 +1,59 @@
+{{- /*
+  A Person description for machines, on the home page only.
+
+  Invisible to a reader — it renders nothing. Its job is to say plainly what a
+  crawler would otherwise have to infer: that this is one person, which
+  institutions they belong to, what they work on, and which other profiles are
+  the same person.
+
+  Everything here has to be on the page in readable form as well; describing
+  something the page does not show is a policy violation, not a shortcut. So
+  the institutions come from `schemaAffiliation`, whose entries appear in the
+  bio and the timeline, and the topics come from the site's own tag taxonomy —
+  the same words printed on the project cards.
+
+  Built as a map and passed through `jsonify` rather than written out by hand,
+  so an apostrophe in a name cannot produce invalid JSON.
+*/ -}}
+{{- if .IsHome -}}
+  {{- $home := site.Params.canonicalHost | default site.BaseURL -}}
+
+  {{- $sameAs := slice -}}
+  {{- range site.Params.social -}}
+    {{- if hasPrefix .url "http" -}}{{- $sameAs = $sameAs | append .url -}}{{- end -}}
+  {{- end -}}
+
+  {{- $affil := slice -}}
+  {{- range site.Params.schemaAffiliation -}}
+    {{- $affil = $affil | append (dict "@type" "Organization" "name" .name "url" .url) -}}
+  {{- end -}}
+
+  {{- /* The term's own title, not the internal key: the key is lowercased and
+         slugged, and what belongs here is the wording the cards actually
+         print. */ -}}
+  {{- $topics := slice -}}
+  {{- range $_, $t := site.Taxonomies.tags -}}
+    {{- $topics = $topics | append $t.Page.Title -}}
+  {{- end -}}
+
+  {{- $person := dict
+        "@context" "https://schema.org"
+        "@type" "Person"
+        "name" site.Params.author
+        "url" $home
+        "description" site.Params.description
+        "knowsAbout" $topics
+  -}}
+  {{- with $affil }}{{ $person = merge $person (dict "affiliation" .) }}{{ end -}}
+  {{- with $sameAs }}{{ $person = merge $person (dict "sameAs" .) }}{{ end -}}
+  {{- with index (site.Params.emails | default slice) 0 -}}
+    {{- $person = merge $person (dict "email" (printf "mailto:%s" .)) -}}
+  {{- end -}}
+  {{- with site.Params.avatar -}}
+    {{- with resources.Get . -}}
+      {{- $person = merge $person (dict "image" (printf "%s%s" (strings.TrimSuffix "/" $home) ((.Resize "512x").Process "webp q85").RelPermalink)) -}}
+    {{- end -}}
+  {{- end -}}
+
+  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{- end -}}

@@ -84,6 +84,8 @@
        to tell everyone it exists. */ -}}
 {{ if .Params.noindex }}<meta name="robots" content="noindex, nofollow" />{{ end }}
 
+{{ partial "schema.html" . }}
+
 {{ with resources.Get "css/main.css" }}
   {{ $css := . }}
   {{ if hugo.IsProduction }}{{ $css = $css | minify | fingerprint }}{{ end }}

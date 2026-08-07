@@ -64,6 +64,19 @@ enableRobotsTXT = true
   # test read that as the mirror and reported every local preview.
   mirrorHost = "https://x0bang.github.io/"
 
+  # Fed to the Person description in _partials/schema.html. Every entry has to
+  # be visible on the page as well — this says the same thing to a machine that
+  # the bio and the timeline say to a reader, and nothing more.
+  [[params.schemaAffiliation]]
+    name = "Zhejiang University"
+    url = "https://www.zju.edu.cn/english/"
+  [[params.schemaAffiliation]]
+    name = "Walter and Eliza Hall Institute of Medical Research"
+    url = "https://www.wehi.edu.au/"
+  [[params.schemaAffiliation]]
+    name = "University of Melbourne"
+    url = "https://www.unimelb.edu.au/"
+
   dateFormat = "Jan 2, 2006"
   since = 2026
 
