@@ -22,7 +22,8 @@ under [Projects](/projects/).
 
 {{< cv title="**WEHI InSPIRE Research Intern**" when="Jun 2026 – Present" meta="Call Lab · Department of Medical Biology, [University of Melbourne](https://www.unimelb.edu.au/) · Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)" logo="images/logos/unimelb.png, images/logos/wehi.png" logoSize="lg" link="/projects/procar3-trimer/" >}}
 Rebuilding a CAR-T costimulatory TMD into its native trimeric form — **73–74% surface
-expression** and **85%+ contact retention** across 2 µs MD.
+expression** and **85%+ contact retention**, across **120 µs+** of all-atom and
+coarse-grained MD.
 {{< /cv >}}
 
 {{< cv title="**Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis**" when="Sep 2025 – Present" meta="Zhou Lab, Zhejiang University · Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)" logo="images/logos/zju-eagle.png" link="/projects/crtw-enzyme/" >}}

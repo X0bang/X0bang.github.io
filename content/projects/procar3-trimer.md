@@ -14,7 +14,7 @@ tags: ["protein engineering", "structural biology", "molecular dynamics"]
 links:
   - name: "Program"
     url: "https://www.wehi.edu.au/education/undergraduate/inspire/"
-summary: "Redesigning a CAR-T costimulatory transmembrane domain back into its native trimeric form, screened by all-atom and coarse-grained MD with free-energy calculations, and validated by flow cytometry and degranulation assays."
+summary: "Redesigning a CAR-T costimulatory transmembrane domain back into its native trimeric form, screened across 120 µs+ of all-atom and coarse-grained MD with free-energy calculations, and validated by flow cytometry and degranulation assays."
 draft: false
 ---
 
@@ -34,11 +34,15 @@ activation improve?
 The work runs on two tracks.
 
 **Dry lab — computational screening.** Four candidate designs went through four
-complementary routes: 500 ns all-atom trimer simulations to test whether each assembly
-holds, umbrella sampling for the free energy of lateral assembly, coarse-grained runs
-started from separated helices to see whether they find each other unaided, and a separate
-insertion free energy for the single helix. GROMACS throughout, with Rosetta and ESM2
-guiding and scoring the designs.
+complementary routes: all-atom trimer simulations to test whether each assembly holds,
+umbrella sampling for the free energy of lateral assembly, coarse-grained runs started
+from separated helices to see whether they find each other unaided, and a separate
+insertion free energy for the single helix. **Over 120 µs of GROMACS sampling in total**,
+with Rosetta and ESM2 guiding and scoring the designs.
+
+Most of that budget goes to the coarse-grained side. Asking whether three separated
+helices find each other at all means waiting for a rare event, which takes orders of
+magnitude longer than showing that an already-built trimer stays put.
 
 **Wet lab — functional validation.** Collaborating with the team, I helped optimise 4 TMD
 variants, then ran flow cytometry and degranulation assays against 2 tumour cell lines,
@@ -72,7 +76,7 @@ A coarse-grained model runs the complementary experiment: start the three helice
 see whether they find each other on their own.
 
 {{< figure src="images/projects/wehi/cg-method.png"
-  caption="Coarse-grained self-assembly — three separated helices, free to diffuse in the bilayer over 10 µs." >}}
+  caption="Coarse-grained self-assembly — three separated helices, free to diffuse in the bilayer until they meet, or do not." >}}
 
 ## Results
 
