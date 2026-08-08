@@ -1,8 +1,15 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {{- /* Hugo's own template lists every page. A page marked noindex should not
-         be handed to a crawler in the one file crawlers always read. */ -}}
-  {{ range site.Pages }}{{ if and .Permalink (not .Params.noindex) }}
+         be handed to a crawler in the one file crawlers always read.
+
+         The mirror lists nothing at all. Every page it serves already points
+         its canonical at the main host, and a sitemap saying "index these
+         github.io addresses" contradicts that — which is how Google came to
+         pick a canonical of its own rather than the declared one. One host
+         nominates pages for indexing, and it is the one the canonicals name. */ -}}
+  {{- $mirror := and site.Params.mirrorHost (eq (strings.TrimSuffix "/" site.BaseURL) (strings.TrimSuffix "/" site.Params.mirrorHost)) -}}
+  {{ range (cond $mirror slice site.Pages) }}{{ if and .Permalink (not .Params.noindex) }}
   <url>
     <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
     <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}
