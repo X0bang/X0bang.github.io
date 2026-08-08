@@ -2,7 +2,7 @@
 title: "Boyue Zhang"
 # 短简介:首页 About 里始终可见的那段。展开后才显示下面正文。
 bioShort: >-
-  I am an undergraduate in Biological Sciences at
+  I am Boyue Zhang (张博越), an undergraduate in Biological Sciences at
   [Zhejiang University](https://www.zju.edu.cn/english/), on the bioinformatics track, and
   currently a research intern at the
   [Walter and Eliza Hall Institute](https://www.wehi.edu.au/) — the Department of Medical

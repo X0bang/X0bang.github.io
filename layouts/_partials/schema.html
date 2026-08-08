@@ -44,6 +44,7 @@
         "description" site.Params.description
         "knowsAbout" $topics
   -}}
+  {{- with site.Params.authorAlternate }}{{ $person = merge $person (dict "alternateName" .) }}{{ end -}}
   {{- with $affil }}{{ $person = merge $person (dict "affiliation" .) }}{{ end -}}
   {{- with $sameAs }}{{ $person = merge $person (dict "sameAs" .) }}{{ end -}}
   {{- with index (site.Params.emails | default slice) 0 -}}

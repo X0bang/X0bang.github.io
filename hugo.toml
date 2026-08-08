@@ -22,6 +22,10 @@ enableRobotsTXT = true
 
 [params]
   author = "Boyue Zhang"
+  # Also printed in the bio. Both halves matter: the visible text is what a
+  # search for the Chinese name actually matches, and this tells a crawler the
+  # two names are one person rather than two.
+  authorAlternate = "张博越"
   description = "Boyue Zhang — undergraduate in Biological Sciences (Bioinformatics track) at Zhejiang University, working on computational biology and protein engineering."
   keywords = "computational biology,protein engineering,bioinformatics,Zhejiang University,PhD applicant"
 
