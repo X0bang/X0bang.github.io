@@ -1897,7 +1897,11 @@ button {
   transition: flex-basis 0.25s var(--ease), width 0.25s var(--ease);
 }
 
-.pub-card:hover .pub-thumb,
+.pub-card:hover .pub-thumb {
+  flex-basis: 300px;
+  width: 300px;
+}
+
 .pub-thumb img,
 .pub-thumb video {
   max-width: 100%;
@@ -2999,8 +3003,13 @@ button {
   }
 
   .pub-thumb,
-  .pub-card:hover .pub-thumb,
-    .pub-body {
+  .pub-card:hover .pub-thumb {
+    flex-basis: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .pub-body {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "title" "venue" "authors" "links" "desc" "tags";
   }
@@ -3053,8 +3062,14 @@ button {
   }
 
   .pub-thumb,
-  .pub-card:hover .pub-thumb,
-    .pub-body {
+  .pub-card:hover .pub-thumb {
+    flex-basis: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 260px;
+  }
+
+  .pub-body {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "title" "venue" "authors" "links" "desc" "tags";
   }
