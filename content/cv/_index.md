@@ -62,7 +62,7 @@ and quorum-controlled switching.
 
 ## Honors & Awards
 
-{{< cv title="**WEHI InSPIRE Scholarship**" when="Jun 2026" place="Melbourne, Australia" logo="images/logos/unimelb.png, images/logos/wehi.png" meta="Walter and Eliza Hall Institute, Department of Medical Biology, University of Melbourne — 8,000 AUD; competitively selected, ZJU-nominated" >}}{{< /cv >}}
+{{< cv title="**WEHI InSPIRE Scholarship**" when="Jun 2026" place="Melbourne, Australia" logo="images/logos/unimelb.png, images/logos/wehi.png" meta="Walter and Eliza Hall Institute, Department of Medical Biology, University of Melbourne — A$8,000; competitively selected, ZJU-nominated" >}}{{< /cv >}}
 
 {{< cv title="**Silver Medal, iGEM 2025**" when="Oct 2025" place="Paris, France" event="iGEM Grand Jamboree" logo="images/logos/igem.svg, images/logos/igem-zjuchina.png" meta="Technical Lead, ZJU-China" >}}{{< /cv >}}
 
