@@ -31,7 +31,7 @@
   logoSize: "lg"
   brief: true
 
-- date: "Oct 31, 2025"
+- date: "Oct 2025"
   title: "Silver Medal, iGEM 2025"
   org: "iGEM Grand Jamboree"
   place: "Paris, France"
@@ -43,7 +43,7 @@
     - "images/logos/lumamanta.jpg"
   brief: true
 
-- date: "Aug 9, 2025"
+- date: "Aug 2025"
   title: "Grand Prize, SynBio Challenges"
   org: "Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology"
   place: "Shenzhen, China"
@@ -58,11 +58,12 @@
 - date: "Apr 2026"
   title: 'Gold Medal, 18th "Dandelion" Undergraduate Innovation Competition'
   org: "Zhejiang University"
+  place: "Hangzhou, China"
   desc: "CTO — LumaManta eDNA-based aquatic pathogen detection"
   logo: "images/logos/zju-eagle.png"
   brief: true
 
-- date: "Jan 17, 2026"
+- date: "Jan 2026"
   title: "First Prize (Champion), National Pet Industry Innovation Competition"
   org: "Shanghai Society of Animal Husbandry & Veterinary Medicine"
   place: "Shanghai, China"
@@ -83,6 +84,7 @@
 - date: "2023 – 2025"
   title: "Academic Honors & Scholarships"
   org: "Zhejiang University"
+  place: "Hangzhou, China"
   logo: "images/logos/zju-eagle.png"
   desc:
     - "Professional Excellence Scholarship (2023–2024)"
@@ -93,4 +95,5 @@
 - date: "Jun 2025"
   title: "5th Place, Stand-Up Paddleboard 200 m"
   org: "Zhejiang University Sports Championship"
+  place: "Hangzhou, China"
   logo: "images/logos/zju-eagle.png"

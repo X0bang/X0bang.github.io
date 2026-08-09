@@ -55,13 +55,20 @@
               {{- if .url }}<a href="{{ .url }}" rel="noopener">{{ .title }}</a>
               {{- else }}{{ .title }}{{ end -}}
             </span>
-            {{ with .org }}<span class="entry-meta">{{ . }}</span>{{ end }}
-            {{- with .place -}}
-              {{- /* Where it was actually awarded. A conference in Paris and a
-                     departmental grant are different kinds of thing, and the
-                     place is the quickest way to tell them apart. */ -}}
-              <span class="entry-place">{{ partial "icon.html" "pin" }}{{ . }}</span>
-            {{- end }}
+            {{- /* Place and awarding body share a line, place first: a jamboree
+                   in Paris and a departmental grant are different kinds of
+                   thing, and the place is the fastest way to see which. */ -}}
+            {{- $place := .place -}}
+            {{- $org := .org -}}
+            {{ if or $place $org }}
+              <span class="entry-meta">
+                {{- with $place -}}
+                  <span class="entry-place">{{ partial "icon.html" "pin" }}{{ . }}</span>
+                  {{- if $org }}<span class="entry-sep">·</span>{{ end -}}
+                {{- end -}}
+                {{ with $org }}{{ . }}{{ end }}
+              </span>
+            {{ end }}
             {{- with .desc -}}
               {{- if reflect.IsSlice . -}}
                 <ul class="entry-points">

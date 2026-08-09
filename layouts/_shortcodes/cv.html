@@ -35,9 +35,16 @@
     <span class="cv-title">{{ .Get "title" | markdownify }}</span>
     {{ with .Get "when" }}<span class="cv-when">{{ . }}</span>{{ end }}
   </div>
-  {{ with .Get "meta" }}<div class="cv-meta">{{ . | markdownify }}</div>{{ end }}
-  {{ with .Get "place" }}
-    <div class="cv-place">{{ partial "icon.html" "pin" }}{{ . }}</div>
+  {{- $place := .Get "place" -}}
+  {{- $meta := .Get "meta" -}}
+  {{ if or $place $meta }}
+    <div class="cv-meta">
+      {{- with $place -}}
+        <span class="cv-place">{{ partial "icon.html" "pin" }}{{ . }}</span>
+        {{- if $meta }}<span class="entry-sep">·</span>{{ end -}}
+      {{- end -}}
+      {{ with $meta }}{{ . | markdownify }}{{ end }}
+    </div>
   {{ end }}
   {{ with .Inner }}<div class="cv-body">{{ . | markdownify }}</div>{{ end }}
   {{ with .Get "link" }}
