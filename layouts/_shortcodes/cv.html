@@ -36,16 +36,17 @@
     {{ with .Get "when" }}<span class="cv-when">{{ . }}</span>{{ end }}
   </div>
   {{- $place := .Get "place" -}}
-  {{- $meta := .Get "meta" -}}
-  {{ if or $place $meta }}
+  {{- $event := .Get "event" -}}
+  {{ if or $place $event }}
     <div class="cv-meta">
       {{- with $place -}}
         <span class="cv-place">{{ partial "icon.html" "pin" }}{{ . }}</span>
-        {{- if $meta }}<span class="entry-sep">·</span>{{ end -}}
+        {{- if $event }}<span class="entry-sep">·</span>{{ end -}}
       {{- end -}}
-      {{ with $meta }}{{ . | markdownify }}{{ end }}
+      {{ with $event }}{{ . }}{{ end }}
     </div>
   {{ end }}
+  {{ with .Get "meta" }}<div class="cv-meta">{{ . | markdownify }}</div>{{ end }}
   {{ with .Inner }}<div class="cv-body">{{ . | markdownify }}</div>{{ end }}
   {{ with .Get "link" }}
     <a class="cv-link" href="{{ . }}">{{ $.Get "linkText" | default "Read more" }} &rarr;</a>

@@ -58,17 +58,22 @@
             {{- /* Place and awarding body share a line, place first: a jamboree
                    in Paris and a departmental grant are different kinds of
                    thing, and the place is the fastest way to see which. */ -}}
+            {{- /* `event` is the occasion the award was handed over at, and it
+                   shares the line with the place because they are the same
+                   fact — a jamboree in Paris. `org` is the body that gave it,
+                   which is a different fact and gets its own line. */ -}}
             {{- $place := .place -}}
-            {{- $org := .org -}}
-            {{ if or $place $org }}
+            {{- $event := .event -}}
+            {{ if or $place $event }}
               <span class="entry-meta">
                 {{- with $place -}}
                   <span class="entry-place">{{ partial "icon.html" "pin" }}{{ . }}</span>
-                  {{- if $org }}<span class="entry-sep">·</span>{{ end -}}
+                  {{- if $event }}<span class="entry-sep">·</span>{{ end -}}
                 {{- end -}}
-                {{ with $org }}{{ . }}{{ end }}
+                {{ with $event }}{{ . }}{{ end }}
               </span>
             {{ end }}
+            {{ with .org }}<span class="entry-meta">{{ . }}</span>{{ end }}
             {{- with .desc -}}
               {{- if reflect.IsSlice . -}}
                 <ul class="entry-points">

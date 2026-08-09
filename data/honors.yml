@@ -8,8 +8,10 @@
 #   desc  optional. One line of detail — scale, rank, or your role. A list
 #         instead of a string renders as bullets.
 #   url   optional. Links the title.
-#   place optional. Where it was handed over — shown with a pin. A conference
-#         city and a departmental office read very differently.
+#   place optional. Where it was handed over — shown with a pin.
+#   event optional. The occasion it was handed over at, e.g. a jamboree. Shares
+#         the line with `place`, because they are one fact; `org` is the body
+#         that gave the award, which is another, and gets its own line.
 #   logoSize optional. "lg" draws this entry's marks larger — for crests
 #         whose name is set small beneath the device, which go illegible at
 #         the size a wordmark reads fine at.
@@ -33,8 +35,8 @@
 
 - date: "Oct 2025"
   title: "Silver Medal, iGEM 2025"
-  org: "iGEM Grand Jamboree"
   place: "Paris, France"
+  event: "iGEM Grand Jamboree"
   desc: "Technical Lead — ZJU-China, LumaManta"
   url: "https://2025.igem.wiki/zju-china/"
   logos:
@@ -94,6 +96,6 @@
 
 - date: "Jun 2025"
   title: "5th Place, Stand-Up Paddleboard 200 m"
-  org: "Zhejiang University Sports Championship"
   place: "Hangzhou, China"
+  event: "Zhejiang University Sports Championship"
   logo: "images/logos/zju-eagle.png"

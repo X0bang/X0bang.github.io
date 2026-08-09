@@ -64,7 +64,7 @@ and quorum-controlled switching.
 
 {{< cv title="**WEHI InSPIRE Scholarship**" when="Jun 2026" place="Melbourne, Australia" logo="images/logos/unimelb.png, images/logos/wehi.png" meta="Walter and Eliza Hall Institute, Department of Medical Biology, University of Melbourne — 8,000 AUD; competitively selected, ZJU-nominated" >}}{{< /cv >}}
 
-{{< cv title="**Silver Medal, iGEM 2025**" when="Oct 2025" place="Paris, France" logo="images/logos/igem.svg, images/logos/igem-zjuchina.png" meta="Technical Lead, ZJU-China · iGEM Grand Jamboree" >}}{{< /cv >}}
+{{< cv title="**Silver Medal, iGEM 2025**" when="Oct 2025" place="Paris, France" event="iGEM Grand Jamboree" logo="images/logos/igem.svg, images/logos/igem-zjuchina.png" meta="Technical Lead, ZJU-China" >}}{{< /cv >}}
 
 {{< cv title="**Grand Prize, [SynBio Challenges](http://www.synbiochallenges.com/)**" when="Aug 2025" place="Shenzhen, China" logo="images/logos/synbio-competition.png, images/logos/csbt.png" meta="1st nationally — Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology" >}}{{< /cv >}}
 
@@ -81,7 +81,7 @@ and quorum-controlled switching.
 - Academic Excellence Model (2024–2025)
 {{< /cv >}}
 
-{{< cv title="**5th Place, Stand-Up Paddleboard 200 m**" when="Jun 2025" place="Hangzhou, China" logo="images/logos/zju-eagle.png" meta="ZJU Sports Championship" >}}{{< /cv >}}
+{{< cv title="**5th Place, Stand-Up Paddleboard 200 m**" when="Jun 2025" place="Hangzhou, China" event="ZJU Sports Championship" logo="images/logos/zju-eagle.png" >}}{{< /cv >}}
 
 ## Leadership & Volunteering
 
