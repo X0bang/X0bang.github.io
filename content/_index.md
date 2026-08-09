@@ -10,9 +10,9 @@ bioShort: >-
   InSPIRE program, working on CAR-T receptor design.
 
 
-  I work on **protein and enzyme design**, **molecular dynamics**, and the **multi-omics**
-  side of disease biology — above all at the point where a computational prediction has to
-  survive contact with a bench experiment.
+  My interests are **protein and enzyme design**, **computational biology** and
+  **biophysics** — above all at the point where a computational prediction has to survive
+  contact with a bench experiment.
 date: 2026-07-31
 ---
 
