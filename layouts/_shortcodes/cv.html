@@ -36,6 +36,9 @@
     {{ with .Get "when" }}<span class="cv-when">{{ . }}</span>{{ end }}
   </div>
   {{ with .Get "meta" }}<div class="cv-meta">{{ . | markdownify }}</div>{{ end }}
+  {{ with .Get "place" }}
+    <div class="cv-place">{{ partial "icon.html" "pin" }}{{ . }}</div>
+  {{ end }}
   {{ with .Inner }}<div class="cv-body">{{ . | markdownify }}</div>{{ end }}
   {{ with .Get "link" }}
     <a class="cv-link" href="{{ . }}">{{ $.Get "linkText" | default "Read more" }} &rarr;</a>

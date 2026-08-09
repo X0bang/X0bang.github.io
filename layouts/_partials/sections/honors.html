@@ -56,6 +56,12 @@
               {{- else }}{{ .title }}{{ end -}}
             </span>
             {{ with .org }}<span class="entry-meta">{{ . }}</span>{{ end }}
+            {{- with .place -}}
+              {{- /* Where it was actually awarded. A conference in Paris and a
+                     departmental grant are different kinds of thing, and the
+                     place is the quickest way to tell them apart. */ -}}
+              <span class="entry-place">{{ partial "icon.html" "pin" }}{{ . }}</span>
+            {{- end }}
             {{- with .desc -}}
               {{- if reflect.IsSlice . -}}
                 <ul class="entry-points">

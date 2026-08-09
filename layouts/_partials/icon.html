@@ -10,6 +10,8 @@
   <svg {{ $c | safeHTMLAttr }} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 8.2 6a1.4 1.4 0 0 0 1.6 0l8.2-6"/></svg>
 {{- else if eq . "cv" -}}
   <svg {{ $c | safeHTMLAttr }} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7.5z"/><path d="M14 2.5v5h5M8.5 12.5h7M8.5 16.5h4.5"/></svg>
+{{- else if eq . "pin" -}}
+  <svg {{ $c | safeHTMLAttr }} fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
 {{- else if eq . "scholar" -}}
   <svg {{ $c | safeHTMLAttr }} fill="currentColor"><path d="M12 2 1 8l11 6 9-4.91V16h2V8z"/><path d="M5 12.13v3.6c0 2.35 3.13 4.27 7 4.27s7-1.92 7-4.27v-3.6L12 16z"/></svg>
 {{- else if eq . "orcid" -}}

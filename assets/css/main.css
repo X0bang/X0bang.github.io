@@ -2182,6 +2182,28 @@ button {
   transform: scale(1.04);
 }
 
+/* Where an award was handed over. Quieter than the citation above it, and
+   marked with a pin so it reads as a place at a glance. */
+.entry-place,
+.cv-place {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.entry-place .icon,
+.cv-place .icon {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  opacity: 0.75;
+}
+
 .entry-meta,
 .entry-note {
   display: block;

@@ -8,6 +8,8 @@
 #   desc  optional. One line of detail — scale, rank, or your role. A list
 #         instead of a string renders as bullets.
 #   url   optional. Links the title.
+#   place optional. Where it was handed over — shown with a pin. A conference
+#         city and a departmental office read very differently.
 #   logoSize optional. "lg" draws this entry's marks larger — for crests
 #         whose name is set small beneath the device, which go illegible at
 #         the size a wordmark reads fine at.
@@ -17,9 +19,10 @@
 #   brief optional, default false. `true` keeps the entry visible when the
 #         list is collapsed; the rest sit behind "Show all".
 
-- date: "2026"
+- date: "Jun 2026"
   title: "WEHI InSPIRE Scholarship"
   org: "Walter and Eliza Hall Institute — Department of Medical Biology, University of Melbourne"
+  place: "Melbourne, Australia"
   desc: "8,000 AUD; competitively selected, ZJU-nominated"
   url: "https://www.wehi.edu.au/education/undergraduate/inspire/"
   logos:
@@ -30,7 +33,8 @@
 
 - date: "Oct 31, 2025"
   title: "Silver Medal, iGEM 2025"
-  org: "International Genetically Engineered Machine Competition · Grand Jamboree, Paris"
+  org: "iGEM Grand Jamboree"
+  place: "Paris, France"
   desc: "Technical Lead — ZJU-China, LumaManta"
   url: "https://2025.igem.wiki/zju-china/"
   logos:
@@ -39,9 +43,10 @@
     - "images/logos/lumamanta.jpg"
   brief: true
 
-- date: "Aug 2025"
+- date: "Aug 9, 2025"
   title: "Grand Prize, SynBio Challenges"
   org: "Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology"
+  place: "Shenzhen, China"
   desc: "1st place nationally"
   url: "http://www.synbiochallenges.com/"
   logos:
@@ -50,25 +55,27 @@
     - "images/logos/siat-synbio.png"
   brief: true
 
-- date: "Mar 2026"
+- date: "Apr 2026"
   title: 'Gold Medal, 18th "Dandelion" Undergraduate Innovation Competition'
   org: "Zhejiang University"
   desc: "CTO — LumaManta eDNA-based aquatic pathogen detection"
   logo: "images/logos/zju-eagle.png"
   brief: true
 
-- date: "Jan 2025"
+- date: "Jan 17, 2026"
   title: "First Prize (Champion), National Pet Industry Innovation Competition"
   org: "Shanghai Society of Animal Husbandry & Veterinary Medicine"
+  place: "Shanghai, China"
   desc: 'Led the "Pet Smart Health" team'
   logos:
     - "images/logos/fubei.png"
     - "images/logos/g60-corridor.png"
   brief: true
 
-- date: "2025"
+- date: "Feb 2025"
   title: "Provincial SRTP Research Grant — rated Outstanding"
   org: "Zhejiang Provincial Department of Science and Technology"
+  place: "Zhejiang University"
   desc: "12,000 RMB"
   logos:
     - "images/logos/zju-eagle.png"
