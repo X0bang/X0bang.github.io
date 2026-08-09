@@ -27,7 +27,7 @@
     {{- if fileExists (printf "static/%s" $bigPoster) -}}{{- $poster = $bigPoster -}}{{- end -}}
   {{- end -}}
 
-  {{- $src := $t | relURL -}}
+  {{- $src := partial "static-url.html" $t -}}
   {{- with resources.Get $t -}}
     {{- $i := . -}}
     {{- if gt .Width 1040 }}{{ $i = .Resize "1040x" }}{{ end -}}
@@ -36,7 +36,7 @@
   {{- end -}}
 
   {{- with $poster -}}
-    {{- $poster = . | relURL -}}
+    {{- $poster = partial "static-url.html" . -}}
     {{- with resources.Get . -}}
       {{- $i := . -}}
       {{- if gt .Width 1040 }}{{ $i = .Resize "1040x" }}{{ end -}}

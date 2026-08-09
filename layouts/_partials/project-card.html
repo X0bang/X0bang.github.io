@@ -15,7 +15,7 @@
     {{ with .Params.thumb }}
       {{- /* A still in ./assets is resized and converted; animated files have
              to stay in static/, since the pipeline would flatten them. */ -}}
-      {{- $src := . | relURL -}}
+      {{- $src := partial "static-url.html" . -}}
       {{- with resources.Get . -}}
         {{- $i := . -}}
         {{- if gt .Width 600 }}{{ $i = .Resize "600x" }}{{ end -}}
@@ -27,7 +27,7 @@
              decodes on every copy of the card, in every view. */ -}}
       {{- $poster := "" -}}
       {{- with $.Params.thumbPoster -}}
-        {{- $poster = . | relURL -}}
+        {{- $poster = partial "static-url.html" . -}}
         {{- with resources.Get . -}}
           {{- $i := . -}}
           {{- if gt .Width 600 }}{{ $i = .Resize "600x" }}{{ end -}}

@@ -1,0 +1,21 @@
+{{- /*
+  A URL for a file under static/, carrying a version derived from its contents.
+
+  Files in static/ keep the same name for ever, and Caddy promises a week of
+  caching for images. Replacing one therefore changed nothing for anyone who
+  had already seen it — a new render of the HCC animation was on the server
+  and invisible in the browser. Appending the content hash gives the new file
+  a URL the old cache entry does not answer to.
+
+  Only static/ needs this. Anything under assets/ goes through the pipeline,
+  which already fingerprints the filename itself.
+
+  Takes a path as written in front matter, e.g. "images/projects/foo.webp".
+*/ -}}
+{{- $p := . -}}
+{{- $f := printf "static/%s" $p -}}
+{{- if fileExists $f -}}
+  {{- printf "%s?v=%d" ($p | relURL) (os.ReadFile $f | hash.FNV32a) -}}
+{{- else -}}
+  {{- $p | relURL -}}
+{{- end -}}
