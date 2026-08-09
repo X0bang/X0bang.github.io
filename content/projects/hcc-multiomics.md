@@ -1,5 +1,5 @@
 ---
-title: "Sex Dimorphism in DEN/TCPOBOP-Induced Hepatocellular Carcinoma"
+title: "Sex Dimorphism in DEN-Induced Hepatocellular Carcinoma"
 date: 2026-03-01
 year: "2025"
 weight: 4

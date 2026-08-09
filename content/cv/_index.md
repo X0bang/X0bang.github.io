@@ -36,7 +36,7 @@ Led 14 people to a **Silver Medal**, building a light-controlled CRISPR logic ci
 the device around it.
 {{< /cv >}}
 
-{{< cv title="**Sex Dimorphism in DEN/TCPOBOP-Induced Hepatocellular Carcinoma**" when="Mar 2026 – Present" meta="Sui Lab, ZJU School of Medicine · PI [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)" logo="images/logos/zju-medicine.png" link="/projects/hcc-multiomics/" >}}
+{{< cv title="**Sex Dimorphism in DEN-Induced Hepatocellular Carcinoma**" when="Mar 2026 – Present" meta="Sui Lab, ZJU School of Medicine · PI [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)" logo="images/logos/zju-medicine.png" link="/projects/hcc-multiomics/" >}}
 Paired serum metabolomics and liver transcriptomics across **174 samples**, with tumour
 burden held out so sex effects are not confounded by it — **~20 metabolites** clear four
 independent lines of evidence, **~13 of them previously unreported**.
