@@ -37,8 +37,9 @@ the device around it.
 {{< /cv >}}
 
 {{< cv title="**Sex Dimorphism in DEN/TCPOBOP-Induced Hepatocellular Carcinoma**" when="Mar 2026 – Present" meta="Sui Lab, ZJU School of Medicine · PI [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)" logo="images/logos/zju-medicine.png" link="/projects/hcc-multiomics/" >}}
-Multi-omics across **174 mice** — 12 sex-biased metabolites, and estrogen reversing the
-bile acid marker TUDCA (**+97%**).
+Paired serum metabolomics and liver transcriptomics across **174 samples**, with tumour
+burden held out so sex effects are not confounded by it — **~20 metabolites** clear four
+independent lines of evidence, **~13 of them previously unreported**.
 {{< /cv >}}
 
 {{< cv title="**Provincial Research Grant (SRTP): A Sustainable Pigment Biosynthesis System**" when="Mar 2025 – Feb 2026" meta="[Chen Lab](https://bis.zju.edu.cn/binfo/), Zhejiang University · PI [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) · Rated Outstanding" logo="images/logos/zju-eagle.png" link="/projects/srtp-pigment/" >}}
