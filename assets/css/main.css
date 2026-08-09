@@ -2186,20 +2186,19 @@ button {
    marked with a pin so it reads as a place at a glance. */
 .entry-place,
 .cv-place {
+  /* Font inherited on purpose: the place and the event beside it are one
+     sentence, and setting the first half in mono made it read as a label
+     stuck to the front of the line rather than part of it. */
   display: inline-flex;
   align-items: center;
   gap: 4px;
   vertical-align: baseline;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--muted);
 }
 
 .entry-place .icon,
 .cv-place .icon {
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   flex: 0 0 auto;
   opacity: 0.75;
 }
