@@ -68,13 +68,13 @@ and quorum-controlled switching.
 
 {{< cv title="**Grand Prize, [SynBio Challenges](http://www.synbiochallenges.com/)**" when="Aug 2025" place="Shenzhen, China" logo="images/logos/synbio-competition.png, images/logos/csbt.png" meta="1st nationally — Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology" >}}{{< /cv >}}
 
-{{< cv title="**Gold Medal, 18th &ldquo;Dandelion&rdquo; Undergraduate Innovation Competition**" when="Apr 2026" place="Hangzhou, China" logo="images/logos/zju-eagle.png" meta="CTO — LumaManta eDNA-based aquatic pathogen detection" >}}{{< /cv >}}
+{{< cv title="**Gold Medal, 18th &ldquo;Dandelion&rdquo; Undergraduate Innovation Competition**" when="Apr 2026" place="Zhejiang University" logo="images/logos/zju-eagle.png" meta="CTO — LumaManta eDNA-based aquatic pathogen detection" >}}{{< /cv >}}
 
 {{< cv title="**First Prize (Champion), National Pet Industry Innovation Competition**" when="Jan 2026" place="Shanghai, China" logo="images/logos/fubei.png, images/logos/g60-corridor.png" meta="Led the &ldquo;Pet Smart Health&rdquo; team" >}}{{< /cv >}}
 
 {{< cv title="**Provincial SRTP Research Grant** — rated Outstanding" when="Feb 2025" place="Zhejiang University" logo="images/logos/zju-eagle.png" meta="Zhejiang Provincial Department of Science and Technology — 12,000 RMB" >}}{{< /cv >}}
 
-{{< cv title="**Academic Honors & Scholarships**" when="2023 – 2025" place="Hangzhou, China" logo="images/logos/zju-eagle.png" meta="Zhejiang University" >}}
+{{< cv title="**Academic Honors & Scholarships**" when="2023 – 2025" place="Zhejiang University" logo="images/logos/zju-eagle.png" >}}
 - Professional Excellence Scholarship (2023–2024)
 - Second-Class Scholarship (2024–2025)
 - Innovation & Entrepreneurship Model (2024–2025)

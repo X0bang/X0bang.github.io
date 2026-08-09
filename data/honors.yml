@@ -59,8 +59,7 @@
 
 - date: "Apr 2026"
   title: 'Gold Medal, 18th "Dandelion" Undergraduate Innovation Competition'
-  org: "Zhejiang University"
-  place: "Hangzhou, China"
+  place: "Zhejiang University"
   desc: "CTO — LumaManta eDNA-based aquatic pathogen detection"
   logo: "images/logos/zju-eagle.png"
   brief: true
@@ -85,8 +84,7 @@
 
 - date: "2023 – 2025"
   title: "Academic Honors & Scholarships"
-  org: "Zhejiang University"
-  place: "Hangzhou, China"
+  place: "Zhejiang University"
   logo: "images/logos/zju-eagle.png"
   desc:
     - "Professional Excellence Scholarship (2023–2024)"
