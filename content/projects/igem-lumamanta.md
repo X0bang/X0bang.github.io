@@ -4,7 +4,7 @@ date: 2024-08-01
 year: "2025"
 weight: 3
 selected: true
-venue: "iGEM 2025"
+venue: "iGEM"
 venueLogo: "images/logos/igem.svg"
 status: "Silver Medal"
 thumbPoster: "images/projects/lumamanta-detection-poster.webp"
