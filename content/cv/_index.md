@@ -31,9 +31,11 @@ Redesigned CrtW, the rate-limiting ketolase in the pathway: A234L, **+46.7% yiel
 vitro**.
 {{< /cv >}}
 
-{{< cv title="**LumaManta (ZJU-China iGEM 2025): Technical Lead**" when="Aug 2024 – Oct 2025" meta="Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
-Led 14 people to a **Silver Medal**, building a light-controlled CRISPR logic circuit and
-the device around it.
+{{< cv title="**iGEM 2025 — Technical Lead, ZJU-China**" when="Aug 2024 – Oct 2025" meta="Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
+Led 14 people to a **Silver Medal** at the International Genetically Engineered Machine
+(iGEM) competition — the largest synthetic-biology contest for university teams, judged
+at the Grand Jamboree in Paris. Built *LumaManta*: a light-controlled CRISPR logic
+circuit and the all-in-one water-monitoring device around it.
 {{< /cv >}}
 
 {{< cv title="**Sex Dimorphism in DEN-Induced Hepatocellular Carcinoma**" when="Mar 2026 – Present" meta="Sui Lab, ZJU School of Medicine · PI [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)" logo="images/logos/zju-medicine.png" link="/projects/hcc-multiomics/" >}}

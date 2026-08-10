@@ -22,6 +22,10 @@ draft: false
 
 ## Background
 
+*LumaManta* was ZJU-China's entry to **iGEM 2025** — the International Genetically
+Engineered Machine competition, the largest synthetic-biology contest for university
+teams, judged each year at the Grand Jamboree in Paris.
+
 Monitoring water for pollutants and environmental DNA (eDNA) usually means collecting
 samples and sending them to a lab. An all-in-one device that senses in real time has to
 solve a harder problem than any single biosensor does: one platform needs to report on
