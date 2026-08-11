@@ -2,7 +2,7 @@
 title: "Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis"
 date: 2025-09-01
 year: "2025"
-weight: 2
+weight: 3
 selected: true
 venue: "ZJU"
 venueLogo: "images/logos/zju-eagle.png"

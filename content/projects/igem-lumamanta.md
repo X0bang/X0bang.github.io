@@ -2,7 +2,7 @@
 title: "LumaManta — Programmable Biosensing for Water Monitoring"
 date: 2024-08-01
 year: "2025"
-weight: 3
+weight: 2
 selected: true
 venue: "iGEM"
 venueLogo: "images/logos/igem.svg"

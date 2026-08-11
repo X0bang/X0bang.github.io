@@ -20,15 +20,10 @@ description: "Curriculum vitae of Boyue Zhang — education, research experience
 Each entry links to a fuller account — the question, the method and what came of it —
 under [Projects](/projects/).
 
-{{< cv title="**WEHI InSPIRE Research Intern**" when="Jun 2026 – Present" meta="Call Lab · Department of Medical Biology, [University of Melbourne](https://www.unimelb.edu.au/) · Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)" logo="images/logos/unimelb.png, images/logos/wehi.png" logoSize="lg" link="/projects/procar3-trimer/" >}}
+{{< cv title="**WEHI InSPIRE Research Intern, Fully Funded**" when="Jun 2026 – Present" meta="Call Lab · Department of Medical Biology, [University of Melbourne](https://www.unimelb.edu.au/) · Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)" logo="images/logos/unimelb.png, images/logos/wehi.png" logoSize="lg" link="/projects/procar3-trimer/" >}}
 Rebuilding a CAR-T costimulatory TMD into its native trimeric form — **73–74% surface
 expression** and **85%+ contact retention**, across **120 µs+** of all-atom and
 coarse-grained MD.
-{{< /cv >}}
-
-{{< cv title="**Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis**" when="Sep 2025 – Present" meta="Zhou Lab, Zhejiang University · Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)" logo="images/logos/zju-eagle.png" link="/projects/crtw-enzyme/" >}}
-Redesigned CrtW, the rate-limiting ketolase in the pathway: A234L, **+46.7% yield in
-vitro**.
 {{< /cv >}}
 
 {{< cv title="**iGEM 2025 — Technical Lead, ZJU-China**" when="Aug 2024 – Oct 2025" meta="Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
@@ -36,6 +31,11 @@ Led 14 people to a **Silver Medal** at the International Genetically Engineered 
 (iGEM) competition — the largest synthetic-biology contest for university teams, judged
 at the Grand Jamboree in Paris. Built *LumaManta*: a light-controlled CRISPR logic
 circuit and the all-in-one water-monitoring device around it.
+{{< /cv >}}
+
+{{< cv title="**Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis**" when="Sep 2025 – Present" meta="Zhou Lab, Zhejiang University · Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)" logo="images/logos/zju-eagle.png" link="/projects/crtw-enzyme/" >}}
+Redesigned CrtW, the rate-limiting ketolase in the pathway: A234L, **+46.7% yield in
+vitro**.
 {{< /cv >}}
 
 {{< cv title="**Sex Dimorphism in DEN-Induced Hepatocellular Carcinoma**" when="Mar 2026 – Present" meta="Sui Lab, ZJU School of Medicine · PI [Prof. Meihua Sui](https://person.zju.edu.cn/suimeihua/745023.html)" logo="images/logos/zju-medicine.png" link="/projects/hcc-multiomics/" >}}
@@ -69,7 +69,7 @@ and quorum-controlled switching.
 
 {{< cv title="**Silver Medal, iGEM 2025**" when="Oct 2025" place="Paris, France" event="iGEM Grand Jamboree" logo="images/logos/igem.svg, images/logos/igem-zjuchina.png" meta="Technical Lead, ZJU-China" >}}{{< /cv >}}
 
-{{< cv title="**Grand Prize, [SynBio Challenges](http://www.synbiochallenges.com/)**" when="Aug 2025" place="Shenzhen, China" logo="images/logos/synbio-competition.png, images/logos/csbt.png" meta="1st nationally — Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology" >}}{{< /cv >}}
+{{< cv title="**Grand Prize (Champion), [SynBio Challenges](http://www.synbiochallenges.com/)**" when="Aug 2025" place="Shenzhen, China" logo="images/logos/synbio-competition.png, images/logos/csbt.png" meta="1st nationally — Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology" >}}{{< /cv >}}
 
 {{< cv title="**Gold Medal, 18th &ldquo;Dandelion&rdquo; Undergraduate Innovation Competition**" when="Apr 2026" place="Zhejiang University" logo="images/logos/zju-eagle.png" meta="CTO — LumaManta eDNA-based aquatic pathogen detection" >}}{{< /cv >}}
 
@@ -87,6 +87,8 @@ and quorum-controlled switching.
 {{< cv title="**5th Place, Stand-Up Paddleboard 200 m**" when="Jun 2025" place="Hangzhou, China" event="ZJU Sports Championship" logo="images/logos/zju-eagle.png" >}}{{< /cv >}}
 
 ## Leadership & Volunteering
+
+{{< cv title="**Advisor, ZJU-China iGEM 2026 Team**" when="2026" meta="Zhejiang University — advising the incoming team on project design and computational modelling" logo="images/logos/igem.svg" >}}{{< /cv >}}
 
 {{< cv title="**Class Monitor**" when="Sep 2023 – Jul 2025" meta="School of Life Sciences & College of Yunfeng, Zhejiang University" >}}
 - Led 30+ students across two cohorts, organising 10+ career seminars and coordinating peer
