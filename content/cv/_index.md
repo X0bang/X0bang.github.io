@@ -26,11 +26,11 @@ expression** and **85%+ contact retention**, across **120 µs+** of all-atom and
 coarse-grained MD.
 {{< /cv >}}
 
-{{< cv title="**iGEM 2025 — Technical Lead, ZJU-China**" when="Aug 2024 – Oct 2025" meta="Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
-Led 14 people to a **Silver Medal** at the International Genetically Engineered Machine
-(iGEM) competition — the largest synthetic-biology contest for university teams, judged
-at the Grand Jamboree in Paris. Built *LumaManta*: a light-controlled CRISPR logic
-circuit and the all-in-one water-monitoring device around it.
+{{< cv title="**iGEM 2025 (world's largest synthetic biology competition): Technical Lead**" when="Aug 2024 – Oct 2025" meta="Zhejiang University · PIs [Prof. Ming Chen](https://person.zju.edu.cn/en/0005111) & A/Prof. Fan Yang" logo="images/logos/igem.svg" link="/projects/igem-lumamanta/" >}}
+Led ZJU-China's 14 people to a **Silver Medal** at the International Genetically
+Engineered Machine competition, judged at the Grand Jamboree in Paris. Built
+*LumaManta*: a light-controlled CRISPR logic circuit and the all-in-one
+water-monitoring device around it.
 {{< /cv >}}
 
 {{< cv title="**Computational Design of CrtW and CrtZ for Enhanced Astaxanthin Biosynthesis**" when="Sep 2025 – Present" meta="Zhou Lab, Zhejiang University · Supervised by Dr. Yangwei Jiang · PI [Prof. Ruhong Zhou](http://iqb.zju.edu.cn/en/a/rencai/zzjs/2021/1220/75.html)" logo="images/logos/zju-eagle.png" link="/projects/crtw-enzyme/" >}}
