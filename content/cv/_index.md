@@ -17,8 +17,7 @@ description: "Curriculum vitae of Boyue Zhang — education, research experience
 
 ## Research Experience
 
-Each entry links to a fuller account — the question, the method and what came of it —
-under [Projects](/projects/).
+Each entry links to a fuller account under [Projects](/projects/).
 
 {{< cv title="**WEHI InSPIRE Research Intern, Fully Funded**" when="Jun 2026 – Present" meta="Call Lab · Department of Medical Biology, [University of Melbourne](https://www.unimelb.edu.au/) · Supervised by Dr. Emma Petley · PIs [Prof. Matt Call](https://www.wehi.edu.au/researcher/matt-call/) & [A/Prof. Melissa Call](https://www.wehi.edu.au/researcher/melissa-call/)" logo="images/logos/unimelb.png, images/logos/wehi.png" logoSize="lg" link="/projects/procar3-trimer/" >}}
 Rebuilding a CAR-T costimulatory TMD into its native trimeric form — **73–74% surface
