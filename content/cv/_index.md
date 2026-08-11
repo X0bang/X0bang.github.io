@@ -66,7 +66,7 @@ and quorum-controlled switching.
 
 {{< cv title="**WEHI InSPIRE Scholarship, UniMelb (A$8,000)**" when="Jun 2026" place="Melbourne, Australia" logo="images/logos/unimelb.png, images/logos/wehi.png" meta="Walter and Eliza Hall Institute, Department of Medical Biology, University of Melbourne — competitively selected, ZJU-nominated" >}}{{< /cv >}}
 
-{{< cv title="**Silver Medal, iGEM 2025**" when="Oct 2025" place="Paris, France" event="iGEM Grand Jamboree" logo="images/logos/igem.svg, images/logos/igem-zjuchina.png" meta="Technical Lead, ZJU-China" >}}{{< /cv >}}
+{{< cv title="**Silver Medal, iGEM 2025 (world's largest synthetic biology competition)**" when="Oct 2025" place="Paris, France" event="iGEM Grand Jamboree" logo="images/logos/igem.svg, images/logos/igem-zjuchina.png" meta="Technical Lead, ZJU-China" >}}{{< /cv >}}
 
 {{< cv title="**Grand Prize (Champion), [SynBio Challenges](http://www.synbiochallenges.com/)**" when="Aug 2025" place="Shenzhen, China" logo="images/logos/synbio-competition.png, images/logos/csbt.png" meta="1st nationally — Chinese Society for Biotechnology & Shenzhen Institute of Synthetic Biology" >}}{{< /cv >}}
 
